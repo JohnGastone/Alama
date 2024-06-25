@@ -39,7 +39,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
               decoration: BoxDecoration(
                   color: Color.fromRGBO(193, 133, 83, 0.12),
                   borderRadius:
-                      BorderRadius.only(topRight: Radius.circular(200))),
+                      BorderRadius.only(topRight: Radius.circular(250))),
             ),
           )
         ],

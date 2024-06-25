@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHome extends StatelessWidget {
-  final Color kDarkBlueColor = const Color(0xFF053149);
+  final Color kDarkBlueColor = const Color.fromARGB(255, 83, 45, 8);
 
   const MyHome({super.key});
 

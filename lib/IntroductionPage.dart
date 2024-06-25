@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class IntroductionPage extends StatefulWidget {
   const IntroductionPage({super.key, required this.title});
@@ -18,10 +19,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Alama App',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text('Alama App', style: GoogleFonts.poppins(fontSize: 30)),
           ],
         ),
       ),

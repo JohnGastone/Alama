@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CupertinoApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingCarousel(),
+      home: Onboardingcarousel(),
     );
   }
 }

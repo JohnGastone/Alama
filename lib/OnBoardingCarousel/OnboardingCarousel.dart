@@ -4,19 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class OnboardingCarousel extends StatelessWidget {
-  const OnboardingCarousel({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class MyHome extends StatelessWidget {
+class Onboardingcarousel extends StatelessWidget {
   final Color kDarkBlueColor = const Color.fromARGB(255, 83, 45, 8);
 
-  const MyHome({super.key});
+  const Onboardingcarousel({super.key});
 
   @override
   Widget build(BuildContext context) {

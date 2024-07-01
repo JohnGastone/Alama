@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import "package:alamaapp/LoginSignUp/Login.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
@@ -16,43 +17,58 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: MediaQuery.of(context).size.height * 0.7,
+          height: MediaQuery.of(context).size.height * 0.8,
           padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Reset Timer',
-                style: GoogleFonts.poppins(
-                    fontSize: 24, fontWeight: FontWeight.bold),
+              Center(
+                child: Image.asset(
+                  "./assets/illustration.png",
+                  width: 250,
+                  height: 200,
+                ),
+              ),
+              Center(
+                child: Text(
+                  'Password Changed',
+                  style: GoogleFonts.poppins(
+                      fontSize: 34, fontWeight: FontWeight.bold),
+                ),
               ),
               SizedBox(height: 20),
               Text(
-                'Are you sure you want to reset the timer?',
+                'Password reset successfully you can now Login using the new password',
                 style: GoogleFonts.poppins(fontSize: 18),
               ),
               Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    child: Text('Cancel',
-                        style: GoogleFonts.poppins(
-                            fontSize: 18, color: Colors.grey)),
-                    onPressed: () {
-                      Navigator.of(context).pop();
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.all(25),
+                  child: InkWell(
+                    child: Container(
+                      width: 200,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.brown,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Sign In",
+                          style: GoogleFonts.poppins(
+                              fontSize: 20, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => LoginPage()));
                     },
                   ),
-                  SizedBox(width: 10),
-                  TextButton(
-                    child: Text('Reset',
-                        style: GoogleFonts.poppins(
-                            fontSize: 18, color: Colors.brown)),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
+                ),
               )
             ],
           ),

@@ -1,18 +1,18 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import "package:alamaapp/LoginSignUp/Login.dart";
-import "package:alamaapp/LoginSignUp/ResetPasswordSuccess.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
-class ResetPasswordPage extends StatefulWidget {
-  const ResetPasswordPage({super.key});
+class ResetPasswordSuccessPage extends StatefulWidget {
+  const ResetPasswordSuccessPage({super.key});
 
   @override
-  State<ResetPasswordPage> createState() => _ResetPasswordPageState();
+  State<ResetPasswordSuccessPage> createState() =>
+      _ResetPasswordSuccessPageState();
 }
 
-class _ResetPasswordPageState extends State<ResetPasswordPage> {
+class _ResetPasswordSuccessPageState extends State<ResetPasswordSuccessPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,8 +162,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      CupertinoPageRoute(
-                          builder: (context) => ResetPasswordSuccessPage()),
+                      CupertinoPageRoute(builder: (context) => LoginPage()),
                     );
                   },
                 ),

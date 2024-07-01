@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'dart:async';
-import "package:alamaapp/LoginSignUp/Login.dart";
 import "package:alamaapp/LoginSignUp/ForgotPassword.dart";
 import "package:alamaapp/LoginSignUp/ResetPassword.dart";
 import "package:flutter/cupertino.dart";

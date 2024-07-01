@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import "package:alamaapp/Home/HomePage.dart";
 import "package:alamaapp/LoginSignUp/ForgotPassword.dart";
 import "package:alamaapp/LoginSignUp/SignUp.dart";
 import "package:alamaapp/OnBoardingCarousel/IntroductionPage.dart";
@@ -130,7 +131,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => HomePage()));
+                  },
                 ),
               ),
               SizedBox(height: 20),

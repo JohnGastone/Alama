@@ -1,3 +1,4 @@
+import 'package:alamaapp/LoginSignUp/Login.dart';
 import 'package:alamaapp/OnBoardingCarousel/IntroductionPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -46,9 +47,7 @@ class Onboardingcarousel extends StatelessWidget {
         Navigator.push(
           context,
           CupertinoPageRoute(
-            builder: (context) => const IntroductionPage(
-              title: '',
-            ),
+            builder: (context) => const LoginPage(),
           ),
         );
       },
@@ -157,14 +156,14 @@ class Onboardingcarousel extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               const SizedBox(
-                height: 480,
+                height: 450,
               ),
               Text(
                 'Seamless Payments',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   color: kDarkBlueColor,
-                  fontSize: 34.0,
+                  fontSize: 33.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),

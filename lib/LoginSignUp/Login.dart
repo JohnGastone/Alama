@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import "package:alamaapp/LoginSignUp/ForgotPassword.dart";
 import "package:alamaapp/LoginSignUp/SignUp.dart";
 import "package:alamaapp/OnBoardingCarousel/IntroductionPage.dart";
 import "package:flutter/cupertino.dart";
@@ -97,9 +98,18 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(left: 120),
-                child: Text(
-                  "Forgot Password?",
-                  style: GoogleFonts.poppins(fontSize: 18, color: Colors.brown),
+                child: TextButton(
+                  child: Text(
+                    "Forgot Password?",
+                    style:
+                        GoogleFonts.poppins(fontSize: 18, color: Colors.brown),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => ForgotPassword()));
+                  },
                 ),
               ),
               Padding(

@@ -2,6 +2,7 @@
 import 'dart:async';
 import "package:alamaapp/LoginSignUp/Login.dart";
 import "package:alamaapp/LoginSignUp/ForgotPassword.dart";
+import "package:alamaapp/LoginSignUp/ResetPassword.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
@@ -213,7 +214,8 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      CupertinoPageRoute(builder: (context) => LoginPage()),
+                      CupertinoPageRoute(
+                          builder: (context) => ResetPasswordPage()),
                     );
                   },
                 ),

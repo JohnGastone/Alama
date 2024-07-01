@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import "package:alamaapp/LoginSignUp/Login.dart";
-import "package:alamaapp/LoginSignUp/ForgotPassword.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
@@ -22,7 +21,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           child: Padding(
             padding: const EdgeInsets.only(right: 70),
             child: Text(
-              "OTP",
+              "Reset Password",
               style: GoogleFonts.poppins(fontSize: 20),
             ),
           ),
@@ -46,7 +45,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 10),
                 child: Text(
-                  "Enter verification code sent to: alamaclient@yahoo.com",
+                  "Your new password must be different from the last one you created",
                   style: GoogleFonts.poppins(fontSize: 18, color: Colors.grey),
                 ),
               ),
@@ -54,103 +53,88 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 60,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelStyle: GoogleFonts.poppins(
-                            fontSize: 18,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.brown),
-                          ),
+                padding: const EdgeInsets.only(right: 190),
+                child:
+                    Text("Password", style: GoogleFonts.poppins(fontSize: 20)),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                width: 300,
+                child: TextField(
+                  keyboardType: TextInputType.visiblePassword,
+                  decoration: InputDecoration(
+                    counter: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Must be at least 8 characters",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Colors.brown,
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 60,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelStyle: GoogleFonts.poppins(
-                            fontSize: 18,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.brown),
-                          ),
-                        ),
-                      ),
+                    counterStyle:
+                        GoogleFonts.poppins(fontSize: 16, color: Colors.brown),
+                    labelText: "***************",
+                    labelStyle: GoogleFonts.poppins(
+                      fontSize: 18,
                     ),
-                    SizedBox(
-                      width: 60,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelStyle: GoogleFonts.poppins(
-                            fontSize: 18,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.brown),
-                          ),
-                        ),
-                      ),
+                    suffixIcon: Icon(CupertinoIcons.eye),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.grey),
                     ),
-                    SizedBox(
-                      width: 60,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelStyle: GoogleFonts.poppins(
-                            fontSize: 18,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.brown),
-                          ),
-                        ),
-                      ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.brown),
                     ),
-                  ],
+                  ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      CupertinoIcons.clock,
-                      color: Colors.grey,
+                padding: const EdgeInsets.only(right: 115),
+                child: Text("Confirm Password",
+                    style: GoogleFonts.poppins(fontSize: 20)),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                width: 300,
+                child: TextField(
+                  keyboardType: TextInputType.visiblePassword,
+                  decoration: InputDecoration(
+                    counter: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Both passwords must match",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Colors.brown,
+                        ),
+                      ),
                     ),
-                    SizedBox(
-                      width: 8,
+                    counterStyle:
+                        GoogleFonts.poppins(fontSize: 16, color: Colors.brown),
+                    labelText: "***************",
+                    labelStyle: GoogleFonts.poppins(
+                      fontSize: 18,
                     ),
-                    Text(
-                      "01:56",
-                      style:
-                          GoogleFonts.poppins(fontSize: 15, color: Colors.grey),
-                    )
-                  ],
+                    suffixIcon: Icon(CupertinoIcons.eye),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.brown),
+                    ),
+                  ),
                 ),
               ),
               Padding(
@@ -165,7 +149,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                     child: Center(
                       child: Text(
-                        "Continue",
+                        "Reset",
                         style: GoogleFonts.poppins(
                             fontSize: 20, color: Colors.white),
                       ),
@@ -177,30 +161,6 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       CupertinoPageRoute(builder: (context) => LoginPage()),
                     );
                   },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10, left: 30),
-                child: Row(
-                  children: [
-                    Text(
-                      "Did'nt receive code?",
-                      style: GoogleFonts.poppins(
-                        fontSize: 20,
-                      ),
-                    ),
-                    TextButton(
-                      child: Text("Resend",
-                          style: GoogleFonts.poppins(
-                              fontSize: 20, color: Colors.brown)),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => ForgotPassword()));
-                      },
-                    )
-                  ],
                 ),
               ),
               SizedBox(

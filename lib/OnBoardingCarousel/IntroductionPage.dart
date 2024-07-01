@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class IntroductionPage extends StatefulWidget {
-  const IntroductionPage({super.key, required this.title});
-
-  final String title;
+  const IntroductionPage({super.key});
 
   @override
   State<IntroductionPage> createState() => _IntroductionPageState();

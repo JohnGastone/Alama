@@ -18,9 +18,7 @@ class Onboardingcarousel extends StatelessWidget {
         Navigator.push(
           context,
           CupertinoPageRoute(
-            builder: (context) => const IntroductionPage(
-              title: '',
-            ),
+            builder: (context) => const IntroductionPage(),
           ),
         );
       },
@@ -86,7 +84,7 @@ class Onboardingcarousel extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               const SizedBox(
-                height: 480,
+                height: 450,
               ),
               Text(
                 'Welcome to Alama',

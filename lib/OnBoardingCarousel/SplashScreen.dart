@@ -1,16 +1,29 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:alamaapp/OnBoardingCarousel/OnboardingCarousel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class IntroductionPage extends StatefulWidget {
-  const IntroductionPage({super.key});
+class Splashscreen extends StatefulWidget {
+  const Splashscreen({super.key});
 
   @override
-  State<IntroductionPage> createState() => _IntroductionPageState();
+  State<Splashscreen> createState() => _SplashscreenState();
 }
 
-class _IntroductionPageState extends State<IntroductionPage> {
+class _SplashscreenState extends State<Splashscreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Navigate to OnboardingCarousel after 3 seconds
+    Future.delayed(Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Onboardingcarousel()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

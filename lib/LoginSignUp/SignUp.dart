@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../OnBoardingCarousel/IntroductionPage.dart';
+import '../OnBoardingCarousel/SplashScreen.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -224,7 +224,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                  builder: (context) => IntroductionPage(),
+                                  builder: (context) => Splashscreen(),
                                 ),
                               );
                             },
@@ -259,7 +259,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                  builder: (context) => IntroductionPage(),
+                                  builder: (context) => Splashscreen(),
                                 ),
                               );
                             },
@@ -294,7 +294,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                  builder: (context) => IntroductionPage(),
+                                  builder: (context) => Splashscreen(),
                                 ),
                               );
                             },

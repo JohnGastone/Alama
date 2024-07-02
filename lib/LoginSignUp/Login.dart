@@ -3,7 +3,7 @@
 import "package:alamaapp/Home/HomePage.dart";
 import "package:alamaapp/LoginSignUp/ForgotPassword.dart";
 import "package:alamaapp/LoginSignUp/SignUp.dart";
-import "package:alamaapp/OnBoardingCarousel/IntroductionPage.dart";
+import "package:alamaapp/OnBoardingCarousel/SplashScreen.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
@@ -165,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => IntroductionPage()));
+                                    builder: (context) => Splashscreen()));
                           },
                         ))),
                     CircleAvatar(
@@ -182,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => IntroductionPage()));
+                                    builder: (context) => Splashscreen()));
                           },
                         ))),
                     CircleAvatar(
@@ -200,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => IntroductionPage()));
+                                    builder: (context) => Splashscreen()));
                           },
                         ))),
                   ],

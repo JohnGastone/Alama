@@ -1,4 +1,4 @@
-import 'package:alamaapp/OnBoardingCarousel/OnboardingCarousel.dart';
+import 'package:alamaapp/OnBoardingCarousel/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Onboardingcarousel(),
+      home: Splashscreen(),
     );
   }
 }

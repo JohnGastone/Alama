@@ -128,46 +128,52 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: List.generate(4, (index) {
-                          return GestureDetector(
-                            onTap: () => _toggleSelection(index),
-                            child: Container(
-                              height: 80,
-                              width: 70,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: _selectedIndex == index
-                                    ? Color(0xFFC18553)
-                                    : Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(height: 10),
-                                  Icon(
-                                    _getIcon(index),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: List.generate(5, (index) {
+                            return GestureDetector(
+                              onTap: () => _toggleSelection(index),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  height: 80,
+                                  width: 70,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
                                     color: _selectedIndex == index
-                                        ? Colors.white
-                                        : Colors.grey,
-                                    size: 30,
+                                        ? Color(0xFFC18553)
+                                        : Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
                                   ),
-                                  Text(
-                                    _getText(index),
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      color: _selectedIndex == index
-                                          ? Colors.white
-                                          : Colors.grey,
-                                    ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(height: 10),
+                                      Icon(
+                                        _getIcon(index),
+                                        color: _selectedIndex == index
+                                            ? Colors.white
+                                            : Colors.grey,
+                                        size: 30,
+                                      ),
+                                      Text(
+                                        _getText(index),
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 20,
+                                          color: _selectedIndex == index
+                                              ? Colors.white
+                                              : Colors.grey,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          );
-                        }),
+                            );
+                          }),
+                        ),
                       ),
                     ),
                   ],
@@ -206,7 +212,7 @@ class _HomePageState extends State<HomePage> {
       case 3:
         return "Fruits";
       default:
-        return "";
+        return "Addons";
     }
   }
 }

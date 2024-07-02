@@ -13,13 +13,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // Variable to keep track of the selected container index
-  int _selectedIndex = -1;
+  int _selectedIndex = 0;
 
   void _toggleSelection(int index) {
     setState(() {
       if (_selectedIndex == index) {
         // If the selected container is tapped again, deselect it
-        _selectedIndex = 0;
+        _selectedIndex = -1;
       } else {
         // Otherwise, select the new container
         _selectedIndex = index;

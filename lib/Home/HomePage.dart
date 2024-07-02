@@ -18,9 +18,13 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text(
-                "Scan QR to browse the menu",
-                style: GoogleFonts.poppins(fontSize: 30, color: Colors.brown),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 10),
+                child: Text(
+                  "Scan QR to browse the menu",
+                  style: GoogleFonts.poppins(fontSize: 30, color: Colors.brown),
+                  textAlign: TextAlign.center,
+                ),
               )
             ],
           ),

@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (_selectedIndex == index) {
         // If the selected container is tapped again, deselect it
-        _selectedIndex = -1;
+        _selectedIndex = 0;
       } else {
         // Otherwise, select the new container
         _selectedIndex = index;
@@ -179,7 +179,12 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: Row(
-                        children: [],
+                        children: [
+                          Container(
+                            decoration:
+                                BoxDecoration(shape: BoxShape.rectangle),
+                          )
+                        ],
                       ),
                     )
                   ],

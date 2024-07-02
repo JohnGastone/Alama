@@ -255,7 +255,9 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 Text(
                                   "Biryan Kuku",
-                                  style: GoogleFonts.poppins(fontSize: 15),
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
                                   textAlign: TextAlign.start,
                                 ),
                                 SizedBox(
@@ -285,7 +287,18 @@ class _HomePageState extends State<HomePage> {
                                       style: GoogleFonts.poppins(fontSize: 15),
                                     ),
                                   ],
-                                )
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  "Tsh 7,500",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Color(0xFFC18553)),
+                                  textAlign: TextAlign.start,
+                                ),
                               ],
                             ),
                           )

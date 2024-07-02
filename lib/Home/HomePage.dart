@@ -266,7 +266,24 @@ class _HomePageState extends State<HomePage> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Icon(CupertinoIcons.star_fill,
-                                        color: Color(0xFFC18553))
+                                        color: Color(0xFFC18553)),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "4.9",
+                                      style: GoogleFonts.poppins(fontSize: 15),
+                                    ),
+                                    Spacer(),
+                                    Icon(CupertinoIcons.clock,
+                                        color: Color(0xFFC18553)),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "15 min",
+                                      style: GoogleFonts.poppins(fontSize: 15),
+                                    ),
                                   ],
                                 )
                               ],

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
-
+import 'dart:async';
 import 'package:alamaapp/OnBoardingCarousel/OnboardingCarousel.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,9 +13,12 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+  Timer? _timer;
+  int _start = 6;
   @override
   void initState() {
     super.initState();
+    startTimer();
     // Navigate to OnboardingCarousel after 3 seconds
     Future.delayed(Duration(seconds: 5), () {
       Navigator.pushReplacement(
@@ -22,6 +26,26 @@ class _SplashscreenState extends State<Splashscreen> {
         MaterialPageRoute(builder: (context) => Onboardingcarousel()),
       );
     });
+  }
+
+  void startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (_start == 0) {
+        setState(() {
+          _timer?.cancel();
+        });
+      } else {
+        setState(() {
+          _start--;
+        });
+      }
+    });
+  }
+
+  String get timerText {
+    int minutes = _start ~/ 60;
+    int seconds = _start % 60;
+    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 
   @override
@@ -41,6 +65,35 @@ class _SplashscreenState extends State<Splashscreen> {
                   fontWeight: FontWeight.bold)),
           SizedBox(
             height: 200,
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    " In",
+                    style:
+                        GoogleFonts.poppins(fontSize: 20, color: Colors.white),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    timerText,
+                    style:
+                        GoogleFonts.poppins(fontSize: 18, color: Colors.brown),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    " you will be inside Alama",
+                    style:
+                        GoogleFonts.poppins(fontSize: 20, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
           ),
           Align(
             alignment: Alignment.bottomLeft,

@@ -14,7 +14,7 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen> {
   Timer? _timer;
-  int _start = 6;
+  int _start = 5;
   @override
   void initState() {
     super.initState();

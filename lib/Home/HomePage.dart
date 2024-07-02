@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -199,6 +199,20 @@ class _HomePageState extends State<HomePage> {
                                           image: AssetImage(
                                               "./assets/biryanikuku.png"),
                                           fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.only(top: 7, right: 7),
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: Icon(
+                                          CupertinoIcons.heart,
+                                          color: Color(0xFFC18553),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -221,7 +235,40 @@ class _HomePageState extends State<HomePage> {
                                           image: AssetImage(
                                               "./assets/chipskavu.png"),
                                           fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.only(top: 7, right: 7),
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: Icon(
+                                          CupertinoIcons.heart,
+                                          color: Color(0xFFC18553),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  "Biryan Kuku",
+                                  style: GoogleFonts.poppins(fontSize: 15),
+                                  textAlign: TextAlign.start,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(CupertinoIcons.star_fill,
+                                        color: Color(0xFFC18553))
+                                  ],
+                                )
                               ],
                             ),
                           )

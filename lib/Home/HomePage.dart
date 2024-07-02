@@ -177,12 +177,30 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(18),
                       child: Row(
                         children: [
                           Container(
-                            decoration:
-                                BoxDecoration(shape: BoxShape.rectangle),
+                            height: 200,
+                            width: 170,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: 170,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "./assets/biryanikuku.png"),
+                                          fit: BoxFit.cover)),
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),

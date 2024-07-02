@@ -253,12 +253,15 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Text(
-                                  "Biryan Kuku",
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                  textAlign: TextAlign.start,
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 55),
+                                  child: Text(
+                                    "Biryan Kuku",
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                    textAlign: TextAlign.start,
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 10,
@@ -291,13 +294,16 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(
                                   height: 5,
                                 ),
-                                Text(
-                                  "Tsh 7,500",
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      color: Color(0xFFC18553)),
-                                  textAlign: TextAlign.start,
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 55),
+                                  child: Text(
+                                    "Tsh 7,500",
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: Color(0xFFC18553)),
+                                    textAlign: TextAlign.start,
+                                  ),
                                 ),
                               ],
                             ),

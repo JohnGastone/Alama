@@ -179,10 +179,11 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: EdgeInsets.all(18),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             height: 200,
-                            width: 170,
+                            width: 150,
                             decoration: BoxDecoration(
                                 shape: BoxShape.rectangle,
                                 color: Colors.white,
@@ -190,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                               children: [
                                 Container(
-                                  width: 170,
+                                  width: 150,
                                   height: 100,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
@@ -198,7 +199,29 @@ class _HomePageState extends State<HomePage> {
                                           image: AssetImage(
                                               "./assets/biryanikuku.png"),
                                           fit: BoxFit.cover)),
-                                )
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: 200,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: 150,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "./assets/chipskavu.png"),
+                                          fit: BoxFit.cover)),
+                                ),
                               ],
                             ),
                           )

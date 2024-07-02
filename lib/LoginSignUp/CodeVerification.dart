@@ -4,6 +4,7 @@ import "package:alamaapp/LoginSignUp/ForgotPassword.dart";
 import "package:alamaapp/LoginSignUp/ResetPassword.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 import "package:google_fonts/google_fonts.dart";
 
 class CodeVerificationPage extends StatefulWidget {
@@ -16,11 +17,15 @@ class CodeVerificationPage extends StatefulWidget {
 class _CodeVerificationPageState extends State<CodeVerificationPage> {
   Timer? _timer;
   int _start = 120;
+  List<FocusNode> _focusNodes = [];
+  List<TextEditingController> _controllers = [];
 
   @override
   void initState() {
     super.initState();
     startTimer();
+    _focusNodes = List.generate(4, (index) => FocusNode());
+    _controllers = List.generate(4, (index) => TextEditingController());
   }
 
   void startTimer() {
@@ -40,6 +45,12 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
   @override
   void dispose() {
     _timer?.cancel();
+    for (var focusNode in _focusNodes) {
+      focusNode.dispose();
+    }
+    for (var controller in _controllers) {
+      controller.dispose();
+    }
     super.dispose();
   }
 
@@ -50,6 +61,15 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
     int minutes = _start ~/ 60;
     int seconds = _start % 60;
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+  }
+
+  void _onTextChanged(int index, String value) {
+    if (value.isNotEmpty && index < _focusNodes.length - 1) {
+      _focusNodes[index].unfocus();
+      FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
+    } else if (index == _focusNodes.length - 1 && value.isNotEmpty) {
+      _focusNodes[index].unfocus();
+    }
   }
 
   @override
@@ -96,11 +116,18 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
                 padding: const EdgeInsets.all(18.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
+                  children: List.generate(4, (index) {
+                    return SizedBox(
                       width: 60,
                       child: TextField(
+                        controller: _controllers[index],
+                        focusNode: _focusNodes[index],
                         keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          LengthLimitingTextInputFormatter(1),
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                        onChanged: (value) => _onTextChanged(index, value),
                         decoration: InputDecoration(
                           labelStyle: GoogleFonts.poppins(
                             fontSize: 18,
@@ -114,82 +141,8 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 60,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelStyle: GoogleFonts.poppins(
-                            fontSize: 18,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.brown),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 60,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelStyle: GoogleFonts.poppins(
-                            fontSize: 18,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.brown),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 60,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelStyle: GoogleFonts.poppins(
-                            fontSize: 18,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: Colors.brown),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      CupertinoIcons.clock,
-                      color: Colors.grey,
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Text(
-                      timerText,
-                      style: GoogleFonts.poppins(
-                          fontSize: 18, color: Colors.brown),
-                    ),
-                  ],
+                    );
+                  }),
                 ),
               ),
               Padding(

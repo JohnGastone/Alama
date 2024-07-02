@@ -214,42 +214,6 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 150,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              "./assets/chipskavu.png"),
-                                          fit: BoxFit.cover)),
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 7, right: 7),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        child: Icon(
-                                          CupertinoIcons.heart,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
                                 SizedBox(
                                   height: 10,
                                 ),
@@ -297,7 +261,288 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: const EdgeInsets.only(right: 55),
                                   child: Text(
+                                    "Tsh 12,000",
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: Color(0xFFC18553)),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: 200,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: 150,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "./assets/chipskavu.png"),
+                                          fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.only(top: 7, right: 7),
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: Icon(
+                                          CupertinoIcons.heart,
+                                          color: Color(0xFFC18553),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 55),
+                                  child: Text(
+                                    "Chips Kavu",
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(CupertinoIcons.star_fill,
+                                        color: Color(0xFFC18553)),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "4.9",
+                                      style: GoogleFonts.poppins(fontSize: 15),
+                                    ),
+                                    Spacer(),
+                                    Icon(CupertinoIcons.clock,
+                                        color: Color(0xFFC18553)),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "10 min",
+                                      style: GoogleFonts.poppins(fontSize: 15),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 55),
+                                  child: Text(
                                     "Tsh 7,500",
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: Color(0xFFC18553)),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(18),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 200,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: 150,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "./assets/walikuku.png"),
+                                          fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.only(top: 7, right: 7),
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: Icon(
+                                          CupertinoIcons.heart,
+                                          color: Color(0xFFC18553),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 55),
+                                  child: Text(
+                                    "Wali Kuku",
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(CupertinoIcons.star_fill,
+                                        color: Color(0xFFC18553)),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "4.9",
+                                      style: GoogleFonts.poppins(fontSize: 15),
+                                    ),
+                                    Spacer(),
+                                    Icon(CupertinoIcons.clock,
+                                        color: Color(0xFFC18553)),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "10 min",
+                                      style: GoogleFonts.poppins(fontSize: 15),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 55),
+                                  child: Text(
+                                    "Tsh 15,000",
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: Color(0xFFC18553)),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: 200,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: 150,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "./assets/walinyama.png"),
+                                          fit: BoxFit.cover)),
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.only(top: 7, right: 7),
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: Icon(
+                                          CupertinoIcons.heart,
+                                          color: Color(0xFFC18553),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 55),
+                                  child: Text(
+                                    "Wali nyama",
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(CupertinoIcons.star_fill,
+                                        color: Color(0xFFC18553)),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "4.9",
+                                      style: GoogleFonts.poppins(fontSize: 15),
+                                    ),
+                                    Spacer(),
+                                    Icon(CupertinoIcons.clock,
+                                        color: Color(0xFFC18553)),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "10 min",
+                                      style: GoogleFonts.poppins(fontSize: 15),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 55),
+                                  child: Text(
+                                    "Tsh 10,500",
                                     style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,

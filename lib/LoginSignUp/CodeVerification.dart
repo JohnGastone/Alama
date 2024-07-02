@@ -146,6 +146,26 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
                 ),
               ),
               Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      CupertinoIcons.clock,
+                      color: Colors.grey,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      timerText,
+                      style: GoogleFonts.poppins(
+                          fontSize: 18, color: Colors.brown),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
                 padding: EdgeInsets.all(25),
                 child: InkWell(
                   child: Container(

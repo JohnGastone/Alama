@@ -286,7 +286,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, top: 20),
                 child: Row(
                   children: [
                     Container(
@@ -420,7 +420,20 @@ class _MyPlatePageState extends State<MyPlatePage> {
                     )
                   ],
                 ),
-              )
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(
+                      left: 10, top: 20, right: 10, bottom: 20),
+                  child: Container(
+                    height: 300,
+                    width: 360,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(width: 1, color: Colors.grey)),
+                    child: Column(
+                      children: [],
+                    ),
+                  ))
             ],
           ),
         ),

@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   Positioned(
                     left: 16,
                     right: 16,
-                    top: 95,
+                    top: 45,
                     child: Column(
                       children: [
                         Row(
@@ -104,7 +104,8 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           "What would you like to eat?",
                           style: GoogleFonts.poppins(
-                              fontSize: 25, color: Colors.white),
+                              fontSize: 35, color: Colors.white),
+                          textAlign: TextAlign.center,
                         )
                       ],
                     ),

@@ -36,83 +36,106 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: 200.0,
-              child: Stack(
-                children: [
-                  Image.asset(
-                    './assets/backtop.png',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  Positioned(
-                    left: 16,
-                    right: 16,
-                    top: 45,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius:
-                                  20, // Adjust the radius to fit inside the border
-                              backgroundColor: Colors.white,
-                              child: ClipOval(
-                                child: Image.asset(
-                                  "./assets/bartender.png",
-                                  height: double.infinity,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
+            Stack(children: [
+              SizedBox(
+                height: 200.0,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      './assets/backtop.png',
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                    Positioned(
+                      left: 16,
+                      right: 16,
+                      top: 45,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                radius:
+                                    20, // Adjust the radius to fit inside the border
+                                backgroundColor: Colors.white,
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    "./assets/bartender.png",
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Welcome back",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w300,
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Welcome back",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  "Jovan",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            ),
-                            Spacer(),
-                            Icon(
-                              CupertinoIcons.bell,
-                              color: Colors.white,
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "What would you like to eat?",
-                          style: GoogleFonts.poppins(
-                              fontSize: 35, color: Colors.white),
-                          textAlign: TextAlign.center,
-                        )
-                      ],
+                                  Text(
+                                    "Jovan",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Spacer(),
+                              Icon(
+                                CupertinoIcons.bell,
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "What would you like to eat?",
+                            style: GoogleFonts.poppins(
+                                fontSize: 35, color: Colors.white),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+              Positioned(
+                  left: 16,
+                  right: 16,
+                  top: 186,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.brown)),
+                      labelText: "Search",
+                      labelStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                      suffixIcon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ))
+            ]),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Row(
@@ -195,7 +218,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 itemBuilder: (context, index) => InkWell(
                   child: Container(
-                    height: 200,
+                    height: 210,
                     width: 150,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -229,7 +252,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 55),
+                          padding: const EdgeInsets.only(right: 65),
                           child: Text(
                             displayFoods[index].foodName!,
                             style: GoogleFonts.poppins(
@@ -239,28 +262,31 @@ class _HomePageState extends State<HomePage> {
                             textAlign: TextAlign.start,
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(CupertinoIcons.star_fill,
-                                color: Color(0xFFC18553)),
-                            SizedBox(width: 5),
-                            Text(
-                              "${displayFoods[index].foodRating!}",
-                              style: GoogleFonts.poppins(fontSize: 15),
-                            ),
-                            Spacer(),
-                            Icon(CupertinoIcons.clock,
-                                color: Color(0xFFC18553)),
-                            SizedBox(width: 5),
-                            Text(
-                              displayFoods[index].preparationTime!,
-                              style: GoogleFonts.poppins(fontSize: 15),
-                            ),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8, right: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(CupertinoIcons.star_fill,
+                                  color: Color(0xFFC18553)),
+                              SizedBox(width: 5),
+                              Text(
+                                "${displayFoods[index].foodRating!}",
+                                style: GoogleFonts.poppins(fontSize: 15),
+                              ),
+                              Spacer(),
+                              Icon(CupertinoIcons.clock,
+                                  color: Color(0xFFC18553)),
+                              SizedBox(width: 5),
+                              Text(
+                                displayFoods[index].preparationTime!,
+                                style: GoogleFonts.poppins(fontSize: 15),
+                              ),
+                            ],
+                          ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 55),
+                          padding: const EdgeInsets.only(right: 85),
                           child: Text(
                             "${displayFoods[index].price!}",
                             style: GoogleFonts.poppins(

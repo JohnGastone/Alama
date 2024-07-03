@@ -425,13 +425,96 @@ class _MyPlatePageState extends State<MyPlatePage> {
                   padding: const EdgeInsets.only(
                       left: 10, top: 20, right: 10, bottom: 20),
                   child: Container(
-                    height: 300,
+                    height: 250,
                     width: 360,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(width: 1, color: Colors.grey)),
-                    child: Column(
-                      children: [],
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Order Summary",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 14,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Total items (2)",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 21, color: Colors.grey)),
+                                Text(
+                                  "Tsh 9,000",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 14,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Waiter/Waitress",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 21, color: Colors.grey)),
+                                Text(
+                                  "Nishai Kitwango",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 14,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Discount",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 21, color: Colors.grey)),
+                                Text(
+                                  "Tsh 500",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFFC18553),
+                                      fontSize: 20),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 14,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Grand Total",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 21, color: Colors.grey)),
+                                Text(
+                                  "Tsh 8,500",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ))
             ],

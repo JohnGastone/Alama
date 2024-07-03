@@ -132,6 +132,24 @@ class _MyPlatePageState extends State<MyPlatePage> {
                         ],
                       ),
                     )),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                "./assets/chipskavu.png",
+                              )),
+                          borderRadius: BorderRadius.circular(15)),
+                    )
+                  ],
+                ),
               )
             ],
           ),

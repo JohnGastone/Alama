@@ -287,15 +287,18 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 85),
-                          child: Text(
-                            "${displayFoods[index].price!}",
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Color(0xFFC18553),
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Container(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "${displayFoods[index].price!}",
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Color(0xFFC18553),
+                              ),
+                              textAlign: TextAlign.start,
                             ),
-                            textAlign: TextAlign.start,
                           ),
                         ),
                       ],

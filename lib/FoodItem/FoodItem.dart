@@ -18,6 +18,9 @@ class _FoodItemPageState extends State<FoodItemPage> {
         child: Center(
           child: Column(
             children: [
+              SizedBox(
+                height: 30,
+              ),
               Text(
                 "Food Item description will be populated here",
                 style: GoogleFonts.poppins(

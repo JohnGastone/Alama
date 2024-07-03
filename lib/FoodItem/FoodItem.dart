@@ -250,7 +250,12 @@ class _FoodItemPageState extends State<FoodItemPage> {
                       width: 20,
                     ),
                     Container(
+                      width: 150,
+                      height: 60,
                       decoration: BoxDecoration(color: Color(0xFFC18553)),
+                      child: Row(
+                        children: [],
+                      ),
                     )
                   ],
                 ),

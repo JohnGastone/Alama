@@ -387,7 +387,7 @@ class _HomePageState extends State<HomePage> {
                                       borderRadius: BorderRadius.circular(15),
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              "./assets/walikuku.png"),
+                                              "./assets/biryanikuku.png"),
                                           fit: BoxFit.cover)),
                                   child: Padding(
                                     padding:

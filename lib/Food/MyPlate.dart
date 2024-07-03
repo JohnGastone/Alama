@@ -12,6 +12,22 @@ class MyPlatePage extends StatefulWidget {
 }
 
 class _MyPlatePageState extends State<MyPlatePage> {
+  int _counter = 1;
+
+  void _plateIncrement() {
+    setState((() {
+      _counter++;
+    }));
+  }
+
+  void _plateDecrement() {
+    setState(() {
+      if (_counter > 1) {
+        _counter--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,7 +154,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                 child: Row(
                   children: [
                     Container(
-                      height: 100,
+                      height: 120,
                       width: 100,
                       decoration: BoxDecoration(
                           image: DecorationImage(
@@ -147,6 +163,260 @@ class _MyPlatePageState extends State<MyPlatePage> {
                                 "./assets/chipskavu.png",
                               )),
                           borderRadius: BorderRadius.circular(15)),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Chips Kavu",
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 18,
+                          ),
+                          Text(
+                            "Tsh 7500",
+                            style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFC18553)),
+                            textAlign: TextAlign.start,
+                          ),
+                          SizedBox(
+                            height: 18,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  InkWell(
+                                    onTap: _plateDecrement,
+                                    child: Container(
+                                      width:
+                                          30, // Set the width to the diameter of the CircleAvatar
+                                      height:
+                                          30, // Set the height to the diameter of the CircleAvatar
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors
+                                              .grey, // Set the border color
+                                          width: 1.0, // Set the border width
+                                        ),
+                                      ),
+                                      child: CircleAvatar(
+                                        radius:
+                                            28, // Adjust the radius to fit inside the border
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: Icon(
+                                            CupertinoIcons.minus,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 12,
+                                  ),
+                                  Text(
+                                    "$_counter",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 20,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    width: 12,
+                                  ),
+                                  InkWell(
+                                    onTap: _plateIncrement,
+                                    child: Container(
+                                      width:
+                                          30, // Set the width to the diameter of the CircleAvatar
+                                      height:
+                                          30, // Set the height to the diameter of the CircleAvatar
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors
+                                              .grey, // Set the border color
+                                          width: 1.0, // Set the border width
+                                        ),
+                                      ),
+                                      child: CircleAvatar(
+                                        radius:
+                                            28, // Adjust the radius to fit inside the border
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: Icon(
+                                            CupertinoIcons.add,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 100,
+                              ),
+                              Icon(
+                                CupertinoIcons.delete,
+                                color: Color(0xFFC18553),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 120,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                "./assets/coke.png",
+                              )),
+                          borderRadius: BorderRadius.circular(15)),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Cocacola",
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 18,
+                          ),
+                          Text(
+                            "Tsh 1500",
+                            style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFC18553)),
+                            textAlign: TextAlign.start,
+                          ),
+                          SizedBox(
+                            height: 18,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  InkWell(
+                                    onTap: _plateDecrement,
+                                    child: Container(
+                                      width:
+                                          30, // Set the width to the diameter of the CircleAvatar
+                                      height:
+                                          30, // Set the height to the diameter of the CircleAvatar
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors
+                                              .grey, // Set the border color
+                                          width: 1.0, // Set the border width
+                                        ),
+                                      ),
+                                      child: CircleAvatar(
+                                        radius:
+                                            28, // Adjust the radius to fit inside the border
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: Icon(
+                                            CupertinoIcons.minus,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 12,
+                                  ),
+                                  Text(
+                                    "$_counter",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 20,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    width: 12,
+                                  ),
+                                  InkWell(
+                                    onTap: _plateIncrement,
+                                    child: Container(
+                                      width:
+                                          30, // Set the width to the diameter of the CircleAvatar
+                                      height:
+                                          30, // Set the height to the diameter of the CircleAvatar
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors
+                                              .grey, // Set the border color
+                                          width: 1.0, // Set the border width
+                                        ),
+                                      ),
+                                      child: CircleAvatar(
+                                        radius:
+                                            28, // Adjust the radius to fit inside the border
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: Icon(
+                                            CupertinoIcons.add,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 100,
+                              ),
+                              Icon(
+                                CupertinoIcons.delete,
+                                color: Color(0xFFC18553),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 ),

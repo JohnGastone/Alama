@@ -52,10 +52,12 @@ class _FoodItemPageState extends State<FoodItemPage> {
                 width: 300,
                 height: 250,
                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
-                        image: AssetImage("./assets/chipskavu.png"))),
+                        image: AssetImage("./assets/chipskavu.png"),
+                        fit: BoxFit.cover)),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 20, right: 7),
+                  padding: const EdgeInsets.only(top: 20, right: 20),
                   child: Align(
                     alignment: Alignment.topRight,
                     child: CircleAvatar(

@@ -45,7 +45,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -68,21 +68,33 @@ class _MyPlatePageState extends State<MyPlatePage> {
                       width: 130,
                       height: 40,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
                           border:
                               Border.all(color: Color(0xFFC18553), width: 1)),
-                      child: FloatingActionButton(
-                        onPressed: () => {},
-                        backgroundColor: Colors.white,
+                      child: Center(
                         child: Text(
                           "Change Table",
                           style: GoogleFonts.poppins(
                               fontSize: 16, color: Color(0xFFC18553)),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
+                child: Container(
+                    width: 320,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(35),
+                        border: Border.all(color: Color(0xFFC18553), width: 1)),
+                    child: Row(
+                      children: [],
+                    )),
               )
             ],
           ),

@@ -1,6 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:alamaapp/LoginSignUp/Login.dart';
 import 'package:alamaapp/LoginSignUp/SignUp.dart';
-import 'package:alamaapp/OnBoardingCarousel/SplashScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';

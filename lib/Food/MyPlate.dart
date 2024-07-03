@@ -105,7 +105,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                             width: 5,
                           ),
                           SizedBox(
-                            width: 80,
+                            width: 120,
                             child: TextField(
                               decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -116,7 +116,18 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           ),
                           Spacer(),
                           Container(
-                            decoration: BoxDecoration(),
+                            width: 100,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFC18553),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Apply",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 16, color: Colors.white),
+                              ),
+                            ),
                           )
                         ],
                       ),

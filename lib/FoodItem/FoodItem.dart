@@ -186,6 +186,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
               Padding(
                 padding: const EdgeInsets.only(left: 30, right: 15),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
@@ -213,12 +214,18 @@ class _FoodItemPageState extends State<FoodItemPage> {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          width: 8,
+                        ),
                         Text(
                           "4",
                           style: GoogleFonts.poppins(
                               fontSize: 20,
                               color: Colors.black,
                               fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 8,
                         ),
                         Container(
                           width:
@@ -250,11 +257,29 @@ class _FoodItemPageState extends State<FoodItemPage> {
                       width: 20,
                     ),
                     Container(
-                      width: 150,
-                      height: 60,
-                      decoration: BoxDecoration(color: Color(0xFFC18553)),
-                      child: Row(
-                        children: [],
+                      width: 160,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: Color(0xFFC18553)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              CupertinoIcons.shopping_cart,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Add to my plate",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
                     )
                   ],

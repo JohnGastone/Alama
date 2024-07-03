@@ -14,6 +14,32 @@ class _MyPlatePageState extends State<MyPlatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              Text(
+                "My Plate",
+                style: GoogleFonts.poppins(
+                    fontSize: 30, fontWeight: FontWeight.w500),
+              ),
+              IconButton(
+                icon: Icon(Icons.more_horiz),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(

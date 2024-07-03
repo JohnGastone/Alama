@@ -122,6 +122,13 @@ class _FoodItemPageState extends State<FoodItemPage> {
                   ],
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Divider(
+                  height: 2,
+                  color: Colors.grey,
+                ),
+              )
             ],
           ),
         ),

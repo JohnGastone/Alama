@@ -36,89 +36,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Center(
         child: Stack(children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10.0),
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: SizedBox(
-                height: 200.0,
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      './assets/backtop.png',
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned(
-                      left: 16,
-                      right: 16,
-                      top: 45,
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius:
-                                    20, // Adjust the radius to fit inside the border
-                                backgroundColor: Colors.white,
-                                child: ClipOval(
-                                  child: Image.asset(
-                                    "./assets/bartender.png",
-                                    height: double.infinity,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Welcome back",
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Jovan",
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 18,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Spacer(),
-                              Icon(
-                                CupertinoIcons.bell,
-                                color: Colors.white,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "What would you like to eat?",
-                            style: GoogleFonts.poppins(
-                                fontSize: 35, color: Colors.white),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
           SingleChildScrollView(
             child: Column(
               children: [
@@ -363,6 +280,89 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10.0),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: SizedBox(
+                height: 200.0,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      './assets/backtop.png',
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                    Positioned(
+                      left: 16,
+                      right: 16,
+                      top: 45,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                radius:
+                                    20, // Adjust the radius to fit inside the border
+                                backgroundColor: Colors.white,
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    "./assets/bartender.png",
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 8,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Welcome back",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Jovan",
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Spacer(),
+                              Icon(
+                                CupertinoIcons.bell,
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "What would you like to eat?",
+                            style: GoogleFonts.poppins(
+                                fontSize: 35, color: Colors.white),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

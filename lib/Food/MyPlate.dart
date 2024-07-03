@@ -44,9 +44,41 @@ class _MyPlatePageState extends State<MyPlatePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text(
-                "Food items added to cart will appear here in plate",
-                style: GoogleFonts.poppins(fontSize: 18),
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Table Number",
+                          style: GoogleFonts.poppins(
+                              fontSize: 18, color: Colors.grey),
+                        ),
+                        Text(
+                          "T-08",
+                          style: GoogleFonts.poppins(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      width: 130,
+                      height: 40,
+                      child: FloatingActionButton(
+                        onPressed: () => {},
+                        backgroundColor: Colors.white,
+                        child: Text(
+                          "Change Table",
+                          style: GoogleFonts.poppins(
+                              fontSize: 16, color: Color(0xFFC18553)),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),

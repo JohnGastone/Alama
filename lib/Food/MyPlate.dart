@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -92,8 +93,28 @@ class _MyPlatePageState extends State<MyPlatePage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(35),
                         border: Border.all(color: Color(0xFFC18553), width: 1)),
-                    child: Row(
-                      children: [],
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.crop,
+                            color: Color(0xFFC18553),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          SizedBox(
+                            width: 80,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  labelText: "Promo Code...",
+                                  labelStyle: GoogleFonts.poppins(
+                                      fontSize: 15, color: Colors.grey)),
+                            ),
+                          )
+                        ],
+                      ),
                     )),
               )
             ],

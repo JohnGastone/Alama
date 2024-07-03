@@ -108,10 +108,15 @@ class _MyPlatePageState extends State<MyPlatePage> {
                             width: 80,
                             child: TextField(
                               decoration: InputDecoration(
+                                  border: InputBorder.none,
                                   labelText: "Promo Code...",
                                   labelStyle: GoogleFonts.poppins(
-                                      fontSize: 15, color: Colors.grey)),
+                                      fontSize: 18, color: Colors.grey)),
                             ),
+                          ),
+                          Spacer(),
+                          Container(
+                            decoration: BoxDecoration(),
                           )
                         ],
                       ),

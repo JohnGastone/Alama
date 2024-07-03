@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -160,7 +160,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 30, right: 15),
@@ -177,6 +177,81 @@ class _FoodItemPageState extends State<FoodItemPage> {
                             fontSize: 18,
                             color: Color(0xFFC18553),
                             fontWeight: FontWeight.w500))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 15),
+                child: Row(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width:
+                              40, // Set the width to the diameter of the CircleAvatar
+                          height:
+                              40, // Set the height to the diameter of the CircleAvatar
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.grey, // Set the border color
+                              width: 1.0, // Set the border width
+                            ),
+                          ),
+                          child: CircleAvatar(
+                            radius:
+                                28, // Adjust the radius to fit inside the border
+                            backgroundColor: Colors.white,
+                            child: ClipOval(
+                              child: Icon(
+                                CupertinoIcons.minus,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "4",
+                          style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Container(
+                          width:
+                              40, // Set the width to the diameter of the CircleAvatar
+                          height:
+                              40, // Set the height to the diameter of the CircleAvatar
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.grey, // Set the border color
+                              width: 1.0, // Set the border width
+                            ),
+                          ),
+                          child: CircleAvatar(
+                            radius:
+                                28, // Adjust the radius to fit inside the border
+                            backgroundColor: Colors.white,
+                            child: ClipOval(
+                              child: Icon(
+                                CupertinoIcons.add,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(color: Color(0xFFC18553)),
+                    )
                   ],
                 ),
               )

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:alamaapp/Food/MyPlate.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -318,31 +319,40 @@ class _FoodItemPageState extends State<FoodItemPage> {
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      width: 160,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: Color(0xFFC18553)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(
-                              CupertinoIcons.shopping_cart,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              "Add to my plate",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                    InkWell(
+                      child: Container(
+                        width: 160,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: Color(0xFFC18553)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                CupertinoIcons.shopping_cart,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                "Add to my plate",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                              builder: (context) => MyPlatePage(),
+                            ));
+                      },
                     )
                   ],
                 ),

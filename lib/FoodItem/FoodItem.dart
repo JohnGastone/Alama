@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class FoodItemPage extends StatefulWidget {
   const FoodItemPage({super.key});
@@ -12,6 +13,14 @@ class FoodItemPage extends StatefulWidget {
 }
 
 class _FoodItemPageState extends State<FoodItemPage> {
+  final List<String> images = [
+    "./assets/chipskavu.png",
+    "./assets/walinyama.png",
+    "./assets/walikuku.png"
+  ];
+  final PageController _pageController =
+      PageController(viewportFraction: 0.8, keepPage: true);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,26 +57,58 @@ class _FoodItemPageState extends State<FoodItemPage> {
               SizedBox(
                 height: 30,
               ),
-              Container(
+              SizedBox(
                 width: 300,
                 height: 250,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
-                        image: AssetImage("./assets/chipskavu.png"),
-                        fit: BoxFit.cover)),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20, right: 20),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: Icon(
-                        CupertinoIcons.heart_fill,
-                        color: Color(0xFFC18553),
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: images.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: 300,
+                      height: 250,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                          image: AssetImage(images[index]),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                  ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20, right: 20),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Icon(
+                                  CupertinoIcons.heart_fill,
+                                  color: Color(0xFFC18553),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 160,
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: SmoothPageIndicator(
+                                controller: _pageController,
+                                count: images.length,
+                                effect: ExpandingDotsEffect(
+                                  dotColor: Colors.white,
+                                  activeDotColor: Color(0xFFC18553),
+                                  dotHeight: 15,
+                                  dotWidth: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
               Padding(

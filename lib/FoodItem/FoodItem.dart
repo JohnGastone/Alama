@@ -135,14 +135,17 @@ class _FoodItemPageState extends State<FoodItemPage> {
                   alignment: Alignment.topLeft,
                   child: Column(
                     children: [
-                      Text(
-                        "Description",
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
-                          color: Color.fromARGB(255, 39, 36, 34),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 200),
+                        child: Text(
+                          "Description",
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            color: Color.fromARGB(255, 39, 36, 34),
+                          ),
+                          textAlign: TextAlign.left,
                         ),
-                        textAlign: TextAlign.left,
                       ),
                       SizedBox(
                         height: 10,
@@ -156,6 +159,27 @@ class _FoodItemPageState extends State<FoodItemPage> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Side dishes",
+                      style: GoogleFonts.poppins(
+                          fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                    Text("See All",
+                        style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            color: Color(0xFFC18553),
+                            fontWeight: FontWeight.w500))
+                  ],
+                ),
+              )
             ],
           ),
         ),

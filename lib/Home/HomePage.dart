@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:alamaapp/models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,541 +28,256 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  List<FoodsModel> displayFoods = List.from(FoodsModelData.displayFoods);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            automaticallyImplyLeading: false,
-            expandedHeight: 200.0,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                './assets/backtop.png',
-                fit: BoxFit.cover,
-              ),
-              titlePadding:
-                  EdgeInsets.only(left: 16, bottom: 16, right: 16, top: 95),
-              title: Column(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 200.0,
+              child: Stack(
                 children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        radius:
-                            20, // Adjust the radius to fit inside the border
-                        backgroundColor: Colors.white,
-                        child: ClipOval(
-                          child: Image.asset(
-                            "./assets/bartender.png",
-                            height: double.infinity,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Welcome back",
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                          Text(
-                            "Jovan",
-                            style: GoogleFonts.poppins(
-                              fontSize: 15,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
-                        ],
-                      ),
-                      Spacer(),
-                      Icon(
-                        CupertinoIcons.bell,
-                        color: Colors.white,
-                      )
-                    ],
+                  Image.asset(
+                    './assets/backtop.png',
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
-                  SizedBox(
-                    height: 10,
+                  Positioned(
+                    left: 16,
+                    right: 16,
+                    top: 95,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            CircleAvatar(
+                              radius:
+                                  20, // Adjust the radius to fit inside the border
+                              backgroundColor: Colors.white,
+                              child: ClipOval(
+                                child: Image.asset(
+                                  "./assets/bartender.png",
+                                  height: double.infinity,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Welcome back",
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                                Text(
+                                  "Jovan",
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Spacer(),
+                            Icon(
+                              CupertinoIcons.bell,
+                              color: Colors.white,
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "What would you like to eat?",
+                          style: GoogleFonts.poppins(
+                              fontSize: 25, color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Menu by Category",
+                    style: GoogleFonts.poppins(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "What would you like to eat?",
+                    "See All",
                     style:
-                        GoogleFonts.poppins(fontSize: 25, color: Colors.white),
+                        GoogleFonts.poppins(fontSize: 18, color: Colors.brown),
                   )
                 ],
               ),
             ),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Menu by Category",
-                            style: GoogleFonts.poppins(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(5, (index) {
+                    return GestureDetector(
+                      onTap: () => _toggleSelection(index),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(top: 8.0, left: 8, right: 8),
+                        child: Container(
+                          height: 80,
+                          width: 70,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: _selectedIndex == index
+                                ? Color(0xFFC18553)
+                                : Colors.white,
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                          Text(
-                            "See All",
-                            style: GoogleFonts.poppins(
-                                fontSize: 18, color: Colors.brown),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: List.generate(5, (index) {
-                            return GestureDetector(
-                              onTap: () => _toggleSelection(index),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  height: 80,
-                                  width: 70,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: _selectedIndex == index
-                                        ? Color(0xFFC18553)
-                                        : Colors.white,
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SizedBox(height: 10),
-                                      Icon(
-                                        _getIcon(index),
-                                        color: _selectedIndex == index
-                                            ? Colors.white
-                                            : Colors.grey,
-                                        size: 30,
-                                      ),
-                                      Text(
-                                        _getText(index),
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 20,
-                                          color: _selectedIndex == index
-                                              ? Colors.white
-                                              : Colors.grey,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 10),
+                              Icon(
+                                _getIcon(index),
+                                color: _selectedIndex == index
+                                    ? Colors.white
+                                    : Colors.grey,
+                                size: 30,
+                              ),
+                              Text(
+                                _getText(index),
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20,
+                                  color: _selectedIndex == index
+                                      ? Colors.white
+                                      : Colors.grey,
                                 ),
                               ),
-                            );
-                          }),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(18),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 150,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              "./assets/biryanikuku.png"),
-                                          fit: BoxFit.cover)),
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 7, right: 7),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        child: Icon(
-                                          CupertinoIcons.heart,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 55),
-                                  child: Text(
-                                    "Biryan Kuku",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(CupertinoIcons.star_fill,
-                                        color: Color(0xFFC18553)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "4.9",
-                                      style: GoogleFonts.poppins(fontSize: 15),
-                                    ),
-                                    Spacer(),
-                                    Icon(CupertinoIcons.clock,
-                                        color: Color(0xFFC18553)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "15 min",
-                                      style: GoogleFonts.poppins(fontSize: 15),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 55),
-                                  child: Text(
-                                    "Tsh 12,000",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        color: Color(0xFFC18553)),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 150,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              "./assets/chipskavu.png"),
-                                          fit: BoxFit.cover)),
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 7, right: 7),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        child: Icon(
-                                          CupertinoIcons.heart,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 55),
-                                  child: Text(
-                                    "Chips Kavu",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(CupertinoIcons.star_fill,
-                                        color: Color(0xFFC18553)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "4.9",
-                                      style: GoogleFonts.poppins(fontSize: 15),
-                                    ),
-                                    Spacer(),
-                                    Icon(CupertinoIcons.clock,
-                                        color: Color(0xFFC18553)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "10 min",
-                                      style: GoogleFonts.poppins(fontSize: 15),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 55),
-                                  child: Text(
-                                    "Tsh 7,500",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        color: Color(0xFFC18553)),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(18),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 150,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              "./assets/biryanikuku.png"),
-                                          fit: BoxFit.cover)),
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 7, right: 7),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        child: Icon(
-                                          CupertinoIcons.heart,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 55),
-                                  child: Text(
-                                    "Wali Kuku",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(CupertinoIcons.star_fill,
-                                        color: Color(0xFFC18553)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "4.9",
-                                      style: GoogleFonts.poppins(fontSize: 15),
-                                    ),
-                                    Spacer(),
-                                    Icon(CupertinoIcons.clock,
-                                        color: Color(0xFFC18553)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "10 min",
-                                      style: GoogleFonts.poppins(fontSize: 15),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 55),
-                                  child: Text(
-                                    "Tsh 15,000",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        color: Color(0xFFC18553)),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 150,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              "./assets/walinyama.png"),
-                                          fit: BoxFit.cover)),
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 7, right: 7),
-                                    child: Align(
-                                      alignment: Alignment.topRight,
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        child: Icon(
-                                          CupertinoIcons.heart,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 55),
-                                  child: Text(
-                                    "Wali nyama",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(CupertinoIcons.star_fill,
-                                        color: Color(0xFFC18553)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "4.9",
-                                      style: GoogleFonts.poppins(fontSize: 15),
-                                    ),
-                                    Spacer(),
-                                    Icon(CupertinoIcons.clock,
-                                        color: Color(0xFFC18553)),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "10 min",
-                                      style: GoogleFonts.poppins(fontSize: 15),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 55),
-                                  child: Text(
-                                    "Tsh 10,500",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        color: Color(0xFFC18553)),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
+                    );
+                  }),
+                ),
+              ),
             ),
-          ),
-        ],
+            Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: displayFoods.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 40,
+                  crossAxisSpacing: 10,
+                ),
+                itemBuilder: (context, index) => InkWell(
+                  child: Container(
+                    height: 200,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 150,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                              image: AssetImage(displayFoods[index].foodImage!),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 7, right: 7),
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Icon(
+                                  CupertinoIcons.heart,
+                                  color: Color(0xFFC18553),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 55),
+                          child: Text(
+                            displayFoods[index].foodName!,
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(CupertinoIcons.star_fill,
+                                color: Color(0xFFC18553)),
+                            SizedBox(width: 5),
+                            Text(
+                              "${displayFoods[index].foodRating!}",
+                              style: GoogleFonts.poppins(fontSize: 15),
+                            ),
+                            Spacer(),
+                            Icon(CupertinoIcons.clock,
+                                color: Color(0xFFC18553)),
+                            SizedBox(width: 5),
+                            Text(
+                              displayFoods[index].preparationTime!,
+                              style: GoogleFonts.poppins(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 55),
+                          child: Text(
+                            "${displayFoods[index].price!}",
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Color(0xFFC18553),
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

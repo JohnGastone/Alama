@@ -247,6 +247,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                     Row(
                       children: [
                         InkWell(
+                          onTap: _plateDecrement,
                           child: Container(
                             width:
                                 40, // Set the width to the diameter of the CircleAvatar
@@ -271,7 +272,6 @@ class _FoodItemPageState extends State<FoodItemPage> {
                               ),
                             ),
                           ),
-                          onTap: () => _plateDecrement,
                         ),
                         SizedBox(
                           width: 8,
@@ -287,6 +287,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                           width: 8,
                         ),
                         InkWell(
+                          onTap: _plateIncrement,
                           child: Container(
                             width:
                                 40, // Set the width to the diameter of the CircleAvatar
@@ -311,7 +312,6 @@ class _FoodItemPageState extends State<FoodItemPage> {
                               ),
                             ),
                           ),
-                          onTap: () => _plateDecrement,
                         ),
                       ],
                     ),

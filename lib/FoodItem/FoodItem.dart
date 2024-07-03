@@ -128,7 +128,34 @@ class _FoodItemPageState extends State<FoodItemPage> {
                   height: 2,
                   color: Colors.grey,
                 ),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Container(
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Description",
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                          color: Color.fromARGB(255, 39, 36, 34),
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Lorem ipsum dolor sit amet consectetur. Mattis id malesuada facilisis nibh neque eget morbi quis. Est vitae id consectetur quam fringilla. Interdum.",
+                        style: GoogleFonts.poppins(
+                            fontSize: 18, color: Colors.grey),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

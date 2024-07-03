@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:alamaapp/Food/FoodItem.dart';
+import 'package:alamaapp/Food/MyPlate.dart';
 import 'package:alamaapp/models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -262,17 +263,24 @@ class _HomePageState extends State<HomePage> {
                                     builder: (context) => HomePage()));
                           },
                         ),
-                        Icon(
-                          CupertinoIcons.bag,
-                          color: Colors.grey,
-                        ),
+                        InkWell(
+                            child: Icon(
+                              CupertinoIcons.bag,
+                              color: Colors.grey,
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                      builder: (context) => MyPlatePage()));
+                            }),
                         InkWell(
                           child: Icon(CupertinoIcons.person_fill,
                               color: Colors.grey),
                           onTap: () {
                             Navigator.push(
                                 context,
-                                MaterialPageRoute(
+                                CupertinoPageRoute(
                                     builder: (context) => HomePage()));
                           },
                         )

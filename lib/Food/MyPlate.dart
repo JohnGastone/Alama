@@ -64,9 +64,13 @@ class _MyPlatePageState extends State<MyPlatePage> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    Container(
                       width: 130,
                       height: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border:
+                              Border.all(color: Color(0xFFC18553), width: 1)),
                       child: FloatingActionButton(
                         onPressed: () => {},
                         backgroundColor: Colors.white,

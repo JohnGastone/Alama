@@ -122,6 +122,9 @@ class _HomePageState extends State<HomePage> {
           SingleChildScrollView(
             child: Column(
               children: [
+                SizedBox(
+                  height: 200,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Row(

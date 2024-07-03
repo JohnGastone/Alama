@@ -69,7 +69,59 @@ class _FoodItemPageState extends State<FoodItemPage> {
                     ),
                   ),
                 ),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, top: 20),
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Chipsi Kavu",
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 28,
+                      color: Color.fromARGB(255, 54, 52, 50),
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, top: 20),
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Tsh 7500",
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Color(0xFFC18553),
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, top: 20),
+                child: Row(
+                  children: [
+                    Icon(CupertinoIcons.clock, color: Color(0xFFC18553)),
+                    SizedBox(width: 5),
+                    Text(
+                      "15 minutes",
+                      style: GoogleFonts.poppins(fontSize: 15),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(CupertinoIcons.star_fill, color: Color(0xFFC18553)),
+                    SizedBox(width: 5),
+                    Text(
+                      "4.9",
+                      style: GoogleFonts.poppins(fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

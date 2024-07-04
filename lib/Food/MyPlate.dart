@@ -123,6 +123,11 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           SizedBox(
                             width: 120,
                             child: TextField(
+                              style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                color: Color(0xFFC18553),
+                                textBaseline: TextBaseline.alphabetic,
+                              ),
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   labelText: "Promo Code...",

@@ -13,6 +13,18 @@ class MyPlatePage extends StatefulWidget {
 
 class _MyPlatePageState extends State<MyPlatePage> {
   int _counter = 1;
+  final TextEditingController _controller = TextEditingController();
+  bool _isEmpty = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      setState(() {
+        _isEmpty = _controller.text.isEmpty;
+      });
+    });
+  }
 
   void _plateIncrement() {
     setState((() {
@@ -122,17 +134,24 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           ),
                           SizedBox(
                             width: 120,
-                            child: TextField(
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                color: Color(0xFFC18553),
-                                textBaseline: TextBaseline.alphabetic,
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 10),
+                              child: TextField(
+                                controller: _controller,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  color: Color(0xFFC18553),
+                                  textBaseline: TextBaseline.alphabetic,
+                                ),
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    enabledBorder: InputBorder.none,
+                                    focusedBorder: InputBorder.none,
+                                    labelText:
+                                        _isEmpty ? "Promo Code..." : null,
+                                    labelStyle: GoogleFonts.poppins(
+                                        fontSize: 18, color: Colors.grey)),
                               ),
-                              decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  labelText: "Promo Code...",
-                                  labelStyle: GoogleFonts.poppins(
-                                      fontSize: 18, color: Colors.grey)),
                             ),
                           ),
                           Spacer(),

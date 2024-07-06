@@ -66,7 +66,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: MediaQuery.of(context).size.height * 0.4,
+          height: MediaQuery.of(context).size.height * 0.6,
           width: double.maxFinite,
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
@@ -135,10 +135,39 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       keyboardType: TextInputType.number,
                       style:
                           GoogleFonts.poppins(fontSize: 17, color: Colors.grey),
-                      decoration:
-                          InputDecoration(enabledBorder: InputBorder.none),
+                      decoration: InputDecoration(
+                          labelText: "0624839009",
+                          enabledBorder: InputBorder.none),
                     )),
               ),
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.all(25),
+                  child: InkWell(
+                    child: Container(
+                      height: 50,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFC18553),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Pay Now",
+                          style: GoogleFonts.poppins(
+                              fontSize: 16, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CupertinoModalPopupRoute(
+                              builder: (context) => PaymentMethodPage()));
+                    },
+                  ),
+                ),
+              )
             ],
           ),
         );

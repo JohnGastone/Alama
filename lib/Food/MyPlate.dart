@@ -100,14 +100,16 @@ class _MyPlatePageState extends State<MyPlatePage> {
                             ],
                           ),
                           Spacer(),
-                          Container(
-                            width: 50,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFC18553),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Center(child: Icon(Icons.message)),
-                          )
+                          CircleAvatar(
+                            radius:
+                                30, // Adjust the radius to fit inside the border
+                            backgroundColor: Color(0xFFC18553),
+                            child: ClipOval(
+                                child: Icon(
+                              Icons.message,
+                              color: Colors.white,
+                            )),
+                          ),
                         ],
                       ),
                     )),
@@ -130,6 +132,9 @@ class _MyPlatePageState extends State<MyPlatePage> {
                       style: GoogleFonts.poppins(
                           fontSize: 18, color: Colors.white),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Row(
                       children: [
                         Icon(
@@ -137,7 +142,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           color: Color(0xFFC18553),
                         ),
                         Text(
-                          "-------------",
+                          "--------------",
                           style: GoogleFonts.poppins(
                               color: Color(0xFFC18553), fontSize: 15),
                         ),
@@ -146,12 +151,12 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           color: Color(0xFFC18553),
                         ),
                         Text(
-                          "-------------",
+                          "--------------",
                           style: GoogleFonts.poppins(
                               color: Color(0xFFC18553), fontSize: 15),
                         ),
                         Icon(
-                          CupertinoIcons.airplane,
+                          CupertinoIcons.check_mark_circled,
                           color: Color(0xFFC18553),
                         ),
                       ],
@@ -705,7 +710,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                   ),
                   child: Center(
                     child: Text(
-                      "See Additional Info",
+                      "Continue To Payment",
                       style: GoogleFonts.poppins(
                           fontSize: 16, color: Colors.white),
                     ),

@@ -136,8 +136,8 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       style:
                           GoogleFonts.poppins(fontSize: 17, color: Colors.grey),
                       decoration: InputDecoration(
-                          labelText: "0624839009",
-                          labelStyle: GoogleFonts.poppins(
+                          hintText: "0624839009",
+                          hintStyle: GoogleFonts.poppins(
                               fontSize: 17, color: Colors.grey),
                           suffixIcon: Icon(CupertinoIcons.checkmark_seal),
                           suffixIconColor: Color(0xFFC18553),

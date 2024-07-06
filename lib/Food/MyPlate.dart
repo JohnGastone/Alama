@@ -48,29 +48,117 @@ class _MyPlatePageState extends State<MyPlatePage> {
         return Container(
           height: MediaQuery.of(context).size.height * 0.8,
           padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              color: Color(0xFF5E3023),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Image.asset(
-                  "./assets/illustration.png",
-                  width: 250,
-                  height: 200,
+              Padding(
+                padding:
+                    EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
+                child: Container(
+                    width: 320,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(35),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius:
+                                30, // Adjust the radius to fit inside the border
+                            backgroundColor: Colors.white,
+                            child: ClipOval(
+                              child: Image.asset(
+                                "./assets/waiter.png",
+                                height: double.infinity,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "John Juma",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20, color: Color(0xFFC18553)),
+                              ),
+                              Text("Waiter",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 18, color: Colors.grey))
+                            ],
+                          ),
+                          Spacer(),
+                          Container(
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFC18553),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(child: Icon(Icons.message)),
+                          )
+                        ],
+                      ),
+                    )),
+              ),
+              Padding(
+                padding: EdgeInsets.all(18),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Cooking Time',
+                      style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Estimated 8:30 - 9:15 PM',
+                      style: GoogleFonts.poppins(
+                          fontSize: 18, color: Colors.white),
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.content_paste,
+                          color: Color(0xFFC18553),
+                        ),
+                        Text(
+                          "-------------",
+                          style: GoogleFonts.poppins(
+                              color: Color(0xFFC18553), fontSize: 15),
+                        ),
+                        Icon(
+                          Icons.rice_bowl,
+                          color: Color(0xFFC18553),
+                        ),
+                        Text(
+                          "-------------",
+                          style: GoogleFonts.poppins(
+                              color: Color(0xFFC18553), fontSize: 15),
+                        ),
+                        Icon(
+                          CupertinoIcons.airplane,
+                          color: Color(0xFFC18553),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              Center(
-                child: Text(
-                  'Password Changed',
-                  style: GoogleFonts.poppins(
-                      fontSize: 34, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Password reset successfully you can now Login using the new password',
-                style: GoogleFonts.poppins(fontSize: 18),
-              ),
-              Spacer(),
               Center(
                 child: Padding(
                   padding: EdgeInsets.all(25),
@@ -609,11 +697,11 @@ class _MyPlatePageState extends State<MyPlatePage> {
                   )),
               InkWell(
                 child: Container(
-                  height: 60,
+                  height: 50,
                   width: 200,
                   decoration: BoxDecoration(
                     color: Color(0xFFC18553),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(25),
                   ),
                   child: Center(
                     child: Text(
@@ -626,6 +714,9 @@ class _MyPlatePageState extends State<MyPlatePage> {
                 onTap: () {
                   _showResetDialog();
                 },
+              ),
+              SizedBox(
+                height: 40,
               )
             ],
           ),

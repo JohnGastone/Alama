@@ -43,7 +43,7 @@ class PaymentMethodModelData {
   static List<PaymentMethodsModel> getPaymentMethods = [
     PaymentMethodsModel("Mobile Money", "./assets/operation.png"),
     PaymentMethodsModel("Visa / Mastercard", "./assets/logo.png"),
-    PaymentMethodsModel("Lipa Namba", "./assets/cash-on-delivery.png"),
+    PaymentMethodsModel("Lipa Namba", "./assets/lipa.png"),
     PaymentMethodsModel("Cash", "./assets/operation.png"),
   ];
   static List<PaymentMethodsModel> displayPaymentMethods =

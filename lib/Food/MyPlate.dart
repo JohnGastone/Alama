@@ -41,7 +41,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
     });
   }
 
-  void _showResetDialog() {
+  void _showPrePaymentDialog() {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -133,7 +133,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           fontSize: 18, color: Colors.white),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     Row(
                       children: [
@@ -717,7 +717,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                   ),
                 ),
                 onTap: () {
-                  _showResetDialog();
+                  _showPrePaymentDialog();
                 },
               ),
               SizedBox(

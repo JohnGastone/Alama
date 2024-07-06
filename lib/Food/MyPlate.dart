@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:alamaapp/LoginSignUp/Login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,6 +39,71 @@ class _MyPlatePageState extends State<MyPlatePage> {
         _counter--;
       }
     });
+  }
+
+  void _showResetDialog() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.8,
+          padding: EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Image.asset(
+                  "./assets/illustration.png",
+                  width: 250,
+                  height: 200,
+                ),
+              ),
+              Center(
+                child: Text(
+                  'Password Changed',
+                  style: GoogleFonts.poppins(
+                      fontSize: 34, fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Password reset successfully you can now Login using the new password',
+                style: GoogleFonts.poppins(fontSize: 18),
+              ),
+              Spacer(),
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.all(25),
+                  child: InkWell(
+                    child: Container(
+                      width: 200,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.brown,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Sign In",
+                          style: GoogleFonts.poppins(
+                              fontSize: 20, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => LoginPage()));
+                    },
+                  ),
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -449,7 +515,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                   padding: const EdgeInsets.only(
                       left: 10, top: 20, right: 10, bottom: 20),
                   child: Container(
-                    height: 250,
+                    height: 210,
                     width: 360,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
@@ -540,7 +606,27 @@ class _MyPlatePageState extends State<MyPlatePage> {
                         ),
                       ),
                     ),
-                  ))
+                  )),
+              InkWell(
+                child: Container(
+                  height: 60,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFC18553),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "See Additional Info",
+                      style: GoogleFonts.poppins(
+                          fontSize: 16, color: Colors.white),
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  _showResetDialog();
+                },
+              )
             ],
           ),
         ),

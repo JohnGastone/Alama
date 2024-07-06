@@ -31,3 +31,21 @@ class FoodsModelData {
 
   static List<FoodsModel> displayFoods = List.from(FoodsModelData.getFoods);
 }
+
+class PaymentMethodsModel {
+  String? paymentMethod;
+  String? paymentImage;
+
+  PaymentMethodsModel(this.paymentMethod, this.paymentImage);
+}
+
+class PaymentMethodModelData {
+  static List<PaymentMethodsModel> getPaymentMethods = [
+    PaymentMethodsModel("Mobile Money", "./assets/operation.png"),
+    PaymentMethodsModel("Visa / Mastercard", "./assets/logo.png"),
+    PaymentMethodsModel("Lipa Namba", "./assets/cash-on-delivery.png"),
+    PaymentMethodsModel("Cash", "./assets/operation.png"),
+  ];
+  static List<PaymentMethodsModel> displayPaymentMethods =
+      List.from(PaymentMethodModelData.getPaymentMethods);
+}

@@ -23,158 +23,122 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
 
   List<PaymentMethodsModel> displayPaymentMethods =
       List.from(PaymentMethodModelData.displayPaymentMethods);
+  String? _selectedValue; // To hold the selected value from the dropdown
+
+  // List of dropdown menu items
+  final List<DropdownMenuItem<String>> dropdownMenuEntries = [
+    DropdownMenuItem(
+      value: 'M-Pesa',
+      child: Text(
+        'M-Pesa',
+        style: GoogleFonts.poppins(
+            decoration: TextDecoration.none, color: Colors.grey, fontSize: 17),
+      ),
+    ),
+    DropdownMenuItem(
+      value: 'TigoPesa',
+      child: Text(
+        'TigoPesa',
+        style: GoogleFonts.poppins(
+            decoration: TextDecoration.none, color: Colors.grey, fontSize: 17),
+      ),
+    ),
+    DropdownMenuItem(
+      value: 'Airtel Money',
+      child: Text(
+        'Airtel Money',
+        style: GoogleFonts.poppins(
+            decoration: TextDecoration.none, color: Colors.grey, fontSize: 17),
+      ),
+    ),
+    DropdownMenuItem(
+      value: 'Halopesa',
+      child: Text(
+        'Halopesa',
+        style: GoogleFonts.poppins(
+            decoration: TextDecoration.none, color: Colors.grey, fontSize: 17),
+      ),
+    ),
+  ];
 
   void _methodOfPaymentDialog() {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: MediaQuery.of(context).size.height * 0.8,
+          height: MediaQuery.of(context).size.height * 0.4,
+          width: double.maxFinite,
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-              color: Color(0xFF5E3023),
+              color: Colors.white,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding:
-                    EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
-                child: Container(
-                    width: 320,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(35),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius:
-                                30, // Adjust the radius to fit inside the border
-                            backgroundColor: Colors.white,
-                            child: ClipOval(
-                              child: Image.asset(
-                                "./assets/waiter.png",
-                                height: double.infinity,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "John Juma",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 20, color: Color(0xFFC18553)),
-                              ),
-                              Text("Waiter",
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 18, color: Colors.grey))
-                            ],
-                          ),
-                          Spacer(),
-                          CircleAvatar(
-                            radius:
-                                30, // Adjust the radius to fit inside the border
-                            backgroundColor: Color(0xFFC18553),
-                            child: ClipOval(
-                                child: Icon(
-                              Icons.message,
-                              color: Colors.white,
-                            )),
-                          ),
-                        ],
-                      ),
-                    )),
+              Text(
+                "Pay By",
+                style: GoogleFonts.poppins(
+                    fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              Padding(
-                padding: EdgeInsets.all(18),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Cooking Time',
-                      style: GoogleFonts.poppins(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'Estimated 8:30 - 9:15 PM',
-                      style: GoogleFonts.poppins(
-                          fontSize: 18, color: Colors.white),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.content_paste,
-                          color: Color(0xFFC18553),
-                        ),
-                        Text(
-                          "--------------",
-                          style: GoogleFonts.poppins(
-                              color: Color(0xFFC18553), fontSize: 15),
-                        ),
-                        Icon(
-                          Icons.rice_bowl,
-                          color: Color(0xFFC18553),
-                        ),
-                        Text(
-                          "--------------",
-                          style: GoogleFonts.poppins(
-                              color: Color(0xFFC18553), fontSize: 15),
-                        ),
-                        Icon(
-                          CupertinoIcons.check_mark_circled,
-                          color: Color(0xFFC18553),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+              SizedBox(
+                height: 5,
               ),
-              Center(
+              Container(
+                height: 60,
+                width: 340,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(width: 1, color: Colors.grey)),
                 child: Padding(
-                  padding: EdgeInsets.all(25),
-                  child: InkWell(
-                    child: Container(
-                      height: 50,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFC18553),
-                        borderRadius: BorderRadius.circular(25),
+                  padding: const EdgeInsets.all(18.0),
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton<String>(
+                      hint: Text(
+                        'Select an option',
+                        style: GoogleFonts.poppins(
+                            decoration: TextDecoration.none,
+                            color: Colors.grey,
+                            fontSize: 17),
                       ),
-                      child: Center(
-                        child: Text(
-                          "Continue To Payment",
-                          style: GoogleFonts.poppins(
-                              fontSize: 16, color: Colors.white),
-                        ),
-                      ),
+                      value: _selectedValue,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _selectedValue = newValue;
+                        });
+                      },
+                      items: dropdownMenuEntries,
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoModalPopupRoute(
-                              builder: (context) => PaymentMethodPage()));
-                    },
                   ),
                 ),
-              )
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Number",
+                style: GoogleFonts.poppins(
+                    fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                height: 60,
+                width: 340,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(width: 1, color: Colors.grey)),
+                child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      style:
+                          GoogleFonts.poppins(fontSize: 17, color: Colors.grey),
+                      decoration:
+                          InputDecoration(enabledBorder: InputBorder.none),
+                    )),
+              ),
             ],
           ),
         );

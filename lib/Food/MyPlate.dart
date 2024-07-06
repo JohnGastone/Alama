@@ -169,24 +169,24 @@ class _MyPlatePageState extends State<MyPlatePage> {
                   padding: EdgeInsets.all(25),
                   child: InkWell(
                     child: Container(
-                      width: 200,
                       height: 50,
+                      width: 200,
                       decoration: BoxDecoration(
-                        color: Colors.brown,
-                        borderRadius: BorderRadius.circular(20),
+                        color: Color(0xFFC18553),
+                        borderRadius: BorderRadius.circular(25),
                       ),
                       child: Center(
                         child: Text(
-                          "Sign In",
+                          "Continue To Payment",
                           style: GoogleFonts.poppins(
-                              fontSize: 20, color: Colors.white),
+                              fontSize: 16, color: Colors.white),
                         ),
                       ),
                     ),
                     onTap: () {
                       Navigator.push(
                           context,
-                          CupertinoPageRoute(
+                          CupertinoModalPopupRoute(
                               builder: (context) => LoginPage()));
                     },
                   ),

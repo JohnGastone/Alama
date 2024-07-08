@@ -186,7 +186,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                     onTap: () {
                       Navigator.push(
                           context,
-                          CupertinoModalPopupRoute(
+                          CupertinoPageRoute(
                               builder: (context) => PaymentMethodPage()));
                     },
                   ),

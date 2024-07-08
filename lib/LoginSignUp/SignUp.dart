@@ -181,7 +181,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => LoginPage()));
+                  },
                 ),
               ),
               SizedBox(height: 20),

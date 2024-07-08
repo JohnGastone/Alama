@@ -3,6 +3,7 @@
 import 'package:alamaapp/models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PaymentMethodPage extends StatefulWidget {
@@ -14,6 +15,35 @@ class PaymentMethodPage extends StatefulWidget {
 
 class _PaymentMethodPageState extends State<PaymentMethodPage> {
   int _radioValue = -1; // Manage the state of the radio button
+  List<FocusNode> _focusNodes = [];
+  List<TextEditingController> _controllers = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNodes = List.generate(4, (index) => FocusNode());
+    _controllers = List.generate(4, (index) => TextEditingController());
+  }
+
+  void _onTextChanged(int index, String value) {
+    if (value.isNotEmpty && index < _focusNodes.length - 1) {
+      _focusNodes[index].unfocus();
+      FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
+    } else if (index == _focusNodes.length - 1 && value.isNotEmpty) {
+      _focusNodes[index].unfocus();
+    }
+  }
+
+  @override
+  void dispose() {
+    for (var focusNode in _focusNodes) {
+      focusNode.dispose();
+    }
+    for (var controller in _controllers) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
 
   void _handleRadioValueChange(int? value) {
     setState(() {
@@ -132,6 +162,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                 child: Padding(
                     padding: const EdgeInsets.all(18.0),
                     child: TextField(
+                      inputFormatters: [LengthLimitingTextInputFormatter(10)],
                       keyboardType: TextInputType.number,
                       style:
                           GoogleFonts.poppins(fontSize: 17, color: Colors.grey),
@@ -164,10 +195,82 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       ),
                     ),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoModalPopupRoute(
-                              builder: (context) => PaymentMethodPage()));
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Center(
+                                child: Text(
+                                  "Enter Pin  ",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 18, color: Colors.black),
+                                ),
+                              ),
+                              content: SizedBox(
+                                height: 200,
+                                child: Column(
+                                  children: [
+                                    Center(
+                                      child: Text(
+                                        "Enter your M-Pesa Pin to continue",
+                                        style: GoogleFonts.poppins(
+                                            color: Colors.grey, fontSize: 17),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: List.generate(4, (index) {
+                                          return SizedBox(
+                                            width: 40,
+                                            child: TextField(
+                                              controller: _controllers[index],
+                                              focusNode: _focusNodes[index],
+                                              keyboardType:
+                                                  TextInputType.number,
+                                              inputFormatters: [
+                                                LengthLimitingTextInputFormatter(
+                                                    1),
+                                                FilteringTextInputFormatter
+                                                    .digitsOnly,
+                                              ],
+                                              onChanged: (value) =>
+                                                  _onTextChanged(index, value),
+                                              decoration: InputDecoration(
+                                                labelStyle: GoogleFonts.poppins(
+                                                  fontSize: 18,
+                                                ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors.grey),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.brown),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }),
+                                      ),
+                                    ),
+                                    // Loader here
+                                    Text(
+                                      "Please wait...",
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.grey, fontSize: 17),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          });
                     },
                   ),
                 ),

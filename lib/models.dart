@@ -44,7 +44,7 @@ class PaymentMethodModelData {
     PaymentMethodsModel("Mobile Money", "./assets/operation.png"),
     PaymentMethodsModel("Visa / Mastercard", "./assets/logo.png"),
     PaymentMethodsModel("Lipa Namba", "./assets/lipa.png"),
-    PaymentMethodsModel("Cash", "./assets/operation.png"),
+    PaymentMethodsModel("Cash", "./assets/cash-on-delivery.png"),
   ];
   static List<PaymentMethodsModel> displayPaymentMethods =
       List.from(PaymentMethodModelData.getPaymentMethods);

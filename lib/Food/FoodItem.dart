@@ -39,6 +39,8 @@ class _FoodItemPageState extends State<FoodItemPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context); // Get the current theme
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -281,7 +283,9 @@ class _FoodItemPageState extends State<FoodItemPage> {
                           "$_counter",
                           style: GoogleFonts.poppins(
                               fontSize: 20,
-                              color: Colors.black,
+                              color: theme.brightness == Brightness.light
+                                  ? Colors.black
+                                  : Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
                         SizedBox(

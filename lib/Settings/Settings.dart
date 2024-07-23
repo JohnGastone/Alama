@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:alamaapp/LoginSignUp/ChangePassword.dart';
+import 'package:alamaapp/LoginSignUp/ForgotPassword.dart';
 import 'package:alamaapp/themeProvider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -239,7 +240,12 @@ class _SettingsPageState extends State<SettingsPage> {
                             Icons.arrow_forward_ios,
                             color: Colors.grey,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ForgotPassword()));
+                          },
                         ),
                       ],
                     ),

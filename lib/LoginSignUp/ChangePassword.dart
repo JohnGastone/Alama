@@ -38,7 +38,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               ),
               SizedBox(height: 20),
               Text(
-                'Password reset successfully you can now Login using the new password',
+                'Password successfully changed you can now Login using the new password',
                 style: GoogleFonts.poppins(fontSize: 18),
               ),
               Spacer(),
@@ -118,9 +118,50 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 190),
-                child:
-                    Text("Password", style: GoogleFonts.poppins(fontSize: 20)),
+                padding: const EdgeInsets.only(right: 150),
+                child: Text("Current Password",
+                    style: GoogleFonts.poppins(fontSize: 20)),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                width: 300,
+                child: TextField(
+                  keyboardType: TextInputType.visiblePassword,
+                  decoration: InputDecoration(
+                    counter: Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Must be at least 8 characters",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Colors.brown,
+                        ),
+                      ),
+                    ),
+                    counterStyle:
+                        GoogleFonts.poppins(fontSize: 16, color: Colors.brown),
+                    labelText: "***************",
+                    labelStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                    ),
+                    suffixIcon: Icon(CupertinoIcons.eye),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.brown),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 170),
+                child: Text("New Password",
+                    style: GoogleFonts.poppins(fontSize: 20)),
               ),
               SizedBox(
                 height: 5,
@@ -162,8 +203,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 115),
-                child: Text("Confirm Password",
+                padding: const EdgeInsets.only(right: 105),
+                child: Text("Confirm New Password",
                     style: GoogleFonts.poppins(fontSize: 20)),
               ),
               SizedBox(
@@ -203,7 +244,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 ),
               ),
               SizedBox(
-                height: 200,
+                height: 100,
               ),
               Padding(
                 padding: EdgeInsets.all(25),
@@ -217,7 +258,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     ),
                     child: Center(
                       child: Text(
-                        "Reset",
+                        "Change",
                         style: GoogleFonts.poppins(
                             fontSize: 20, color: Colors.white),
                       ),

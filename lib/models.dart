@@ -32,6 +32,40 @@ class FoodsModelData {
   static List<FoodsModel> displayFoods = List.from(FoodsModelData.getFoods);
 }
 
+class CoffeeModel {
+  String? coffeeName;
+  double? coffeeRating;
+  String? coffeeImage;
+  String? preparationTime;
+  int? price;
+
+  CoffeeModel(this.coffeeName, this.coffeeRating, this.coffeeImage,
+      this.preparationTime, this.price);
+}
+
+class CoffeeModelData {
+  static List<CoffeeModel> getCoffee = [
+    CoffeeModel("Biryan Kuku", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
+    CoffeeModel("Chips Kavu", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
+    CoffeeModel("Wali Kuku", 4.9, "./assets/milky.jpeg", "5 min", 12000),
+    CoffeeModel("Wali nyama", 4.9, "./assets/robusta.jpeg", "5 min", 10000),
+    CoffeeModel("Biryan Kuku", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
+    CoffeeModel("Chips Kavu", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
+    CoffeeModel("Wali Kuku", 4.9, "./assets/milky.jpeg", "5 min", 12000),
+    CoffeeModel("Wali nyama", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
+    CoffeeModel("Biryan Kuku", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
+    CoffeeModel("Chips Kavu", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
+    CoffeeModel("Wali Kuku", 4.9, "./assets/milky.jpeg", "5 min", 12000),
+    CoffeeModel("Wali nyama", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
+    CoffeeModel("Biryan Kuku", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
+    CoffeeModel("Chips Kavu", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
+    CoffeeModel("Wali Kuku", 4.9, "./assets/tanga.jpeg", "5 min", 12000),
+    CoffeeModel("Wali nyama", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
+  ];
+
+  static List<CoffeeModel> displayFoods = List.from(CoffeeModelData.getCoffee);
+}
+
 class PaymentMethodsModel {
   String? paymentMethod;
   String? paymentImage;

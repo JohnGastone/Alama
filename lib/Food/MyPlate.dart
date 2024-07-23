@@ -201,6 +201,8 @@ class _MyPlatePageState extends State<MyPlatePage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context); // Get the current theme
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -417,7 +419,10 @@ class _MyPlatePageState extends State<MyPlatePage> {
                                     "$_counter",
                                     style: GoogleFonts.poppins(
                                         fontSize: 20,
-                                        color: Colors.black,
+                                        color:
+                                            theme.brightness == Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(
@@ -553,7 +558,10 @@ class _MyPlatePageState extends State<MyPlatePage> {
                                     "$_counter",
                                     style: GoogleFonts.poppins(
                                         fontSize: 20,
-                                        color: Colors.black,
+                                        color:
+                                            theme.brightness == Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(

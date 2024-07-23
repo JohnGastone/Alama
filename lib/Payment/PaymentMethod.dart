@@ -92,6 +92,8 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
   ];
 
   void _methodOfPaymentDialog() {
+    final theme = Theme.of(context); // Get the current theme
+
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -109,7 +111,9 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               Text(
                 "Pay By",
                 style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.bold),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
               SizedBox(
                 height: 5,
@@ -148,7 +152,9 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               Text(
                 "Number",
                 style: GoogleFonts.poppins(
-                    fontSize: 20, fontWeight: FontWeight.bold),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
               SizedBox(
                 height: 5,
@@ -203,7 +209,11 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                 child: Text(
                                   "Enter Pin  ",
                                   style: GoogleFonts.poppins(
-                                      fontSize: 18, color: Colors.black),
+                                    fontSize: 18,
+                                    color: theme.brightness == Brightness.light
+                                        ? Colors.black
+                                        : Colors.white,
+                                  ),
                                 ),
                               ),
                               content: SizedBox(

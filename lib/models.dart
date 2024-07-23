@@ -100,24 +100,24 @@ class SoftDrinksModel {
 class SoftDrinksModelData {
   static List<SoftDrinksModel> getSoftDrinks = [
     SoftDrinksModel(
-        "Arabica ", 4.9, "./assets/cocktail.jpeg", "5 min", 5000, ''),
-    SoftDrinksModel(
-        "Liberica ", 4.9, "./assets/Sprite.jpeg", "5 min", 7500, ''),
-    SoftDrinksModel("Pepsi ", 4.9, "./assets/Pepsi.jpeg", "5 min", 12000, ''),
+        "Cocktail ", 4.9, "./assets/cocktail.jpeg", "5 min", 5000, ''),
+    SoftDrinksModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
+    SoftDrinksModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
     SoftDrinksModel(
         "Cocktail ", 4.9, "./assets/cocktail.jpeg", "5 min", 10000, ''),
-    SoftDrinksModel("Arabica ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
-    SoftDrinksModel("Sprite ", 4.9, "./assets/Sprite.jpeg", "5 min", 7500, ''),
-    SoftDrinksModel("Pepsi ", 4.9, "./assets/Pepsi.jpeg", "5 min", 12000, ''),
+    SoftDrinksModel(
+        "Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    SoftDrinksModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
+    SoftDrinksModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
     SoftDrinksModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 10000, ''),
     SoftDrinksModel(
-        "Mountain dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
-    SoftDrinksModel("Sprite ", 4.9, "./assets/Sprite.jpeg", "5 min", 7500, ''),
-    SoftDrinksModel("Pepsi ", 4.9, "./assets/Pepsi.jpeg", "5 min", 12000, ''),
+        "Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    SoftDrinksModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
+    SoftDrinksModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
     SoftDrinksModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 10000, ''),
     SoftDrinksModel(
-        "Mountain dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
-    SoftDrinksModel("Sprite ", 4.9, "./assets/Sprite.jpeg", "5 min", 7500, ''),
+        "Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    SoftDrinksModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
     SoftDrinksModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 12000, ''),
     SoftDrinksModel(
         "Orange Juice ", 4.9, "./assets/orangejuice.jpeg", "5 min", 10000, ''),

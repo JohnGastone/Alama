@@ -140,7 +140,9 @@ class _HomePageState extends State<HomePage> {
                       shrinkWrap: true,
                       itemCount: _selectedIndex == 0
                           ? displayFoods.length
-                          : displayCoffee.length,
+                          : (_selectedIndex == 1
+                              ? displayCoffee.length
+                              : displaySoftDrinks.length),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisSpacing: 40,
@@ -367,7 +369,7 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => FoodItemPage()));
                             },
                           );
-                        } else if (_selectedIndex == 1 &&
+                        } else if (_selectedIndex == 2 &&
                             index < displaySoftDrinks.length) {
                           // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
                           final item = displaySoftDrinks[index];

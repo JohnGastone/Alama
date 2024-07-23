@@ -196,7 +196,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   fontSize: 18,
                   color: theme.brightness == Brightness.light
                       ? Colors.black
-                      : Colors.white,
+                      : Colors.brown,
                 ),
               ),
               SizedBox(

@@ -102,7 +102,9 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
           width: double.maxFinite,
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: theme.brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(

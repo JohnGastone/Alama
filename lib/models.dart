@@ -45,25 +45,29 @@ class CoffeeModel {
 
 class CoffeeModelData {
   static List<CoffeeModel> getCoffee = [
-    CoffeeModel("Biryan Kuku", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
-    CoffeeModel("Chips Kavu", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
-    CoffeeModel("Wali Kuku", 4.9, "./assets/milky.jpeg", "5 min", 12000),
-    CoffeeModel("Wali nyama", 4.9, "./assets/robusta.jpeg", "5 min", 10000),
-    CoffeeModel("Biryan Kuku", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
-    CoffeeModel("Chips Kavu", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
-    CoffeeModel("Wali Kuku", 4.9, "./assets/milky.jpeg", "5 min", 12000),
-    CoffeeModel("Wali nyama", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
-    CoffeeModel("Biryan Kuku", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
-    CoffeeModel("Chips Kavu", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
-    CoffeeModel("Wali Kuku", 4.9, "./assets/milky.jpeg", "5 min", 12000),
-    CoffeeModel("Wali nyama", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
-    CoffeeModel("Biryan Kuku", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
-    CoffeeModel("Chips Kavu", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
-    CoffeeModel("Wali Kuku", 4.9, "./assets/tanga.jpeg", "5 min", 12000),
-    CoffeeModel("Wali nyama", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
+    CoffeeModel("Arabica Coffee", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
+    CoffeeModel(
+        "Liberica Coffee", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
+    CoffeeModel("Milky Coffee", 4.9, "./assets/milky.jpeg", "5 min", 12000),
+    CoffeeModel("Robusta Coffee", 4.9, "./assets/robusta.jpeg", "5 min", 10000),
+    CoffeeModel("Arabica Coffee", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
+    CoffeeModel(
+        "Liberica Coffee", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
+    CoffeeModel("Milky Coffee", 4.9, "./assets/milky.jpeg", "5 min", 12000),
+    CoffeeModel("Nguu Coffee", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
+    CoffeeModel("Arabica Coffee", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
+    CoffeeModel(
+        "Liberica Coffee", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
+    CoffeeModel("Milky Coffee", 4.9, "./assets/milky.jpeg", "5 min", 12000),
+    CoffeeModel("Nguu Coffee", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
+    CoffeeModel("Arabica Coffee", 4.9, "./assets/arabica.jpeg", "5 min", 5000),
+    CoffeeModel(
+        "Liberica Coffee", 4.9, "./assets/liberica.jpeg", "5 min", 7500),
+    CoffeeModel("Tanga Coffee", 4.9, "./assets/tanga.jpeg", "5 min", 12000),
+    CoffeeModel("Nguu Coffee", 4.9, "./assets/nguu.jpeg", "5 min", 10000),
   ];
 
-  static List<CoffeeModel> displayFoods = List.from(CoffeeModelData.getCoffee);
+  static List<CoffeeModel> displayCoffee = List.from(CoffeeModelData.getCoffee);
 }
 
 class PaymentMethodsModel {

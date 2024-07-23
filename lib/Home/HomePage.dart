@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   List<FoodsModel> displayFoods = List.from(FoodsModelData.displayFoods);
+  List<CoffeeModel> displayCoffee = List.from(CoffeeModelData.getCoffee);
 
   @override
   Widget build(BuildContext context) {

@@ -138,7 +138,9 @@ class _FoodItemPageState extends State<FoodItemPage> {
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 28,
-                      color: Color.fromARGB(255, 54, 52, 50),
+                      color: theme.brightness == Brightness.light
+                          ? Colors.black
+                          : Colors.white,
                     ),
                     textAlign: TextAlign.start,
                   ),
@@ -201,7 +203,9 @@ class _FoodItemPageState extends State<FoodItemPage> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.bold,
                             fontSize: 25,
-                            color: Color.fromARGB(255, 39, 36, 34),
+                            color: theme.brightness == Brightness.light
+                                ? Colors.black
+                                : Colors.white,
                           ),
                           textAlign: TextAlign.left,
                         ),

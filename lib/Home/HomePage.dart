@@ -512,6 +512,7 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           child: Icon(
                             CupertinoIcons.home,
+                            size: 30,
                             color: Colors.grey,
                           ),
                           onTap: () {
@@ -524,6 +525,7 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           child: Icon(
                             CupertinoIcons.search,
+                            size: 30,
                             color: Colors.grey,
                           ),
                           onTap: () {
@@ -536,6 +538,7 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                             child: Icon(
                               CupertinoIcons.bag,
+                              size: 30,
                               color: Colors.grey,
                             ),
                             onTap: () {
@@ -546,7 +549,7 @@ class _HomePageState extends State<HomePage> {
                             }),
                         InkWell(
                           child: Icon(CupertinoIcons.settings_solid,
-                              color: Colors.grey),
+                              size: 30, color: Colors.grey),
                           onTap: () {
                             Navigator.push(
                                 context,

@@ -42,7 +42,37 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [],
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  child: ClipOval(
+                    child: Image.asset("./assets/waiter.png",
+                        height: double.maxFinite,
+                        width: double.maxFinite,
+                        fit: BoxFit.cover),
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "John Juma",
+                      style: GoogleFonts.poppins(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      "#42556",
+                      style:
+                          GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+                    ),
+                  ],
+                )
+              ],
+            )
+          ],
         ),
       ),
     );

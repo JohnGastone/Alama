@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:alamaapp/themeProvider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -12,13 +14,16 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool _isDarkMode = false;
-
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: _isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      themeMode:
+          themeProvider.themeMode, // Get the theme mode from the provider
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -41,28 +46,29 @@ class _SettingsPageState extends State<SettingsPage> {
                 Row(
                   children: [
                     Text(
-                      _isDarkMode ? "Dark Mode" : "Light Mode",
+                      themeProvider.themeMode == ThemeMode.dark
+                          ? "Dark Mode"
+                          : "Light Mode",
                       style:
                           GoogleFonts.poppins(fontSize: 15, color: Colors.grey),
                     ),
-                    SizedBox(
-                      width: 12,
-                    ),
+                    SizedBox(width: 12),
                     SizedBox(
                       height: 30,
                       width: 30,
                       child: Switch(
-                        value: _isDarkMode,
-                        activeColor: Color(0xFFC18553), // Custom color
+                        value: themeProvider.themeMode ==
+                            ThemeMode
+                                .dark, // Get the theme mode from the provider
+                        activeColor: Color(0xFFC18553),
                         onChanged: (bool value) {
-                          setState(() {
-                            _isDarkMode = value;
-                          });
+                          themeProvider
+                              .toggleTheme(); // Toggle theme in the provider
                         },
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

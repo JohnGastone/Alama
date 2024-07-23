@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:alamaapp/Food/FoodItem.dart';
 import 'package:alamaapp/Food/MyPlate.dart';
+import 'package:alamaapp/Profile/Profile.dart';
 import 'package:alamaapp/models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -283,7 +284,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => HomePage()));
+                                    builder: (context) => ProfilePage()));
                           },
                         )
                       ],

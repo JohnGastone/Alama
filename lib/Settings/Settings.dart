@@ -12,6 +12,34 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  void _showPopupDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Options"),
+          content: Text("Select an action"),
+          actions: <Widget>[
+            TextButton(
+              child: Text("Option 1"),
+              onPressed: () {
+                // Handle Option 1 action
+                Navigator.of(context).pop(); // Close the dialog
+              },
+            ),
+            TextButton(
+              child: Text("Option 2"),
+              onPressed: () {
+                // Handle Option 2 action
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +63,9 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               IconButton(
                 icon: Icon(Icons.more_horiz),
-                onPressed: () {},
+                onPressed: () {
+                  _showPopupDialog(context); // Call the function to show dialog
+                },
               ),
             ],
           ),

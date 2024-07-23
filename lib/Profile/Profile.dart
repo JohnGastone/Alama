@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -41,38 +42,72 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  radius: 30,
-                  child: ClipOval(
-                    child: Image.asset("./assets/waiter.png",
-                        height: double.maxFinite,
-                        width: double.maxFinite,
-                        fit: BoxFit.cover),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    child: ClipOval(
+                      child: Image.asset("./assets/waiter.png",
+                          height: double.maxFinite,
+                          width: double.maxFinite,
+                          fit: BoxFit.cover),
+                    ),
                   ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "John Juma",
-                      style: GoogleFonts.poppins(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "#42556",
-                      style:
-                          GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
-                    ),
-                  ],
-                )
-              ],
-            )
-          ],
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "John Juma",
+                        style: GoogleFonts.poppins(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "#42556",
+                        style: GoogleFonts.poppins(
+                            fontSize: 14, color: Colors.grey),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "Personal Information",
+                style: GoogleFonts.poppins(fontSize: 18),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Row(
+                    children: [
+                      Icon(CupertinoIcons.person),
+                      Text(
+                        "Profile",
+                        style: GoogleFonts.poppins(fontSize: 17),
+                      )
+                    ],
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.arrow_forward_ios),
+                    onPressed: () {},
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

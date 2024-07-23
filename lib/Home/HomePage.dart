@@ -163,6 +163,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
                                     height: 1,
@@ -193,17 +194,14 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 65),
-                                    child: Text(
-                                      displayFoods[index].foodName!,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                      textAlign: TextAlign.start,
+                                  Text(
+                                    displayFoods[index].foodName!,
+                                    style: GoogleFonts.poppins(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
                                     ),
+                                    textAlign: TextAlign.start,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(

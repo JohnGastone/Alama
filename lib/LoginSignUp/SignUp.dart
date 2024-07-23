@@ -25,6 +25,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context); // Get the current theme
+
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -190,7 +192,12 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(height: 20),
               Text(
                 "Or Sign Up with",
-                style: GoogleFonts.poppins(fontSize: 18, color: Colors.black),
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  color: theme.brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
               ),
               SizedBox(
                 height: 15,

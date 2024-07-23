@@ -80,31 +80,245 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
-              Text(
-                "Personal Information",
-                style: GoogleFonts.poppins(fontSize: 18),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Personal Information",
+                    style: GoogleFonts.poppins(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(CupertinoIcons.person),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            "Profile",
+                            style: GoogleFonts.poppins(fontSize: 17),
+                          )
+                        ],
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.language),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            "Language",
+                            style: GoogleFonts.poppins(fontSize: 17),
+                          )
+                        ],
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(CupertinoIcons.bell),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            "Notification",
+                            style: GoogleFonts.poppins(fontSize: 17),
+                          )
+                        ],
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  )
+                ],
               ),
               SizedBox(
                 height: 20,
               ),
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    "Security",
+                    style: GoogleFonts.poppins(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(CupertinoIcons.person),
-                      Text(
-                        "Profile",
-                        style: GoogleFonts.poppins(fontSize: 17),
-                      )
+                      Row(
+                        children: [
+                          Icon(CupertinoIcons.lock),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            "Change Password",
+                            style: GoogleFonts.poppins(fontSize: 17),
+                          )
+                        ],
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {},
+                      ),
                     ],
                   ),
-                  IconButton(
-                    icon: Icon(Icons.arrow_forward_ios),
-                    onPressed: () {},
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.lock_open),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            "Forgot Password",
+                            style: GoogleFonts.poppins(fontSize: 17),
+                          )
+                        ],
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
                   ),
                 ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Help & Support",
+                    style: GoogleFonts.poppins(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(CupertinoIcons.lock_shield),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            "Legal and Policies",
+                            style: GoogleFonts.poppins(fontSize: 17),
+                          )
+                        ],
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.help_outline_sharp),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text(
+                            "Help and Support",
+                            style: GoogleFonts.poppins(fontSize: 17),
+                          )
+                        ],
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Container(
+                height: 50,
+                width: 330,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Color(0xFFC18553), width: 1)),
+                child: Center(
+                  child: Text(
+                    "Log Out",
+                    style: GoogleFonts.poppins(
+                        color: Color(0xFFC18553),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
               )
             ],
           ),

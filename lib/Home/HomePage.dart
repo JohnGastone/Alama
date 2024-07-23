@@ -134,6 +134,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Column(
                           children: [
+                            SizedBox(
+                              height: 1,
+                            ),
                             Container(
                               width: 150,
                               height: 100,
@@ -165,6 +168,7 @@ class _HomePageState extends State<HomePage> {
                               child: Text(
                                 displayFoods[index].foodName!,
                                 style: GoogleFonts.poppins(
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
                                 ),
@@ -182,7 +186,8 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(width: 5),
                                   Text(
                                     "${displayFoods[index].foodRating!}",
-                                    style: GoogleFonts.poppins(fontSize: 15),
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 15, color: Colors.black),
                                   ),
                                   Spacer(),
                                   Icon(CupertinoIcons.clock,
@@ -190,7 +195,8 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(width: 5),
                                   Text(
                                     displayFoods[index].preparationTime!,
-                                    style: GoogleFonts.poppins(fontSize: 15),
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 15, color: Colors.black),
                                   ),
                                 ],
                               ),
@@ -392,6 +398,8 @@ class _HomePageState extends State<HomePage> {
         return Icons.rice_bowl;
       case 3:
         return Icons.apple;
+      case 4:
+        return Icons.rice_bowl;
       default:
         return Icons.error;
     }

@@ -85,6 +85,48 @@ class CoffeeModelData {
   static List<CoffeeModel> displayCoffee = List.from(CoffeeModelData.getCoffee);
 }
 
+class SoftDrinksModel {
+  String? softDrinkName;
+  double? softDrinkRating;
+  String? softDrinkImage;
+  String? preparationTime;
+  int? price;
+  String? category;
+
+  SoftDrinksModel(this.softDrinkName, this.softDrinkRating, this.softDrinkImage,
+      this.preparationTime, this.price, this.category);
+}
+
+class SoftDrinksModelData {
+  static List<SoftDrinksModel> getSoftDrinks = [
+    SoftDrinksModel(
+        "Arabica ", 4.9, "./assets/cocktail.jpeg", "5 min", 5000, ''),
+    SoftDrinksModel(
+        "Liberica ", 4.9, "./assets/Sprite.jpeg", "5 min", 7500, ''),
+    SoftDrinksModel("Pepsi ", 4.9, "./assets/Pepsi.jpeg", "5 min", 12000, ''),
+    SoftDrinksModel(
+        "Cocktail ", 4.9, "./assets/cocktail.jpeg", "5 min", 10000, ''),
+    SoftDrinksModel("Arabica ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    SoftDrinksModel("Sprite ", 4.9, "./assets/Sprite.jpeg", "5 min", 7500, ''),
+    SoftDrinksModel("Pepsi ", 4.9, "./assets/Pepsi.jpeg", "5 min", 12000, ''),
+    SoftDrinksModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 10000, ''),
+    SoftDrinksModel(
+        "Mountain dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    SoftDrinksModel("Sprite ", 4.9, "./assets/Sprite.jpeg", "5 min", 7500, ''),
+    SoftDrinksModel("Pepsi ", 4.9, "./assets/Pepsi.jpeg", "5 min", 12000, ''),
+    SoftDrinksModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 10000, ''),
+    SoftDrinksModel(
+        "Mountain dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    SoftDrinksModel("Sprite ", 4.9, "./assets/Sprite.jpeg", "5 min", 7500, ''),
+    SoftDrinksModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 12000, ''),
+    SoftDrinksModel(
+        "Orange Juice ", 4.9, "./assets/orangejuice.jpeg", "5 min", 10000, ''),
+  ];
+
+  static List<SoftDrinksModel> displaySoftDrinks =
+      List.from(SoftDrinksModelData.getSoftDrinks);
+}
+
 class PaymentMethodsModel {
   String? paymentMethod;
   String? paymentImage;

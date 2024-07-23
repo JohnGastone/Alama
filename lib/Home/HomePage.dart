@@ -225,17 +225,19 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(
+              bottom: 0,
+            ),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: SizedBox(
-                width: 300,
-                height: 50,
+                width: 360,
+                height: 90,
                 child: FloatingActionButton(
                   backgroundColor: Colors.white,
                   onPressed: () {},
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(18.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

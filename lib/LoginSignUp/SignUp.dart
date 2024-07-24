@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_final_fields
 
 import 'package:alamaapp/LoginSignUp/Login.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,6 +16,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool _isChecked = false;
+  bool _obscureText = false;
 
   void _handleCheckboxChange(bool? newValue) {
     setState(() {
@@ -125,13 +126,24 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 width: 300,
                 child: TextField(
+                  obscureText: _obscureText,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     labelText: "***************",
                     labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                     ),
-                    suffixIcon: Icon(CupertinoIcons.eye),
+                    suffixIcon: IconButton(
+                      icon: Icon(_obscureText
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText =
+                              !_obscureText; // Toggle visibility on tap
+                        });
+                      },
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.grey),

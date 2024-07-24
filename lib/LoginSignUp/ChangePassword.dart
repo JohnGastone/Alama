@@ -12,6 +12,10 @@ class ChangePasswordPage extends StatefulWidget {
 }
 
 class _ChangePasswordPageState extends State<ChangePasswordPage> {
+  bool obscureTextCurrent = false;
+  bool obscureTextNew = false;
+  bool obscureTextConfirm = false;
+
   void _showResetDialog() {
     showModalBottomSheet(
       context: context,
@@ -128,6 +132,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               SizedBox(
                 width: 300,
                 child: TextField(
+                  obscureText: obscureTextCurrent,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     counter: Container(
@@ -146,7 +151,17 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                     ),
-                    suffixIcon: Icon(CupertinoIcons.eye),
+                    suffixIcon: IconButton(
+                      icon: Icon(obscureTextCurrent
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye),
+                      onPressed: () {
+                        setState(() {
+                          obscureTextCurrent =
+                              !obscureTextCurrent; // Toggle visibility on tap
+                        });
+                      },
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.grey),
@@ -169,6 +184,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               SizedBox(
                 width: 300,
                 child: TextField(
+                  obscureText: obscureTextNew,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     counter: Container(
@@ -187,7 +203,17 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                     ),
-                    suffixIcon: Icon(CupertinoIcons.eye),
+                    suffixIcon: IconButton(
+                      icon: Icon(obscureTextNew
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye),
+                      onPressed: () {
+                        setState(() {
+                          obscureTextNew =
+                              !obscureTextNew; // Toggle visibility on tap
+                        });
+                      },
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.grey),
@@ -213,6 +239,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               SizedBox(
                 width: 300,
                 child: TextField(
+                  obscureText: obscureTextConfirm,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     counter: Container(
@@ -231,7 +258,17 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                     ),
-                    suffixIcon: Icon(CupertinoIcons.eye),
+                    suffixIcon: IconButton(
+                      icon: Icon(obscureTextConfirm
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye),
+                      onPressed: () {
+                        setState(() {
+                          obscureTextConfirm =
+                              !obscureTextConfirm; // Toggle visibility on tap
+                        });
+                      },
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.grey),

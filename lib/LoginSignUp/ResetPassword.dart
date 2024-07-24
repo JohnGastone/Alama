@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields
 import "package:alamaapp/LoginSignUp/Login.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
@@ -12,6 +12,9 @@ class ResetPasswordPage extends StatefulWidget {
 }
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
+  bool _obscureText = false;
+  bool _obscureTextConfirm = false;
+
   void _showResetDialog() {
     showModalBottomSheet(
       context: context,
@@ -128,6 +131,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               SizedBox(
                 width: 300,
                 child: TextField(
+                  obscureText: _obscureText,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     counter: Container(
@@ -146,7 +150,17 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                     ),
-                    suffixIcon: Icon(CupertinoIcons.eye),
+                    suffixIcon: IconButton(
+                      icon: Icon(_obscureText
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText =
+                              !_obscureText; // Toggle visibility on tap
+                        });
+                      },
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.grey),
@@ -172,6 +186,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               SizedBox(
                 width: 300,
                 child: TextField(
+                  obscureText: _obscureTextConfirm,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     counter: Container(
@@ -190,7 +205,17 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                     ),
-                    suffixIcon: Icon(CupertinoIcons.eye),
+                    suffixIcon: IconButton(
+                      icon: Icon(_obscureTextConfirm
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye),
+                      onPressed: () {
+                        setState(() {
+                          _obscureTextConfirm =
+                              !_obscureTextConfirm; // Toggle visibility on tap
+                        });
+                      },
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.grey),

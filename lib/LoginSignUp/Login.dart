@@ -16,6 +16,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _obscureText = true; // Start with text obscured
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,13 +80,24 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 width: 300,
                 child: TextField(
+                  obscureText: _obscureText,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     labelText: "***************",
                     labelStyle: GoogleFonts.poppins(
                       fontSize: 18,
                     ),
-                    suffixIcon: Icon(CupertinoIcons.eye),
+                    suffixIcon: IconButton(
+                      icon: Icon(_obscureText
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText =
+                              !_obscureText; // Toggle visibility on tap
+                        });
+                      },
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.grey),

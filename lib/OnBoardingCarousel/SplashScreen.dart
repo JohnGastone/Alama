@@ -58,11 +58,11 @@ class _SplashscreenState extends State<Splashscreen> {
           SizedBox(
             height: 250,
           ),
-          Text('Alama App',
-              style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold)),
+          Image.asset(
+            "./assets/ala.png",
+            width: 100,
+            height: 100,
+          ),
           SizedBox(
             height: 200,
             child: Padding(

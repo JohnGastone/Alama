@@ -2,6 +2,7 @@
 
 import 'package:alamaapp/LoginSignUp/ChangePassword.dart';
 import 'package:alamaapp/LoginSignUp/ForgotPassword.dart';
+import 'package:alamaapp/LoginSignUp/Login.dart';
 import 'package:alamaapp/themeProvider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool notificationsEnabled = false;
+  bool languageSwitchEnabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -138,13 +140,24 @@ class _SettingsPageState extends State<SettingsPage> {
                             )
                           ],
                         ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.grey,
-                          ),
-                          onPressed: () {},
-                        ),
+                        Row(
+                          children: [
+                            Text(
+                              languageSwitchEnabled ? "English" : "Kiswahili",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 18, color: Colors.grey),
+                            ),
+                            Switch(
+                              value: languageSwitchEnabled,
+                              activeColor: Color(0xFFC18553), // Custom color
+                              onChanged: (bool value) {
+                                setState(() {
+                                  languageSwitchEnabled = value;
+                                });
+                              },
+                            ),
+                          ],
+                        )
                       ],
                     ),
                     SizedBox(
@@ -174,8 +187,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             ),
                             Switch(
                               value: notificationsEnabled,
-                              activeColor: Color.fromARGB(
-                                  255, 66, 18, 118), // Custom color
+                              activeColor: Color(0xFFC18553), // Custom color
                               onChanged: (bool value) {
                                 setState(() {
                                   notificationsEnabled = value;
@@ -334,21 +346,27 @@ class _SettingsPageState extends State<SettingsPage> {
                 SizedBox(
                   height: 20,
                 ),
-                Container(
-                  height: 50,
-                  width: 330,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Color(0xFFC18553), width: 1)),
-                  child: Center(
-                    child: Text(
-                      "Log Out",
-                      style: GoogleFonts.poppins(
-                          color: Color(0xFFC18553),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500),
+                InkWell(
+                  child: Container(
+                    height: 50,
+                    width: 330,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Color(0xFFC18553), width: 1)),
+                    child: Center(
+                      child: Text(
+                        "Log Out",
+                        style: GoogleFonts.poppins(
+                            color: Color(0xFFC18553),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
                 )
               ],
             ),

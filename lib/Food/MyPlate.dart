@@ -41,6 +41,67 @@ class _MyPlatePageState extends State<MyPlatePage> {
     });
   }
 
+  String _selectedTable = "T-01"; // Initial table number
+  final LayerLink _layerLink = LayerLink(); // For positioning the dropdown
+  OverlayEntry? _overlayEntry;
+
+  List<DropdownMenuItem<String>> get _tableDropdownMenuItems {
+    List<DropdownMenuItem<String>> items = [];
+    for (int i = 1; i <= 10; i++) {
+      items.add(DropdownMenuItem(
+        value: "T-$i", // Table number format
+        child: Text(
+          "T-$i",
+          style: GoogleFonts.poppins(fontSize: 16, color: Color(0xFFC18553)),
+        ),
+      ));
+    }
+    return items;
+  }
+
+  void _onTableChanged(String? newTable) {
+    if (newTable != null) {
+      setState(() {
+        _selectedTable = newTable;
+      });
+    }
+  }
+
+  void _showTableDropdown() {
+    // Remove existing overlay if it exists
+    _overlayEntry?.remove();
+
+    // Create the new OverlayEntry
+    _overlayEntry = OverlayEntry(
+      builder: (context) => Positioned(
+        width: 130,
+        child: CompositedTransformFollower(
+          link: _layerLink,
+          showWhenUnlinked: false,
+          offset: Offset(0.0, 40.0),
+          child: Material(
+            elevation: 4.0,
+            child: DropdownButton<String>(
+              value: _selectedTable,
+              items: _tableDropdownMenuItems,
+              onChanged: (value) {
+                _onTableChanged(value);
+                _overlayEntry?.remove();
+                _overlayEntry = null;
+              },
+              icon: Icon(Icons.arrow_drop_down, color: Color(0xFFC18553)),
+              style:
+                  GoogleFonts.poppins(fontSize: 16, color: Color(0xFFC18553)),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    // Insert the OverlayEntry into the Overlay
+    Overlay.of(context)?.insert(_overlayEntry!);
+  }
+
   void _showPrePaymentDialog() {
     showModalBottomSheet(
       context: context,
@@ -49,7 +110,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
           height: MediaQuery.of(context).size.height * 0.8,
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-              color: Color(0xFF5E3023),
+              color: Color.fromARGB(255, 42, 28, 24),
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
@@ -248,27 +309,30 @@ class _MyPlatePageState extends State<MyPlatePage> {
                               fontSize: 18, color: Colors.grey),
                         ),
                         Text(
-                          "T-08",
+                          _selectedTable, // Display the selected table number here
                           style: GoogleFonts.poppins(
                               fontSize: 20, fontWeight: FontWeight.bold),
-                        )
+                        ),
                       ],
                     ),
-                    Container(
-                      width: 130,
-                      height: 40,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          border:
-                              Border.all(color: Color(0xFFC18553), width: 1)),
-                      child: Center(
-                        child: Text(
-                          "Change Table",
-                          style: GoogleFonts.poppins(
-                              fontSize: 16, color: Color(0xFFC18553)),
+                    InkWell(
+                      child: Container(
+                        width: 130,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            border:
+                                Border.all(color: Color(0xFFC18553), width: 1)),
+                        child: Center(
+                          child: Text(
+                            "Change Table",
+                            style: GoogleFonts.poppins(
+                                fontSize: 16, color: Color(0xFFC18553)),
+                          ),
                         ),
                       ),
+                      onTap: () => _showTableDropdown,
                     ),
                   ],
                 ),

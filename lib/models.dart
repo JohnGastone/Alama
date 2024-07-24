@@ -143,21 +143,24 @@ class FruitsModelData {
   static List<FruitsModel> getFruits = [
     FruitsModel("Banana ", 4.9, "./assets/banana.jpeg", "5 min", 5000, ''),
     FruitsModel("Mango ", 4.9, "./assets/mango.jpeg", "5 min", 7500, ''),
-    FruitsModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
-    FruitsModel("Cocktail ", 4.9, "./assets/cocktail.jpeg", "5 min", 10000, ''),
-    FruitsModel("Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
-    FruitsModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
-    FruitsModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
-    FruitsModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 10000, ''),
-    FruitsModel("Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
-    FruitsModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
-    FruitsModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
-    FruitsModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 10000, ''),
-    FruitsModel("Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
-    FruitsModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
-    FruitsModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 12000, ''),
+    FruitsModel("Grapes ", 4.9, "./assets/grapes.jpeg", "5 min", 12000, ''),
+    FruitsModel("Orange ", 4.9, "./assets/orange.jpeg", "5 min", 10000, ''),
+    FruitsModel("Passion ", 4.9, "./assets/passion.jpeg", "5 min", 5000, ''),
     FruitsModel(
-        "Orange Juice ", 4.9, "./assets/orangejuice.jpeg", "5 min", 10000, ''),
+        "Pineapple ", 4.9, "./assets/pineapple.jpeg", "5 min", 7500, ''),
+    FruitsModel(
+        "Watermelon ", 4.9, "./assets/watermelon.jpeg", "5 min", 12000, ''),
+    FruitsModel("Orange ", 4.9, "./assets/orange.jpeg", "5 min", 10000, ''),
+    FruitsModel("Grapes", 4.9, "./assets/grapes.jpeg", "5 min", 5000, ''),
+    FruitsModel("Mango ", 4.9, "./assets/mango.jpeg", "5 min", 7500, ''),
+    FruitsModel("Banana ", 4.9, "./assets/banana.jpeg", "5 min", 12000, ''),
+    FruitsModel("Passion ", 4.9, "./assets/passion.jpeg", "5 min", 10000, ''),
+    FruitsModel("Grapes ", 4.9, "./assets/grapes.jpeg", "5 min", 5000, ''),
+    FruitsModel(
+        "Pineapple ", 4.9, "./assets/pineapple.jpeg", "5 min", 7500, ''),
+    FruitsModel(
+        "Watermelon ", 4.9, "./assets/watermelon.jpeg", "5 min", 12000, ''),
+    FruitsModel("Orange ", 4.9, "./assets/orange.jpeg", "5 min", 10000, ''),
   ];
 
   static List<FruitsModel> displayFruits = List.from(FruitsModelData.getFruits);

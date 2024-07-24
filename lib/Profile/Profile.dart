@@ -30,10 +30,12 @@ class _UserprofileState extends State<Userprofile> {
             children: [
               InkWell(
                 child: CircleAvatar(
-                  backgroundColor: Colors.white24,
+                  backgroundColor: Colors.brown,
                   child: Icon(
                     CupertinoIcons.back,
-                    color: Colors.white,
+                    color: theme.brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,
                   ),
                 ),
                 onTap: () {
@@ -44,7 +46,9 @@ class _UserprofileState extends State<Userprofile> {
                 "Profile",
                 style: GoogleFonts.poppins(
                     fontSize: 25,
-                    color: Colors.white,
+                    color: theme.brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,
                     fontWeight: FontWeight.bold),
               )
             ],

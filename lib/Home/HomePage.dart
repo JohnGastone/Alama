@@ -520,7 +520,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Home",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 15, color: Colors.brown),
+                                    fontSize: 15, color: Color(0xFFC18553)),
                               )
                             ],
                           ),
@@ -542,7 +542,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Explore Foods",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 15, color: Colors.brown),
+                                    fontSize: 15, color: Color(0xFFC18553)),
                               )
                             ],
                           ),
@@ -564,7 +564,7 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   "My Plate",
                                   style: GoogleFonts.poppins(
-                                      fontSize: 15, color: Colors.brown),
+                                      fontSize: 15, color: Color(0xFFC18553)),
                                 )
                               ],
                             ),
@@ -582,7 +582,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Settings",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 15, color: Colors.brown),
+                                    fontSize: 15, color: Color(0xFFC18553)),
                               )
                             ],
                           ),

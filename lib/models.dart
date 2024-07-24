@@ -127,6 +127,42 @@ class SoftDrinksModelData {
       List.from(SoftDrinksModelData.getSoftDrinks);
 }
 
+class FruitsModel {
+  String? fruitName;
+  double? fruitRating;
+  String? fruitImage;
+  String? preparationTime;
+  int? price;
+  String? category;
+
+  FruitsModel(this.fruitName, this.fruitRating, this.fruitImage,
+      this.preparationTime, this.price, this.category);
+}
+
+class FruitsModelData {
+  static List<FruitsModel> getFruits = [
+    FruitsModel("Banana ", 4.9, "./assets/banana.jpeg", "5 min", 5000, ''),
+    FruitsModel("Mango ", 4.9, "./assets/mango.jpeg", "5 min", 7500, ''),
+    FruitsModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
+    FruitsModel("Cocktail ", 4.9, "./assets/cocktail.jpeg", "5 min", 10000, ''),
+    FruitsModel("Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    FruitsModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
+    FruitsModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
+    FruitsModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 10000, ''),
+    FruitsModel("Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    FruitsModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
+    FruitsModel("Pepsi ", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, ''),
+    FruitsModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 10000, ''),
+    FruitsModel("Mountain Dew ", 4.9, "./assets/dew.jpeg", "5 min", 5000, ''),
+    FruitsModel("Sprite ", 4.9, "./assets/sprite.jpeg", "5 min", 7500, ''),
+    FruitsModel("Cocacola ", 4.9, "./assets/coke.jpeg", "5 min", 12000, ''),
+    FruitsModel(
+        "Orange Juice ", 4.9, "./assets/orangejuice.jpeg", "5 min", 10000, ''),
+  ];
+
+  static List<FruitsModel> displayFruits = List.from(FruitsModelData.getFruits);
+}
+
 class PaymentMethodsModel {
   String? paymentMethod;
   String? paymentImage;

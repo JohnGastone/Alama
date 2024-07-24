@@ -510,10 +510,19 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                          child: Icon(
-                            CupertinoIcons.home,
-                            size: 30,
-                            color: Colors.grey,
+                          child: Column(
+                            children: [
+                              Icon(
+                                CupertinoIcons.home,
+                                size: 30,
+                                color: Colors.grey,
+                              ),
+                              Text(
+                                "Home",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, color: Colors.brown),
+                              )
+                            ],
                           ),
                           onTap: () {
                             Navigator.push(
@@ -523,10 +532,19 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                         InkWell(
-                          child: Icon(
-                            CupertinoIcons.search,
-                            size: 30,
-                            color: Colors.grey,
+                          child: Column(
+                            children: [
+                              Icon(
+                                CupertinoIcons.search,
+                                size: 30,
+                                color: Colors.grey,
+                              ),
+                              Text(
+                                "Explore Foods",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, color: Colors.brown),
+                              )
+                            ],
                           ),
                           onTap: () {
                             Navigator.push(
@@ -536,10 +554,19 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                         InkWell(
-                            child: Icon(
-                              CupertinoIcons.bag,
-                              size: 30,
-                              color: Colors.grey,
+                            child: Column(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.bag,
+                                  size: 30,
+                                  color: Colors.grey,
+                                ),
+                                Text(
+                                  "My Plate",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 15, color: Colors.brown),
+                                )
+                              ],
                             ),
                             onTap: () {
                               Navigator.push(
@@ -548,8 +575,17 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => MyPlatePage()));
                             }),
                         InkWell(
-                          child: Icon(CupertinoIcons.settings_solid,
-                              size: 30, color: Colors.grey),
+                          child: Column(
+                            children: [
+                              Icon(CupertinoIcons.settings_solid,
+                                  size: 30, color: Colors.grey),
+                              Text(
+                                "Settings",
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, color: Colors.brown),
+                              )
+                            ],
+                          ),
                           onTap: () {
                             Navigator.push(
                                 context,

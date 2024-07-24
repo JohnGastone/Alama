@@ -16,6 +16,8 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  bool notificationsEnabled = false;
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -163,13 +165,25 @@ class _SettingsPageState extends State<SettingsPage> {
                             )
                           ],
                         ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.grey,
-                          ),
-                          onPressed: () {},
-                        ),
+                        Row(
+                          children: [
+                            Text(
+                              notificationsEnabled ? "On" : "Off",
+                              style: GoogleFonts.poppins(
+                                  fontSize: 18, color: Colors.grey),
+                            ),
+                            Switch(
+                              value: notificationsEnabled,
+                              activeColor: Color.fromARGB(
+                                  255, 66, 18, 118), // Custom color
+                              onChanged: (bool value) {
+                                setState(() {
+                                  notificationsEnabled = value;
+                                });
+                              },
+                            ),
+                          ],
+                        )
                       ],
                     )
                   ],

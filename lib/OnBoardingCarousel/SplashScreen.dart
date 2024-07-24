@@ -19,8 +19,8 @@ class _SplashscreenState extends State<Splashscreen> {
   void initState() {
     super.initState();
     startTimer();
-    // Navigate to OnboardingCarousel after 3 seconds
-    Future.delayed(Duration(seconds: 5), () {
+    // Navigate to OnboardingCarousel after 8 seconds
+    Future.delayed(Duration(seconds: 8), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => Onboardingcarousel()),
@@ -56,12 +56,12 @@ class _SplashscreenState extends State<Splashscreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(
-            height: 250,
+            height: 100,
           ),
           Image.asset(
             "./assets/ala.png",
-            width: 100,
-            height: 100,
+            width: 200,
+            height: 200,
           ),
           SizedBox(
             height: 200,

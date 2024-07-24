@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(5, (index) {
+                      children: List.generate(8, (index) {
                         return GestureDetector(
                           onTap: () => _toggleSelection(index),
                           child: Padding(
@@ -820,7 +820,9 @@ class _HomePageState extends State<HomePage> {
       case 3:
         return Icons.apple;
       case 4:
-        return Icons.rice_bowl;
+        return Icons.coffee_sharp;
+      case 5:
+        return Icons.food_bank;
       default:
         return Icons.error;
     }
@@ -836,6 +838,10 @@ class _HomePageState extends State<HomePage> {
         return "Drinks";
       case 3:
         return "Fruits";
+      case 4:
+        return "Tea";
+      case 5:
+        return "Locals";
       default:
         return "Addons";
     }

@@ -3,6 +3,7 @@
 import 'package:alamaapp/LoginSignUp/ChangePassword.dart';
 import 'package:alamaapp/LoginSignUp/ForgotPassword.dart';
 import 'package:alamaapp/LoginSignUp/Login.dart';
+import 'package:alamaapp/Profile/Profile.dart';
 import 'package:alamaapp/themeProvider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +119,12 @@ class _SettingsPageState extends State<SettingsPage> {
                             Icons.arrow_forward_ios,
                             color: Colors.grey,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) => Userprofile()));
+                          },
                         ),
                       ],
                     ),

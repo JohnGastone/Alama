@@ -18,11 +18,11 @@ class _UserprofileState extends State<Userprofile> {
 
     return Scaffold(
       backgroundColor:
-          theme.brightness == Brightness.light ? Colors.black : Colors.white,
+          theme.brightness == Brightness.light ? Colors.white : Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor:
-            theme.brightness == Brightness.light ? Colors.black : Colors.white,
+            theme.brightness == Brightness.light ? Colors.white : Colors.black,
         title: Padding(
           padding: const EdgeInsets.only(right: 110),
           child: Row(
@@ -62,7 +62,7 @@ class _UserprofileState extends State<Userprofile> {
                 height: 610,
                 width: double.maxFinite,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.brown,
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(170),
                         topLeft: Radius.circular(170))),
@@ -111,7 +111,7 @@ class _UserprofileState extends State<Userprofile> {
                             style: GoogleFonts.poppins(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 28, 39, 81),
+                              color: Colors.white,
                             ),
                           ),
                           Text(
@@ -147,13 +147,11 @@ class _UserprofileState extends State<Userprofile> {
                               Text(
                                 "User Details",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 18,
-                                    color: Color.fromARGB(255, 28, 39, 81)),
+                                    fontSize: 18, color: Colors.white),
                               )
                             ],
                           ),
-                          Icon(CupertinoIcons.forward,
-                              color: Color.fromARGB(255, 28, 39, 81))
+                          Icon(CupertinoIcons.forward, color: Colors.white)
                         ],
                       ),
                     ),
@@ -179,13 +177,11 @@ class _UserprofileState extends State<Userprofile> {
                               Text(
                                 "Certificate",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 18,
-                                    color: Color.fromARGB(255, 28, 39, 81)),
+                                    fontSize: 18, color: Colors.white),
                               )
                             ],
                           ),
-                          Icon(CupertinoIcons.forward,
-                              color: Color.fromARGB(255, 28, 39, 81))
+                          Icon(CupertinoIcons.forward, color: Colors.white)
                         ],
                       ),
                     ),
@@ -211,13 +207,11 @@ class _UserprofileState extends State<Userprofile> {
                               Text(
                                 "Payment",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 18,
-                                    color: Color.fromARGB(255, 28, 39, 81)),
+                                    fontSize: 18, color: Colors.white),
                               )
                             ],
                           ),
-                          Icon(CupertinoIcons.forward,
-                              color: Color.fromARGB(255, 28, 39, 81))
+                          Icon(CupertinoIcons.forward, color: Colors.white)
                         ],
                       ),
                     ),
@@ -243,13 +237,11 @@ class _UserprofileState extends State<Userprofile> {
                               Text(
                                 "Document",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 18,
-                                    color: Color.fromARGB(255, 28, 39, 81)),
+                                    fontSize: 18, color: Colors.white),
                               )
                             ],
                           ),
-                          Icon(CupertinoIcons.forward,
-                              color: Color.fromARGB(255, 28, 39, 81))
+                          Icon(CupertinoIcons.forward, color: Colors.white)
                         ],
                       ),
                     ),
@@ -275,8 +267,7 @@ class _UserprofileState extends State<Userprofile> {
                               Text(
                                 "Logout",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 18,
-                                    color: Color.fromARGB(255, 28, 39, 81)),
+                                    fontSize: 18, color: Colors.white),
                               )
                             ],
                           ),

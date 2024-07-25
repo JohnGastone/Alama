@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                                 top: 8.0, left: 8, right: 8),
                             child: Container(
                               height: 80,
-                              width: 70,
+                              width: 100,
                               decoration: BoxDecoration(
                                 shape: BoxShape.rectangle,
                                 color: _selectedIndex == index
@@ -117,13 +117,7 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   SizedBox(height: 10),
-                                  Icon(
-                                    _getIcon(index),
-                                    color: _selectedIndex == index
-                                        ? Colors.white
-                                        : Colors.grey,
-                                    size: 30,
-                                  ),
+                                  _buildGridItem(index),
                                   Text(
                                     _getText(index),
                                     style: GoogleFonts.poppins(
@@ -809,22 +803,44 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  IconData _getIcon(int index) {
+  // Function to build each grid item
+  Widget _buildGridItem(int index) {
+    final isSelected = _selectedIndex == index; // Check if selected
+
+    if (index >= 0 && index <= 5) {
+      return Image.asset(
+        _getImagePath(index), // Function to get the correct image path
+        width: 30,
+        height: 30,
+        fit: BoxFit.cover,
+        color: isSelected ? Colors.white : null,
+      );
+    } else {
+      return Icon(
+        Icons.error,
+        size: 30,
+        color: isSelected ? Colors.white : Colors.grey,
+      );
+    }
+  }
+
+  // Helper function to get the image path based on index
+  String _getImagePath(int index) {
     switch (index) {
       case 0:
-        return Icons.rice_bowl_sharp;
+        return "./assets/restaurant.png";
       case 1:
-        return Icons.coffee_sharp;
+        return "./assets/coffee-cup.png";
       case 2:
-        return Icons.rice_bowl;
+        return "./assets/softdrinks.png";
       case 3:
-        return Icons.apple;
+        return "./assets/fruit.png";
       case 4:
-        return Icons.coffee_sharp;
+        return "./assets/tea.png";
       case 5:
-        return Icons.food_bank;
+        return "./assets/salad.png";
       default:
-        return Icons.error;
+        return "./assets/error.png"; // Or provide a default error image path
     }
   }
 
@@ -835,7 +851,7 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return "Coffee";
       case 2:
-        return "Drinks";
+        return "Soft Drinks";
       case 3:
         return "Fruits";
       case 4:

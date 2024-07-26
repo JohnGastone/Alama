@@ -195,27 +195,31 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(
                                     height: 1,
                                   ),
-                                  Container(
-                                    width: 150,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            displayFoods[index].foodImage!),
-                                        fit: BoxFit.cover,
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8.0, right: 4),
+                                    child: Container(
+                                      width: 150,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              displayFoods[index].foodImage!),
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 7, right: 7),
-                                      child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: CircleAvatar(
-                                          backgroundColor: Colors.white,
-                                          child: Icon(
-                                            CupertinoIcons.heart,
-                                            color: Color(0xFFC18553),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 7, right: 7),
+                                        child: Align(
+                                          alignment: Alignment.topRight,
+                                          child: CircleAvatar(
+                                            backgroundColor: Colors.white,
+                                            child: Icon(
+                                              CupertinoIcons.heart,
+                                              color: Color(0xFFC18553),
+                                            ),
                                           ),
                                         ),
                                       ),

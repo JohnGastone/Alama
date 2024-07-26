@@ -186,7 +186,7 @@ class TeaModelData {
     TeaModel("Orange Tea ", 4.9, "./assets/orangetea.jpeg", "5 min", 10000, ''),
     TeaModel("Vannila Tea ", 4.9, "./assets/tea.jpeg", "5 min", 5000, ''),
     TeaModel("Black Tea ", 4.9, "./assets/blacktea.jpeg", "5 min", 7500, ''),
-    TeaModel("Maatcha Tea ", 4.9, "./assets/matcha.jpg", "5 min", 12000, ''),
+    TeaModel("Matcha Tea ", 4.9, "./assets/matcha.jpg", "5 min", 12000, ''),
     TeaModel("Orange Tea ", 4.9, "./assets/orangetea.jpeg", "5 min", 10000, ''),
     TeaModel("Yerba Tea", 4.9, "./assets/Yerba.jpeg", "5 min", 5000, ''),
     TeaModel("Green Tea ", 4.9, "./assets/greentea.jpeg", "5 min", 7500, ''),
@@ -199,6 +199,49 @@ class TeaModelData {
   ];
 
   static List<TeaModel> displayTea = List.from(TeaModelData.getTea);
+}
+// ignore_for_file: file_names
+
+class LocalFoodsModel {
+  String? localFoodName;
+  double? localFoodRating;
+  String? localFoodImage;
+  String? preparationTime;
+  int? price;
+  String? category;
+
+  LocalFoodsModel(this.localFoodName, this.localFoodRating, this.localFoodImage,
+      this.preparationTime, this.price, this.category);
+}
+
+class LocalFoodsList {
+  static List<LocalFoodsModel> getLocalFoods = [
+    LocalFoodsModel("Biryani ", 4.9, "./assets/biryani.png", "5 min", 5000, ''),
+    LocalFoodsModel("Pilau ", 4.9, "./assets/greentea.jpeg", "5 min", 7500, ''),
+    LocalFoodsModel("Wali Nazi ", 4.9, "./assets/nazi.png", "5 min", 12000, ''),
+    LocalFoodsModel(
+        "Ndizi Mzuzu ", 4.9, "./assets/mzuzu.png", "5 min", 10000, ''),
+    LocalFoodsModel("Chips ", 4.9, "./assets/chips.png", "5 min", 5000, ''),
+    LocalFoodsModel("Biryani ", 4.9, "./assets/biryani.png", "5 min", 7500, ''),
+    LocalFoodsModel("Wali Nazi ", 4.9, "./assets/nazi.png", "5 min", 12000, ''),
+    LocalFoodsModel(
+        "Ndizi Mzuzu ", 4.9, "./assets/mzuzu.png", "5 min", 10000, ''),
+    LocalFoodsModel(
+        "Pilau Zenji", 4.9, "./assets/pilauzanzibar.png", "5 min", 5000, ''),
+    LocalFoodsModel("Pilau ", 4.9, "./assets/greentea.jpeg", "5 min", 7500, ''),
+    LocalFoodsModel(
+        "Biryani ", 4.9, "./assets/biryani.png", "5 min", 12000, ''),
+    LocalFoodsModel("Chips ", 4.9, "./assets/tea.jpeg", "5 min", 10000, ''),
+    LocalFoodsModel("Wali Nazi ", 4.9, "./assets/nazi.png", "5 min", 5000, ''),
+    LocalFoodsModel(
+        "Pilau Zenji ", 4.9, "./assets/pilauzanzibar.png", "5 min", 7500, ''),
+    LocalFoodsModel(
+        "Pilau ", 4.9, "./assets/greentea.jpeg", "5 min", 12000, ''),
+    LocalFoodsModel(
+        "Ndizi Mzuzu ", 4.9, "./assets/mzuzu.png", "5 min", 10000, ''),
+  ];
+  static List<LocalFoodsModel> displayLocalFoods =
+      List.from(LocalFoodsList.getLocalFoods);
 }
 
 class PaymentMethodsModel {

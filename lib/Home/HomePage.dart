@@ -53,6 +53,14 @@ class _HomePageState extends State<HomePage> {
                   fruit.category?.toLowerCase() ==
                   _getText(index).toLowerCase()) // Case-insensitive match
               .toList();
+
+      displayTea = (index == 4)
+          ? List.from(TeaModelData.displayTea)
+          : TeaModelData.displayTea
+              .where((tea) =>
+                  tea.category?.toLowerCase() ==
+                  _getText(index).toLowerCase()) // Case-insensitive match
+              .toList();
     });
   }
 
@@ -61,6 +69,7 @@ class _HomePageState extends State<HomePage> {
   List<SoftDrinksModel> displaySoftDrinks =
       List.from(SoftDrinksModelData.displaySoftDrinks);
   List<FruitsModel> displayFruits = List.from(FruitsModelData.displayFruits);
+  List<TeaModel> displayTea = List.from(TeaModelData.displayTea);
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(8, (index) {
+                      children: List.generate(7, (index) {
                         return GestureDetector(
                           onTap: () => _toggleSelection(index),
                           child: Padding(
@@ -147,7 +156,9 @@ class _HomePageState extends State<HomePage> {
                               ? displayCoffee.length
                               : (_selectedIndex == 2
                                   ? displaySoftDrinks.length
-                                  : displayFruits.length)),
+                                  : (_selectedIndex == 3
+                                      ? displayFruits.length
+                                      : displayTea.length))),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisSpacing: 40,
@@ -575,6 +586,116 @@ class _HomePageState extends State<HomePage> {
                                       alignment: Alignment.centerLeft,
                                       child: Text(
                                         "${displayFruits[index].price!}",
+                                        style: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                          color: Color(0xFFC18553),
+                                        ),
+                                        textAlign: TextAlign.start,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                      builder: (context) => FoodItemPage()));
+                            },
+                          );
+                        } else if (_selectedIndex == 4 &&
+                            index < displayTea.length) {
+                          // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
+                          final item = displayTea[index];
+                          return InkWell(
+                            child: Container(
+                              height: 210,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: 1,
+                                  ),
+                                  Container(
+                                    width: 150,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            displayTea[index].teaImage!),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 7, right: 7),
+                                      child: Align(
+                                        alignment: Alignment.topRight,
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.white,
+                                          child: Icon(
+                                            CupertinoIcons.heart,
+                                            color: Color(0xFFC18553),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 50),
+                                    child: Text(
+                                      displayTea[index].teaName!,
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      ),
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Icon(CupertinoIcons.star_fill,
+                                            color: Color(0xFFC18553)),
+                                        SizedBox(width: 5),
+                                        Text(
+                                          "${displayTea[index].teaRating!}",
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        Spacer(),
+                                        Icon(CupertinoIcons.clock,
+                                            color: Color(0xFFC18553)),
+                                        SizedBox(width: 5),
+                                        Text(
+                                          displayTea[index].preparationTime!,
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: Container(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "${displayTea[index].price!}",
                                         style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,

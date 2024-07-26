@@ -166,6 +166,41 @@ class FruitsModelData {
   static List<FruitsModel> displayFruits = List.from(FruitsModelData.getFruits);
 }
 
+class TeaModel {
+  String? teaName;
+  double? teaRating;
+  String? teaImage;
+  String? preparationTime;
+  int? price;
+  String? category;
+
+  TeaModel(this.teaName, this.teaRating, this.teaImage, this.preparationTime,
+      this.price, this.category);
+}
+
+class TeaModelData {
+  static List<TeaModel> getTea = [
+    TeaModel("Black Tea ", 4.9, "./assets/blacktea.jpeg", "5 min", 5000, ''),
+    TeaModel("Green Tea ", 4.9, "./assets/greentea.jpeg", "5 min", 7500, ''),
+    TeaModel("Matcha Tea ", 4.9, "./assets/matcha.jpg", "5 min", 12000, ''),
+    TeaModel("Orange Tea ", 4.9, "./assets/orangetea.jpeg", "5 min", 10000, ''),
+    TeaModel("Vannila Tea ", 4.9, "./assets/tea.jpeg", "5 min", 5000, ''),
+    TeaModel("Black Tea ", 4.9, "./assets/blacktea.jpeg", "5 min", 7500, ''),
+    TeaModel("Maatcha Tea ", 4.9, "./assets/matcha.jpg", "5 min", 12000, ''),
+    TeaModel("Orange Tea ", 4.9, "./assets/orangetea.jpeg", "5 min", 10000, ''),
+    TeaModel("Yerba Tea", 4.9, "./assets/Yerba.jpeg", "5 min", 5000, ''),
+    TeaModel("Green Tea ", 4.9, "./assets/greentea.jpeg", "5 min", 7500, ''),
+    TeaModel("Black Tea ", 4.9, "./assets/blacktea.jpeg", "5 min", 12000, ''),
+    TeaModel("Vannila Tea ", 4.9, "./assets/tea.jpeg", "5 min", 10000, ''),
+    TeaModel("Matcha Tea ", 4.9, "./assets/matcha.jpg", "5 min", 5000, ''),
+    TeaModel("Yerba Tea ", 4.9, "./assets/Yerba.jpeg", "5 min", 7500, ''),
+    TeaModel("Green Tea ", 4.9, "./assets/greentea.jpeg", "5 min", 12000, ''),
+    TeaModel("Orange Tea ", 4.9, "./assets/orangetea.jpeg", "5 min", 10000, ''),
+  ];
+
+  static List<TeaModel> displayTea = List.from(TeaModelData.getTea);
+}
+
 class PaymentMethodsModel {
   String? paymentMethod;
   String? paymentImage;

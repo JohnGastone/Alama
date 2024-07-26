@@ -286,8 +286,9 @@ class _HomePageState extends State<HomePage> {
                                   context,
                                   CupertinoPageRoute(
                                       builder: (context) => FoodItemPage(
-                                            foodItem: displayFoods[index],
-                                          )));
+                                          foodItem: _selectedIndex == 0
+                                              ? displayFoods[index]
+                                              : null)));
                             },
                           );
                         } else if (_selectedIndex == 1 &&

@@ -8,8 +8,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class FoodItemPage extends StatefulWidget {
-  const FoodItemPage({Key? key, required this.foodItem}) : super(key: key);
-  final FoodsModel foodItem;
+  final FoodsModel? foodItem; // Add this to receive the foodItem data
+
+  const FoodItemPage({super.key, this.foodItem}); // Modify the constructor
+
   @override
   State<FoodItemPage> createState() => _FoodItemPageState();
 }
@@ -41,6 +43,17 @@ class _FoodItemPageState extends State<FoodItemPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context); // Get the current theme
+
+    // Get the food data from widget.foodItem
+    final foodName = widget.foodItem?.foodName ?? "Default Food Name";
+    final foodPrice =
+        widget.foodItem?.price?.toString() ?? "Tsh 0"; // Format the price
+    final foodRating = widget.foodItem?.foodRating?.toString();
+    final foodPreparationTime =
+        widget.foodItem?.preparationTime?.toString() ?? "10 minutes";
+    final foodImage = widget.foodItem?.foodImage ?? "./assets/default_food.png";
+    final foodDescription =
+        widget.foodItem?.foodDescription ?? "Default description";
 
     return Scaffold(
       appBar: AppBar(
@@ -135,7 +148,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Chips Kavu",
+                    foodName,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 28,
@@ -152,7 +165,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Tsh 7500",
+                    foodPrice,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
@@ -169,7 +182,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                     Icon(CupertinoIcons.clock, color: Color(0xFFC18553)),
                     SizedBox(width: 5),
                     Text(
-                      "15 minutes",
+                      foodPreparationTime,
                       style: GoogleFonts.poppins(fontSize: 15),
                     ),
                     SizedBox(
@@ -178,7 +191,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                     Icon(CupertinoIcons.star_fill, color: Color(0xFFC18553)),
                     SizedBox(width: 5),
                     Text(
-                      "4.9",
+                      "$foodRating",
                       style: GoogleFonts.poppins(fontSize: 15),
                     ),
                   ],
@@ -215,7 +228,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                         height: 10,
                       ),
                       Text(
-                        "Chips is a beloved Tanzanian local food. It's a simple yet satisfying dish made of French fries (chips) often served with kachumbari (a fresh tomato and onion salad) and a spicy tomato sauce, it's a quick and delicious meal.",
+                        foodDescription,
                         style: GoogleFonts.poppins(
                             fontSize: 18, color: Colors.grey),
                       )

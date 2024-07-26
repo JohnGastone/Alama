@@ -180,7 +180,6 @@ class _HomePageState extends State<HomePage> {
                         if (_selectedIndex == 0 &&
                             index < displayFoods.length) {
                           // Check if the selected index is 0 (Foods) and if the index is valid for the displayFoods list
-                          final item = displayFoods[index];
                           return InkWell(
                             child: Container(
                               height: 210,
@@ -282,13 +281,14 @@ class _HomePageState extends State<HomePage> {
                               Navigator.push(
                                   context,
                                   CupertinoPageRoute(
-                                      builder: (context) => FoodItemPage()));
+                                      builder: (context) => FoodItemPage(
+                                            foodItem: displayFoods[index],
+                                          )));
                             },
                           );
                         } else if (_selectedIndex == 1 &&
                             index < displayCoffee.length) {
                           // Check if the selected index is 1 (Coffee) and if the index is valid for the displayCoffee list
-                          final item = displayCoffee[index];
                           return InkWell(
                             child: Container(
                               height: 210,
@@ -388,17 +388,16 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => FoodItemPage()));
-                            },
+                            // onTap: () {
+                            //   Navigator.push(
+                            //       context,
+                            //       CupertinoPageRoute(
+                            //           builder: (context) => FoodItemPage()));
+                            // },
                           );
                         } else if (_selectedIndex == 2 &&
                             index < displaySoftDrinks.length) {
                           // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
-                          final item = displaySoftDrinks[index];
                           return InkWell(
                             child: Container(
                               height: 210,
@@ -500,17 +499,16 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => FoodItemPage()));
-                            },
+                            // onTap: () {
+                            //   Navigator.push(
+                            //       context,
+                            //       CupertinoPageRoute(
+                            //           builder: (context) => FoodItemPage()));
+                            // },
                           );
                         } else if (_selectedIndex == 3 &&
                             index < displayFruits.length) {
                           // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
-                          final item = displayFruits[index];
                           return InkWell(
                             child: Container(
                               height: 210,
@@ -610,17 +608,16 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => FoodItemPage()));
-                            },
+                            // onTap: () {
+                            //   Navigator.push(
+                            //       context,
+                            //       CupertinoPageRoute(
+                            //           builder: (context) => FoodItemPage()));
+                            // },
                           );
                         } else if (_selectedIndex == 4 &&
                             index < displayTea.length) {
                           // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
-                          final item = displayTea[index];
                           return InkWell(
                             child: Container(
                               height: 210,
@@ -720,17 +717,16 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => FoodItemPage()));
-                            },
+                            // onTap: () {
+                            //   Navigator.push(
+                            //       context,
+                            //       CupertinoPageRoute(
+                            //           builder: (context) => FoodItemPage()));
+                            // },
                           );
                         } else if (_selectedIndex == 5 &&
                             index < displayLocalFoods.length) {
                           // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
-                          final item = displayLocalFoods[index];
                           return InkWell(
                             child: Container(
                               height: 210,
@@ -832,12 +828,12 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                             ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => FoodItemPage()));
-                            },
+                            // onTap: () {
+                            //   Navigator.push(
+                            //       context,
+                            //       CupertinoPageRoute(
+                            //           builder: (context) => FoodItemPage()));
+                            // },
                           );
                         } else {
                           // Handle cases where the index is out of range or the selected list is empty.

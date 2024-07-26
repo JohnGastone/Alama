@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:alamaapp/Food/MyPlate.dart';
+import 'package:alamaapp/models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class FoodItemPage extends StatefulWidget {
-  const FoodItemPage({super.key});
-
+  const FoodItemPage({Key? key, required this.foodItem}) : super(key: key);
+  final FoodsModel foodItem;
   @override
   State<FoodItemPage> createState() => _FoodItemPageState();
 }
@@ -134,7 +135,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Chipsi Kavu",
+                    "Chips Kavu",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 28,
@@ -214,7 +215,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                         height: 10,
                       ),
                       Text(
-                        "Lorem ipsum dolor sit amet consectetur. Mattis id malesuada facilisis nibh neque eget morbi quis. Est vitae id consectetur quam fringilla. Interdum.",
+                        "Chips is a beloved Tanzanian local food. It's a simple yet satisfying dish made of French fries (chips) often served with kachumbari (a fresh tomato and onion salad) and a spicy tomato sauce, it's a quick and delicious meal.",
                         style: GoogleFonts.poppins(
                             fontSize: 18, color: Colors.grey),
                       )

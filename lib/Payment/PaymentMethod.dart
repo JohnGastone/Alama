@@ -131,7 +131,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
                       hint: Text(
-                        'Select an option',
+                        'Select Mobile Network Operator',
                         style: GoogleFonts.poppins(
                             decoration: TextDecoration.none,
                             color: Colors.grey,
@@ -224,7 +224,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   children: [
                                     Center(
                                       child: Text(
-                                        "Enter your M-Pesa Pin to continue",
+                                        "Enter your Pin to continue",
                                         style: GoogleFonts.poppins(
                                             color: Colors.grey, fontSize: 17),
                                       ),
@@ -793,6 +793,243 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
     );
   }
 
+  void _lipaNambaPaymentDialog() {
+    final theme = Theme.of(context); // Get the current theme
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.6,
+          width: double.maxFinite,
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              color: theme.brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Pay By",
+                style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                height: 60,
+                width: 340,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(width: 1, color: Colors.grey)),
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton<String>(
+                      hint: Text(
+                        'Select Mobile Network Operator',
+                        style: GoogleFonts.poppins(
+                            decoration: TextDecoration.none,
+                            color: Colors.grey,
+                            fontSize: 17),
+                      ),
+                      value: _selectedValue,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _selectedValue = newValue;
+                        });
+                      },
+                      items: dropdownMenuEntries,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Lipa Namba",
+                style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                height: 60,
+                width: 340,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(width: 1, color: Colors.grey)),
+                child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: TextField(
+                      inputFormatters: [LengthLimitingTextInputFormatter(10)],
+                      keyboardType: TextInputType.number,
+                      style:
+                          GoogleFonts.poppins(fontSize: 17, color: Colors.grey),
+                      decoration: InputDecoration(
+                          hintText: "483909",
+                          hintStyle: GoogleFonts.poppins(
+                              fontSize: 17, color: Colors.grey),
+                          suffixIcon: Icon(CupertinoIcons.checkmark_seal),
+                          suffixIconColor: Color(0xFFC18553),
+                          enabledBorder: InputBorder.none),
+                    )),
+              ),
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.all(25),
+                  child: InkWell(
+                    child: Container(
+                      height: 50,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFC18553),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Pay Now",
+                          style: GoogleFonts.poppins(
+                              fontSize: 16, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Center(
+                                child: Text(
+                                  "Enter Pin  ",
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 18,
+                                    color: theme.brightness == Brightness.light
+                                        ? Colors.black
+                                        : Colors.white,
+                                  ),
+                                ),
+                              ),
+                              content: SizedBox(
+                                height: 200,
+                                child: Column(
+                                  children: [
+                                    Center(
+                                      child: Text(
+                                        "Enter your Pin to continue",
+                                        style: GoogleFonts.poppins(
+                                            color: Colors.grey, fontSize: 17),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: List.generate(4, (index) {
+                                          return SizedBox(
+                                            width: 40,
+                                            child: TextField(
+                                              controller: _controllers[index],
+                                              focusNode: _focusNodes[index],
+                                              keyboardType:
+                                                  TextInputType.number,
+                                              inputFormatters: [
+                                                LengthLimitingTextInputFormatter(
+                                                    1),
+                                                FilteringTextInputFormatter
+                                                    .digitsOnly,
+                                              ],
+                                              onChanged: (value) =>
+                                                  _onTextChanged(index, value),
+                                              decoration: InputDecoration(
+                                                labelStyle: GoogleFonts.poppins(
+                                                  fontSize: 18,
+                                                ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors.grey),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.brown),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }),
+                                      ),
+                                    ),
+                                    // Loader here
+                                    Text(
+                                      "Please wait...",
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.grey, fontSize: 17),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          });
+                    },
+                  ),
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _cashPaymentDialog() {
+    final theme = Theme.of(context); // Get the current theme
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+            height: MediaQuery.of(context).size.height * 0.6,
+            width: double.maxFinite,
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+                color: theme.brightness == Brightness.light
+                    ? Colors.black
+                    : Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20))),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Thank you for dining with us, waiter/waitress will come and collect the payment.",
+                    style:
+                        GoogleFonts.poppins(fontSize: 20, color: Colors.black),
+                  )
+                ],
+              ),
+            ));
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -912,6 +1149,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       } else if (_radioValue == 1) {
                         // Assuming index 1 is for card payment
                         _cardPaymentDialog();
+                      } else if (_radioValue == 2) {
+                        // Assuming index 1 is for card payment
+                        _lipaNambaPaymentDialog();
+                      } else if (_radioValue == 4) {
+                        // Assuming index 1 is for card payment
+                        _cashPaymentDialog();
                       } else {
                         // Handle case where no radio button is selected
                         // (e.g., show an error message)

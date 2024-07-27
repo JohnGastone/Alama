@@ -854,6 +854,41 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                 height: 10,
               ),
               Text(
+                "Number",
+                style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                height: 60,
+                width: 340,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(width: 1, color: Colors.grey)),
+                child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: TextField(
+                      inputFormatters: [LengthLimitingTextInputFormatter(10)],
+                      keyboardType: TextInputType.number,
+                      style:
+                          GoogleFonts.poppins(fontSize: 17, color: Colors.grey),
+                      decoration: InputDecoration(
+                          hintText: "0624839009",
+                          hintStyle: GoogleFonts.poppins(
+                              fontSize: 17, color: Colors.grey),
+                          suffixIcon: Icon(CupertinoIcons.checkmark_seal),
+                          suffixIconColor: Color(0xFFC18553),
+                          enabledBorder: InputBorder.none),
+                    )),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
                 "Lipa Namba",
                 style: GoogleFonts.poppins(
                     fontSize: 20,

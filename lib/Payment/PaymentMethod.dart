@@ -1057,7 +1057,11 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                     child: Text(
                       "Thank you for dining with us, waiter/waitress will come and collect the payment.",
                       style: GoogleFonts.poppins(
-                          fontSize: 20, color: Colors.black),
+                        fontSize: 20,
+                        color: theme.brightness == Brightness.light
+                            ? Colors.black
+                            : Colors.white,
+                      ),
                     ),
                   )
                 ],

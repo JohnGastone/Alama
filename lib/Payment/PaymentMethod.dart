@@ -103,8 +103,8 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
               color: theme.brightness == Brightness.light
-                  ? Colors.black
-                  : Colors.white,
+                  ? Colors.white
+                  : Colors.black,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
@@ -113,9 +113,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               Text(
                 "Pay By",
                 style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: theme.brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
               ),
               SizedBox(
                 height: 5,
@@ -154,9 +157,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               Text(
                 "Number",
                 style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: theme.brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
               ),
               SizedBox(
                 height: 5,
@@ -306,8 +312,8 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
               color: theme.brightness == Brightness.light
-                  ? Colors.black
-                  : Colors.white,
+                  ? Colors.white
+                  : Colors.black,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
@@ -332,8 +338,8 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                         style: GoogleFonts.poppins(
                           fontSize: 17,
                           color: theme.brightness == Brightness.light
-                              ? Colors.white
-                              : Colors.black,
+                              ? Colors.black
+                              : Colors.white,
                         ),
                       ),
                     )
@@ -805,8 +811,8 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
               color: theme.brightness == Brightness.light
-                  ? Colors.black
-                  : Colors.white,
+                  ? Colors.white
+                  : Colors.black,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
@@ -815,9 +821,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               Text(
                 "Pay By",
                 style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: theme.brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
               ),
               SizedBox(
                 height: 5,
@@ -856,9 +865,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               Text(
                 "Number",
                 style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: theme.brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
               ),
               SizedBox(
                 height: 5,
@@ -891,9 +903,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               Text(
                 "Lipa Namba",
                 style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: theme.brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
               ),
               SizedBox(
                 height: 5,

@@ -1150,10 +1150,10 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                         // Assuming index 1 is for card payment
                         _cardPaymentDialog();
                       } else if (_radioValue == 2) {
-                        // Assuming index 1 is for card payment
+                        // Assuming index 2 is for Lipa Namba payment
                         _lipaNambaPaymentDialog();
-                      } else if (_radioValue == 4) {
-                        // Assuming index 1 is for card payment
+                      } else if (_radioValue == 3) {
+                        // Assuming index 1 is for Cash payment
                         _cashPaymentDialog();
                       } else {
                         // Handle case where no radio button is selected

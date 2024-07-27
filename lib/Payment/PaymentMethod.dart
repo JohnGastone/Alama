@@ -420,7 +420,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                       SizedBox(
                                         width: 100,
                                         child: FloatingActionButton(
-                                            backgroundColor: Colors.green,
+                                            backgroundColor: Color(0xFFC18553),
                                             child: Text("Pay",
                                                 style: GoogleFonts.poppins(
                                                     fontSize: 16)),
@@ -503,7 +503,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                       SizedBox(
                                         width: 100,
                                         child: FloatingActionButton(
-                                            backgroundColor: Colors.green,
+                                            backgroundColor: Color(0xFFC18553),
                                             child: Text("Pay",
                                                 style: GoogleFonts.poppins(
                                                     fontSize: 16)),
@@ -586,7 +586,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                       SizedBox(
                                         width: 100,
                                         child: FloatingActionButton(
-                                            backgroundColor: Colors.green,
+                                            backgroundColor: Color(0xFFC18553),
                                             child: Text("Pay",
                                                 style: GoogleFonts.poppins(
                                                     fontSize: 16)),
@@ -669,7 +669,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                       SizedBox(
                                         width: 100,
                                         child: FloatingActionButton(
-                                            backgroundColor: Colors.green,
+                                            backgroundColor: Color(0xFFC18553),
                                             child: Text("Pay",
                                                 style: GoogleFonts.poppins(
                                                     fontSize: 16)),
@@ -757,7 +757,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                     SizedBox(
                                       width: 100,
                                       child: FloatingActionButton(
-                                          backgroundColor: Colors.green,
+                                          backgroundColor: Color(0xFFC18553),
                                           child: Text("Pay",
                                               style: GoogleFonts.poppins(
                                                   fontSize: 16)),

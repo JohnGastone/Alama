@@ -1018,10 +1018,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Thank you for dining with us, waiter/waitress will come and collect the payment.",
-                    style:
-                        GoogleFonts.poppins(fontSize: 20, color: Colors.black),
+                  Center(
+                    child: Text(
+                      "Thank you for dining with us, waiter/waitress will come and collect the payment.",
+                      style: GoogleFonts.poppins(
+                          fontSize: 20, color: Colors.black),
+                    ),
                   )
                 ],
               ),

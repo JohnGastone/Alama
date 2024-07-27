@@ -90,7 +90,491 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
       ),
     ),
   ];
-
+  /* 
+  
+  Padding(
+                  padding: const EdgeInsets.only(left: 40),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        "./assets/card.png",
+                        height: 30,
+                        width: 30,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Pay via VISA or MASTERCARD ",
+                          style: GoogleFonts.spaceMono(fontSize: 17),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                          child: Image.asset(
+                            "./assets/crdb.png",
+                            height: 65,
+                            width: 65,
+                          ),
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text(
+                                      "Pay via CRDB Bank",
+                                      style: GoogleFonts.spaceMono(
+                                          fontSize: 16, color: Colors.black),
+                                    ),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextField(
+                                          keyboardType: TextInputType.number,
+                                          inputFormatters: [
+                                            LengthLimitingTextInputFormatter(
+                                                13), // Limits input to 13 characters
+                                            FilteringTextInputFormatter
+                                                .digitsOnly, // Allows only digits
+                                          ],
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText: "Account Number"),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        TextField(
+                                          keyboardType: TextInputType.datetime,
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter
+                                                .digitsOnly,
+                                            LengthLimitingTextInputFormatter(10)
+                                          ],
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText:
+                                                  "Account expiration date"),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        TextField(
+                                          keyboardType: TextInputType.number,
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter
+                                                .digitsOnly,
+                                            LengthLimitingTextInputFormatter(3)
+                                          ],
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText: "Account's CVV "),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        SizedBox(
+                                          width: 100,
+                                          child: FloatingActionButton(
+                                              backgroundColor: Colors.green,
+                                              child: Text("Pay",
+                                                  style: GoogleFonts.spaceMono(
+                                                      fontSize: 16)),
+                                              onPressed: () {
+                                                // Integration to CRDB payment API
+                                              }),
+                                        )
+                                      ],
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Center(
+                                            child: Text(
+                                              "Cancel",
+                                              style: GoogleFonts.spaceMono(
+                                                  fontSize: 16,
+                                                  color: Colors.black),
+                                            ),
+                                          )),
+                                    ],
+                                  );
+                                });
+                          }),
+                      InkWell(
+                          child: Image.asset(
+                            "./assets/nmb.png",
+                            height: 65,
+                            width: 65,
+                          ),
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text(
+                                      "Pay via NMB Bank",
+                                      style: GoogleFonts.spaceMono(
+                                          fontSize: 16, color: Colors.black),
+                                    ),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextField(
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText: "Account Number"),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        TextField(
+                                          keyboardType: TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText:
+                                                  "Account expiration date"),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        TextField(
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText: "Account's CVV "),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        SizedBox(
+                                          width: 100,
+                                          child: FloatingActionButton(
+                                              backgroundColor: Colors.green,
+                                              child: Text("Pay",
+                                                  style: GoogleFonts.spaceMono(
+                                                      fontSize: 16)),
+                                              onPressed: () {
+                                                // Integration to NMB payment API
+                                              }),
+                                        )
+                                      ],
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Center(
+                                            child: Text(
+                                              "Cancel",
+                                              style: GoogleFonts.spaceMono(
+                                                  fontSize: 16,
+                                                  color: Colors.black),
+                                            ),
+                                          )),
+                                    ],
+                                  );
+                                });
+                          }),
+                      InkWell(
+                          child: Image.asset(
+                            "./assets/nbc.png",
+                            height: 65,
+                            width: 65,
+                          ),
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text(
+                                      "Pay via NBC Bank",
+                                      style: GoogleFonts.spaceMono(
+                                          fontSize: 16, color: Colors.black),
+                                    ),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextField(
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText: "Account Number"),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        TextField(
+                                          keyboardType: TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText:
+                                                  "Account expiration date"),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        TextField(
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText: "Account CVV "),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        SizedBox(
+                                          width: 100,
+                                          child: FloatingActionButton(
+                                              backgroundColor: Colors.green,
+                                              child: Text("Pay",
+                                                  style: GoogleFonts.spaceMono(
+                                                      fontSize: 16)),
+                                              onPressed: () {
+                                                // Integration to NBC payment API
+                                              }),
+                                        )
+                                      ],
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Center(
+                                            child: Text(
+                                              "Cancel",
+                                              style: GoogleFonts.spaceMono(
+                                                  fontSize: 16,
+                                                  color: Colors.black),
+                                            ),
+                                          )),
+                                    ],
+                                  );
+                                });
+                          }),
+                      InkWell(
+                          child: Image.asset(
+                            "./assets/sc.png",
+                            height: 65,
+                            width: 65,
+                          ),
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text(
+                                      "Pay via Standard Chartered Bank",
+                                      style: GoogleFonts.spaceMono(
+                                          fontSize: 16, color: Colors.black),
+                                    ),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextField(
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText: "Account Number"),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        TextField(
+                                          keyboardType: TextInputType.datetime,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText:
+                                                  "Account expiration date"),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        TextField(
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              hintText: "Account CVV "),
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        SizedBox(
+                                          width: 100,
+                                          child: FloatingActionButton(
+                                              backgroundColor: Colors.green,
+                                              child: Text("Pay",
+                                                  style: GoogleFonts.spaceMono(
+                                                      fontSize: 16)),
+                                              onPressed: () {
+                                                // Integration to google maps
+                                              }),
+                                        )
+                                      ],
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Center(
+                                            child: Text(
+                                              "Cancel",
+                                              style: GoogleFonts.spaceMono(
+                                                  fontSize: 16,
+                                                  color: Colors.black),
+                                            ),
+                                          )),
+                                    ],
+                                  );
+                                });
+                          })
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                        child: Image.asset(
+                          "./assets/equity.png",
+                          height: 65,
+                          width: 65,
+                        ),
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text(
+                                    "Pay via Equity Bank",
+                                    style: GoogleFonts.spaceMono(
+                                        fontSize: 16, color: Colors.black),
+                                  ),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account Number"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.datetime,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText:
+                                                "Account expiration date"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account's CVV "),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      SizedBox(
+                                        width: 100,
+                                        child: FloatingActionButton(
+                                            backgroundColor: Colors.green,
+                                            child: Text("Pay",
+                                                style: GoogleFonts.spaceMono(
+                                                    fontSize: 16)),
+                                            onPressed: () {
+                                              // Integration to CRDB payment API
+                                            }),
+                                      )
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "Cancel",
+                                            style: GoogleFonts.spaceMono(
+                                                fontSize: 16,
+                                                color: Colors.black),
+                                          ),
+                                        )),
+                                  ],
+                                );
+                              });
+                        }),
+                  ],
+  
+  
+  */
   void _methodOfPaymentDialog() {
     final theme = Theme.of(context); // Get the current theme
 
@@ -286,6 +770,500 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                     },
                   ),
                 ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _cardPaymentDialog() {
+    final theme = Theme.of(context); // Get the current theme
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.6,
+          width: double.maxFinite,
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              color: theme.brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "./assets/card.png",
+                      height: 30,
+                      width: 30,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Pay via VISA or MASTERCARD ",
+                        style: GoogleFonts.spaceMono(fontSize: 17),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                        child: Image.asset(
+                          "./assets/crdb.png",
+                          height: 65,
+                          width: 65,
+                        ),
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text(
+                                    "Pay via CRDB Bank",
+                                    style: GoogleFonts.spaceMono(
+                                        fontSize: 16, color: Colors.black),
+                                  ),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        inputFormatters: [
+                                          LengthLimitingTextInputFormatter(
+                                              13), // Limits input to 13 characters
+                                          FilteringTextInputFormatter
+                                              .digitsOnly, // Allows only digits
+                                        ],
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account Number"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.datetime,
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter
+                                              .digitsOnly,
+                                          LengthLimitingTextInputFormatter(10)
+                                        ],
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText:
+                                                "Account expiration date"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter
+                                              .digitsOnly,
+                                          LengthLimitingTextInputFormatter(3)
+                                        ],
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account's CVV "),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      SizedBox(
+                                        width: 100,
+                                        child: FloatingActionButton(
+                                            backgroundColor: Colors.green,
+                                            child: Text("Pay",
+                                                style: GoogleFonts.spaceMono(
+                                                    fontSize: 16)),
+                                            onPressed: () {
+                                              // Integration to CRDB payment API
+                                            }),
+                                      )
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "Cancel",
+                                            style: GoogleFonts.spaceMono(
+                                                fontSize: 16,
+                                                color: Colors.black),
+                                          ),
+                                        )),
+                                  ],
+                                );
+                              });
+                        }),
+                    InkWell(
+                        child: Image.asset(
+                          "./assets/nmb.png",
+                          height: 65,
+                          width: 65,
+                        ),
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text(
+                                    "Pay via NMB Bank",
+                                    style: GoogleFonts.spaceMono(
+                                        fontSize: 16, color: Colors.black),
+                                  ),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account Number"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.datetime,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText:
+                                                "Account expiration date"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account's CVV "),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      SizedBox(
+                                        width: 100,
+                                        child: FloatingActionButton(
+                                            backgroundColor: Colors.green,
+                                            child: Text("Pay",
+                                                style: GoogleFonts.spaceMono(
+                                                    fontSize: 16)),
+                                            onPressed: () {
+                                              // Integration to NMB payment API
+                                            }),
+                                      )
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "Cancel",
+                                            style: GoogleFonts.spaceMono(
+                                                fontSize: 16,
+                                                color: Colors.black),
+                                          ),
+                                        )),
+                                  ],
+                                );
+                              });
+                        }),
+                    InkWell(
+                        child: Image.asset(
+                          "./assets/nbc.png",
+                          height: 65,
+                          width: 65,
+                        ),
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text(
+                                    "Pay via NBC Bank",
+                                    style: GoogleFonts.spaceMono(
+                                        fontSize: 16, color: Colors.black),
+                                  ),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account Number"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.datetime,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText:
+                                                "Account expiration date"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account CVV "),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      SizedBox(
+                                        width: 100,
+                                        child: FloatingActionButton(
+                                            backgroundColor: Colors.green,
+                                            child: Text("Pay",
+                                                style: GoogleFonts.spaceMono(
+                                                    fontSize: 16)),
+                                            onPressed: () {
+                                              // Integration to NBC payment API
+                                            }),
+                                      )
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "Cancel",
+                                            style: GoogleFonts.spaceMono(
+                                                fontSize: 16,
+                                                color: Colors.black),
+                                          ),
+                                        )),
+                                  ],
+                                );
+                              });
+                        }),
+                    InkWell(
+                        child: Image.asset(
+                          "./assets/sc.png",
+                          height: 65,
+                          width: 65,
+                        ),
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text(
+                                    "Pay via Standard Chartered Bank",
+                                    style: GoogleFonts.spaceMono(
+                                        fontSize: 16, color: Colors.black),
+                                  ),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account Number"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.datetime,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText:
+                                                "Account expiration date"),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      TextField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: "Account CVV "),
+                                        style: GoogleFonts.spaceMono(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      SizedBox(
+                                        width: 100,
+                                        child: FloatingActionButton(
+                                            backgroundColor: Colors.green,
+                                            child: Text("Pay",
+                                                style: GoogleFonts.spaceMono(
+                                                    fontSize: 16)),
+                                            onPressed: () {
+                                              // Integration to google maps
+                                            }),
+                                      )
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "Cancel",
+                                            style: GoogleFonts.spaceMono(
+                                                fontSize: 16,
+                                                color: Colors.black),
+                                          ),
+                                        )),
+                                  ],
+                                );
+                              });
+                        })
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  InkWell(
+                      child: Image.asset(
+                        "./assets/equity.png",
+                        height: 65,
+                        width: 65,
+                      ),
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text(
+                                  "Pay via Equity Bank",
+                                  style: GoogleFonts.spaceMono(
+                                      fontSize: 16, color: Colors.black),
+                                ),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          hintText: "Account Number"),
+                                      style: GoogleFonts.spaceMono(
+                                          fontSize: 15, color: Colors.black),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    TextField(
+                                      keyboardType: TextInputType.datetime,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          hintText: "Account expiration date"),
+                                      style: GoogleFonts.spaceMono(
+                                          fontSize: 15, color: Colors.black),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          hintText: "Account's CVV "),
+                                      style: GoogleFonts.spaceMono(
+                                          fontSize: 15, color: Colors.black),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    SizedBox(
+                                      width: 100,
+                                      child: FloatingActionButton(
+                                          backgroundColor: Colors.green,
+                                          child: Text("Pay",
+                                              style: GoogleFonts.spaceMono(
+                                                  fontSize: 16)),
+                                          onPressed: () {
+                                            // Integration to CRDB payment API
+                                          }),
+                                    )
+                                  ],
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Center(
+                                        child: Text(
+                                          "Cancel",
+                                          style: GoogleFonts.spaceMono(
+                                              fontSize: 16,
+                                              color: Colors.black),
+                                        ),
+                                      )),
+                                ],
+                              );
+                            });
+                      }),
+                ],
               )
             ],
           ),

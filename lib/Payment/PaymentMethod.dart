@@ -575,7 +575,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
   
   
   */
-  void _methodOfPaymentDialog() {
+  void _mobilePaymentDialog() {
     final theme = Theme.of(context); // Get the current theme
 
     showModalBottomSheet(
@@ -1385,7 +1385,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       ),
                     ),
                     onTap: () {
-                      _methodOfPaymentDialog();
+                      _mobilePaymentDialog();
                     },
                   ),
                 ),

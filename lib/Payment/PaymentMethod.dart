@@ -329,7 +329,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         "Pay via VISA or MASTERCARD ",
-                        style: GoogleFonts.poppins(fontSize: 17),
+                        style: GoogleFonts.poppins(
+                          fontSize: 17,
+                          color: theme.brightness == Brightness.light
+                              ? Colors.white
+                              : Colors.black,
+                        ),
                       ),
                     )
                   ],
@@ -357,7 +362,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   title: Text(
                                     "Pay via CRDB Bank",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 16, color: Colors.black),
+                                        fontSize: 16, color: Colors.white),
                                   ),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -456,7 +461,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   title: Text(
                                     "Pay via NMB Bank",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 16, color: Colors.black),
+                                        fontSize: 16, color: Colors.white),
                                   ),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -539,7 +544,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   title: Text(
                                     "Pay via NBC Bank",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 16, color: Colors.black),
+                                        fontSize: 16, color: Colors.white),
                                   ),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -622,7 +627,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   title: Text(
                                     "Pay via Standard Chartered Bank",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 16, color: Colors.black),
+                                        fontSize: 16, color: Colors.white),
                                   ),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -711,7 +716,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                 title: Text(
                                   "Pay via Equity Bank",
                                   style: GoogleFonts.poppins(
-                                      fontSize: 16, color: Colors.black),
+                                      fontSize: 16, color: Colors.white),
                                 ),
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,

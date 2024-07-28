@@ -1200,21 +1200,14 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                     ),
                     onTap: () {
                       if (_radioValue == 0) {
-                        // Assuming index 0 is for mobile payment
                         _mobilePaymentDialog();
                       } else if (_radioValue == 1) {
-                        // Assuming index 1 is for card payment
                         _cardPaymentDialog();
                       } else if (_radioValue == 2) {
-                        // Assuming index 2 is for Lipa Namba payment
                         _lipaNambaPaymentDialog();
                       } else if (_radioValue == 3) {
-                        // Assuming index 1 is for Cash payment
                         _cashPaymentDialog();
-                      } else {
-                        // Handle case where no radio button is selected
-                        // (e.g., show an error message)
-                      }
+                      } else {}
                     },
                   ),
                 ),

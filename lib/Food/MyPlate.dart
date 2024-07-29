@@ -42,6 +42,8 @@ class _MyPlatePageState extends State<MyPlatePage> {
   }
 
   void _showPrePaymentDialog() {
+    final theme = Theme.of(context); // Get the current theme
+
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -49,7 +51,9 @@ class _MyPlatePageState extends State<MyPlatePage> {
           height: MediaQuery.of(context).size.height * 0.8,
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-              color: Color(0xFF5E3023),
+              color: theme.brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(

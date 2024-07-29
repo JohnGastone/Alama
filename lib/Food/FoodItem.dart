@@ -165,7 +165,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    foodPrice,
+                    'Tsh $foodPrice',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 24,

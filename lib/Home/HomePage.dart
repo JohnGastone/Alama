@@ -917,10 +917,10 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                             child: Column(
                               children: [
-                                Icon(
-                                  CupertinoIcons.bag,
-                                  size: 30,
-                                  color: Colors.grey,
+                                Image.asset(
+                                  "./assets/myplate.png",
+                                  height: 10,
+                                  width: 10,
                                 ),
                                 Text(
                                   "My Plate",

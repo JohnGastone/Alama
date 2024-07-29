@@ -947,8 +947,15 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           child: Column(
                             children: [
-                              Icon(CupertinoIcons.settings_solid,
-                                  size: 30, color: Colors.grey),
+                              Image.asset(
+                                "./assets/settings.png",
+                                height: 28,
+                                width: 28,
+                                color: Colors.grey,
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
                               Text(
                                 "Settings",
                                 style: GoogleFonts.poppins(

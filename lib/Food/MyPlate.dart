@@ -20,6 +20,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
   bool _isEmpty = true;
   Timer? _timer;
   int _start = 300;
+  bool _isOrderIssue = false; // Flag for order issues
 
   @override
   void initState() {
@@ -34,7 +35,8 @@ class _MyPlatePageState extends State<MyPlatePage> {
 
   void startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      if (_start == 0) {
+      if (_start == 0 || _isOrderIssue) {
+        // Check if timer should stop
         setState(() {
           _timer?.cancel();
         });
@@ -46,8 +48,26 @@ class _MyPlatePageState extends State<MyPlatePage> {
     });
   }
 
+  void resetTimer() {
+    setState(() {
+      _start = 300;
+      _isOrderIssue = false; // Reset the flag
+      if (_timer != null && _timer!.isActive) {
+        _timer!.cancel();
+      }
+      startTimer();
+    });
+  }
+
+  void stopTimerDueToIssue() {
+    // Manually stop if there is an issue
+    setState(() {
+      _isOrderIssue = true;
+    });
+  }
+
   String get timerText {
-    if (_start == 0) {
+    if (_isOrderIssue) {
       return 'There is a problem with the order management, waiter will come to clarify further. \n Thank you for your patience';
     }
     int minutes = _start ~/ 60;

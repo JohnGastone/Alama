@@ -268,7 +268,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        "${displayFoods[index].price!}",
+                                        "Tsh ${displayFoods[index].price!}",
                                         style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
@@ -380,7 +380,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        "${displayCoffee[index].price!}",
+                                        "Tsh ${displayCoffee[index].price!}",
                                         style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
@@ -491,7 +491,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        "${displaySoftDrinks[index].price!}",
+                                        "Tsh ${displaySoftDrinks[index].price!}",
                                         style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
@@ -600,7 +600,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        "${displayFruits[index].price!}",
+                                        "Tsh ${displayFruits[index].price!}",
                                         style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
@@ -709,7 +709,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        "${displayTea[index].price!}",
+                                        "Tsh ${displayTea[index].price!}",
                                         style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
@@ -820,7 +820,7 @@ class _HomePageState extends State<HomePage> {
                                     child: Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        "${displayLocalFoods[index].price!}",
+                                        "Tsh ${displayLocalFoods[index].price!}",
                                         style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,

@@ -270,20 +270,17 @@ class _FoodItemPageState extends State<FoodItemPage> {
                         InkWell(
                           onTap: _plateDecrement,
                           child: Container(
-                            width:
-                                40, // Set the width to the diameter of the CircleAvatar
-                            height:
-                                40, // Set the height to the diameter of the CircleAvatar
+                            width: 40,
+                            height: 40,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Colors.grey, // Set the border color
-                                width: 1.0, // Set the border width
+                                color: Colors.grey,
+                                width: 1.0,
                               ),
                             ),
                             child: CircleAvatar(
-                              radius:
-                                  28, // Adjust the radius to fit inside the border
+                              radius: 28,
                               backgroundColor: Colors.white,
                               child: ClipOval(
                                 child: Icon(
@@ -312,20 +309,17 @@ class _FoodItemPageState extends State<FoodItemPage> {
                         InkWell(
                           onTap: _plateIncrement,
                           child: Container(
-                            width:
-                                40, // Set the width to the diameter of the CircleAvatar
-                            height:
-                                40, // Set the height to the diameter of the CircleAvatar
+                            width: 40,
+                            height: 40,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: Colors.grey, // Set the border color
-                                width: 1.0, // Set the border width
+                                color: Colors.grey,
+                                width: 1.0,
                               ),
                             ),
                             child: CircleAvatar(
-                              radius:
-                                  28, // Adjust the radius to fit inside the border
+                              radius: 28,
                               backgroundColor: Colors.white,
                               child: ClipOval(
                                 child: Icon(

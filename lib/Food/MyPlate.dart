@@ -67,7 +67,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
   }
 
   String get timerText {
-    if (_isOrderIssue) {
+    if (_isOrderIssue || _start == 0) {
       return 'There is a problem with the order management, waiter will come to clarify further. \n Thank you for your patience';
     }
     int minutes = _start ~/ 60;

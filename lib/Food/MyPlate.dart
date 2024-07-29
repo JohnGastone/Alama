@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:async';
+
 import 'package:alamaapp/Payment/PaymentMethod.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,15 +18,41 @@ class _MyPlatePageState extends State<MyPlatePage> {
   int _counter = 1;
   final TextEditingController _controller = TextEditingController();
   bool _isEmpty = true;
+  Timer? _timer;
+  int _start = 300;
 
   @override
   void initState() {
     super.initState();
+    startTimer();
     _controller.addListener(() {
       setState(() {
         _isEmpty = _controller.text.isEmpty;
       });
     });
+  }
+
+  void startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (_start == 0) {
+        setState(() {
+          _timer?.cancel();
+        });
+      } else {
+        setState(() {
+          _start--;
+        });
+      }
+    });
+  }
+
+  String get timerText {
+    if (_start == 0) {
+      return 'There is a problem with the order management, waiter will come to clarify further. \n Thank you for your patience';
+    }
+    int minutes = _start ~/ 60;
+    int seconds = _start % 60;
+    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 
   void _plateIncrement() {
@@ -48,7 +76,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: MediaQuery.of(context).size.height * 0.8,
+          height: MediaQuery.of(context).size.height * 0.9,
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
               color: theme.brightness == Brightness.light
@@ -136,7 +164,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Estimated 8:30 - 9:15 PM',
+                      'Estimated $timerText minutes',
                       style: GoogleFonts.poppins(
                           fontSize: 18,
                           color: theme.brightness == Brightness.light

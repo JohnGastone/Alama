@@ -52,8 +52,8 @@ class _MyPlatePageState extends State<MyPlatePage> {
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
               color: theme.brightness == Brightness.light
-                  ? Colors.black
-                  : Colors.white,
+                  ? Colors.white
+                  : Colors.black,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
@@ -66,7 +66,9 @@ class _MyPlatePageState extends State<MyPlatePage> {
                     width: 320,
                     height: 80,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: theme.brightness == Brightness.light
+                          ? Colors.black
+                          : Colors.white,
                       borderRadius: BorderRadius.circular(35),
                     ),
                     child: Padding(
@@ -76,7 +78,6 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           CircleAvatar(
                             radius:
                                 30, // Adjust the radius to fit inside the border
-                            backgroundColor: Colors.white,
                             child: ClipOval(
                               child: Image.asset(
                                 "./assets/waiter.png",
@@ -126,15 +127,21 @@ class _MyPlatePageState extends State<MyPlatePage> {
                     Text(
                       'Cooking Time',
                       style: GoogleFonts.poppins(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: theme.brightness == Brightness.light
+                            ? Colors.black
+                            : Colors.white,
+                      ),
                     ),
                     SizedBox(height: 10),
                     Text(
                       'Estimated 8:30 - 9:15 PM',
                       style: GoogleFonts.poppins(
-                          fontSize: 18, color: Colors.white),
+                          fontSize: 18,
+                          color: theme.brightness == Brightness.light
+                              ? Colors.black
+                              : Colors.white),
                     ),
                     SizedBox(
                       height: 20,

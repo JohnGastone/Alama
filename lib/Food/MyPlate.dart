@@ -184,7 +184,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Estimated $timerText minutes',
+                      'Estimated 5 minutes, your plate will be delivered.',
                       style: GoogleFonts.poppins(
                           fontSize: 18,
                           color: theme.brightness == Brightness.light
@@ -281,10 +281,10 @@ class _MyPlatePageState extends State<MyPlatePage> {
                 style: GoogleFonts.poppins(
                     fontSize: 30, fontWeight: FontWeight.w500),
               ),
-              IconButton(
-                icon: Icon(Icons.more_horiz),
-                onPressed: () {},
-              ),
+              Text(
+                timerText,
+                style: GoogleFonts.poppins(fontSize: 18, color: Colors.white),
+              )
             ],
           ),
         ),

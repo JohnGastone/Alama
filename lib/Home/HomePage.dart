@@ -873,10 +873,14 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           child: Column(
                             children: [
-                              Icon(
-                                CupertinoIcons.home,
-                                size: 30,
+                              Image.asset(
+                                "./assets/home.png",
+                                height: 28,
+                                width: 28,
                                 color: Colors.grey,
+                              ),
+                              SizedBox(
+                                height: 5,
                               ),
                               Text(
                                 "Home",
@@ -895,9 +899,10 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           child: Column(
                             children: [
-                              Icon(
-                                CupertinoIcons.search,
-                                size: 30,
+                              Image.asset(
+                                "./assets/explore.png",
+                                height: 35,
+                                width: 35,
                                 color: Colors.grey,
                               ),
                               Text(
@@ -919,8 +924,12 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Image.asset(
                                   "./assets/myplate.png",
-                                  height: 10,
-                                  width: 10,
+                                  height: 28,
+                                  width: 28,
+                                  color: Colors.grey,
+                                ),
+                                SizedBox(
+                                  height: 5,
                                 ),
                                 Text(
                                   "My Plate",

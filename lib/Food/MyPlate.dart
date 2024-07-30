@@ -784,13 +784,16 @@ class _MyPlatePageState extends State<MyPlatePage> {
                   SizedBox(
                     height: 5,
                   ),
-                  Text(
-                    timerText,
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      color: theme.brightness == Brightness.light
-                          ? Colors.black
-                          : Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18.0, right: 18),
+                    child: Text(
+                      timerText,
+                      style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        color: theme.brightness == Brightness.light
+                            ? Colors.black
+                            : Colors.white,
+                      ),
                     ),
                   ),
                   SizedBox(

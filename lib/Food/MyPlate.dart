@@ -281,10 +281,10 @@ class _MyPlatePageState extends State<MyPlatePage> {
                 style: GoogleFonts.poppins(
                     fontSize: 30, fontWeight: FontWeight.w500),
               ),
-              Text(
-                timerText,
-                style: GoogleFonts.poppins(fontSize: 18, color: Colors.white),
-              )
+              IconButton(
+                icon: Icon(Icons.more_horiz),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
@@ -337,7 +337,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                     EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
                 child: Container(
                     width: 320,
-                    height: 60,
+                    height: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(35),
                         border: Border.all(color: Color(0xFFC18553), width: 1)),
@@ -675,7 +675,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                   padding: const EdgeInsets.only(
                       left: 10, top: 20, right: 10, bottom: 20),
                   child: Container(
-                    height: 210,
+                    height: 200,
                     width: 360,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
@@ -694,7 +694,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                                   fontSize: 24, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(
-                              height: 14,
+                              height: 10,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -711,7 +711,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                               ],
                             ),
                             SizedBox(
-                              height: 14,
+                              height: 10,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -728,7 +728,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                               ],
                             ),
                             SizedBox(
-                              height: 14,
+                              height: 10,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -746,7 +746,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                               ],
                             ),
                             SizedBox(
-                              height: 14,
+                              height: 10,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -767,9 +767,40 @@ class _MyPlatePageState extends State<MyPlatePage> {
                       ),
                     ),
                   )),
+              SizedBox(
+                height: 5,
+              ),
+              Column(
+                children: [
+                  Text(
+                    "Your plate will be delivered within",
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      color: theme.brightness == Brightness.light
+                          ? Colors.black
+                          : Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    timerText,
+                    style: GoogleFonts.poppins(
+                      fontSize: 15,
+                      color: theme.brightness == Brightness.light
+                          ? Colors.black
+                          : Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                ],
+              ),
               InkWell(
                 child: Container(
-                  height: 50,
+                  height: 45,
                   width: 200,
                   decoration: BoxDecoration(
                     color: Color(0xFFC18553),

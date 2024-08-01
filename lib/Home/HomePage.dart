@@ -179,7 +179,6 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (context, index) {
                         if (_selectedIndex == 0 &&
                             index < displayFoods.length) {
-                          // Check if the selected index is 0 (Foods) and if the index is valid for the displayFoods list
                           return InkWell(
                             child: Container(
                               height: 210,

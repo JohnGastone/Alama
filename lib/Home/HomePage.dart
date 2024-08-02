@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 200,
+                  height: 230,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -864,7 +864,8 @@ class _HomePageState extends State<HomePage> {
                   backgroundColor: Colors.white,
                   onPressed: () {},
                   child: Padding(
-                    padding: const EdgeInsets.all(18.0),
+                    padding: const EdgeInsets.only(
+                        bottom: 18, top: 18, left: 25, right: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -882,29 +883,6 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Text(
                                 "Home",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, color: Color(0xFFC18553)),
-                              )
-                            ],
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomePage()));
-                          },
-                        ),
-                        InkWell(
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                "./assets/explore.png",
-                                height: 35,
-                                width: 35,
-                                color: Colors.grey,
-                              ),
-                              Text(
-                                "Explore Foods",
                                 style: GoogleFonts.poppins(
                                     fontSize: 15, color: Color(0xFFC18553)),
                               )
@@ -1051,9 +1029,6 @@ class _HomePageState extends State<HomePage> {
                               )
                             ],
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
                           Text(
                             "What would you like to eat?",
                             style: GoogleFonts.poppins(
@@ -1068,6 +1043,23 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: 10,
+              right: 10,
+              top: 180,
+            ),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: 330,
+                height: 50,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+              ),
+            ),
+          )
         ]),
       ),
     );

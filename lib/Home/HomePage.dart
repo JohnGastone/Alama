@@ -1057,6 +1057,18 @@ class _HomePageState extends State<HomePage> {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: TextField(
+                    style:
+                        GoogleFonts.poppins(fontSize: 18, color: Colors.grey),
+                    decoration: InputDecoration(
+                        labelText: "Search Food or Restaurant",
+                        labelStyle: GoogleFonts.poppins(
+                            fontSize: 18, color: Colors.grey),
+                        enabledBorder: InputBorder.none),
+                  ),
+                ),
               ),
             ),
           )

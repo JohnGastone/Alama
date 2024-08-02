@@ -15,19 +15,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TextEditingController _searchController =
+      TextEditingController(); // Add search controller
+
   // Variable to keep track of the selected container index
   int _selectedIndex = 0;
 
   void _toggleSelection(int index) {
     setState(() {
       _selectedIndex = index;
-
+      // Filter based on search query (case-insensitive)
+      String searchQuery = _searchController.text.toLowerCase();
       displayFoods = (index == 0)
           ? List.from(FoodsModelData.displayFoods)
           : FoodsModelData.displayFoods
               .where((food) =>
                   food.category?.toLowerCase() ==
-                  _getText(index).toLowerCase()) // Case-insensitive match
+                      _getText(index).toLowerCase() &&
+                  food.foodName!.toLowerCase().contains(searchQuery))
               .toList();
 
       displayCoffee = (index == 1)
@@ -35,7 +40,8 @@ class _HomePageState extends State<HomePage> {
           : CoffeeModelData.displayCoffee
               .where((coffee) =>
                   coffee.category?.toLowerCase() ==
-                  _getText(index).toLowerCase()) // Case-insensitive match
+                      _getText(index).toLowerCase() &&
+                  coffee.coffeeName!.toLowerCase().contains(searchQuery))
               .toList();
 
       displaySoftDrinks = (index == 2)
@@ -43,7 +49,10 @@ class _HomePageState extends State<HomePage> {
           : SoftDrinksModelData.displaySoftDrinks
               .where((softdrink) =>
                   softdrink.category?.toLowerCase() ==
-                  _getText(index).toLowerCase()) // Case-insensitive match
+                      _getText(index).toLowerCase() &&
+                  softdrink.softDrinkName!
+                      .toLowerCase()
+                      .contains(searchQuery)) // Case-insensitive match
               .toList();
 
       displayFruits = (index == 3)
@@ -51,7 +60,10 @@ class _HomePageState extends State<HomePage> {
           : FruitsModelData.displayFruits
               .where((fruit) =>
                   fruit.category?.toLowerCase() ==
-                  _getText(index).toLowerCase()) // Case-insensitive match
+                      _getText(index).toLowerCase() &&
+                  fruit.fruitName!
+                      .toLowerCase()
+                      .contains(searchQuery)) // Case-insensitive match
               .toList();
 
       displayTea = (index == 4)
@@ -59,7 +71,10 @@ class _HomePageState extends State<HomePage> {
           : TeaModelData.displayTea
               .where((tea) =>
                   tea.category?.toLowerCase() ==
-                  _getText(index).toLowerCase()) // Case-insensitive match
+                      _getText(index).toLowerCase() &&
+                  tea.teaName!
+                      .toLowerCase()
+                      .contains(searchQuery)) // Case-insensitive match
               .toList();
 
       displayLocalFoods = (index == 5)
@@ -67,7 +82,10 @@ class _HomePageState extends State<HomePage> {
           : LocalFoodsList.displayLocalFoods
               .where((localfoods) =>
                   localfoods.category?.toLowerCase() ==
-                  _getText(index).toLowerCase()) // Case-insensitive match
+                      _getText(index).toLowerCase() &&
+                  localfoods.localFoodName!
+                      .toLowerCase()
+                      .contains(searchQuery)) // Case-insensitive match
               .toList();
     });
   }
@@ -1060,6 +1078,11 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: TextField(
+                    controller: _searchController, // Add controller
+                    onChanged: (value) {
+                      _toggleSelection(
+                          _selectedIndex); // Re-filter on text change
+                    },
                     style:
                         GoogleFonts.poppins(fontSize: 18, color: Colors.grey),
                     decoration: InputDecoration(

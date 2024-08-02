@@ -1063,8 +1063,8 @@ class _HomePageState extends State<HomePage> {
                     style:
                         GoogleFonts.poppins(fontSize: 18, color: Colors.grey),
                     decoration: InputDecoration(
-                        labelText: "Search Food or Restaurant",
-                        labelStyle: GoogleFonts.poppins(
+                        hintText: "Search Food or Restaurant",
+                        hintStyle: GoogleFonts.poppins(
                             fontSize: 18, color: Colors.grey),
                         enabledBorder: InputBorder.none),
                   ),

@@ -292,7 +292,6 @@ class _HomePageState extends State<HomePage> {
                           );
                         } else if (_selectedIndex == 1 &&
                             index < displayCoffee.length) {
-                          // Check if the selected index is 1 (Coffee) and if the index is valid for the displayCoffee list
                           return InkWell(
                             child: Container(
                               height: 210,

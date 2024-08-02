@@ -1035,9 +1035,19 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                               Spacer(),
-                              Icon(
-                                CupertinoIcons.bell,
-                                color: Colors.white,
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        width: 1, color: Colors.white)),
+                                child: Center(
+                                  child: Icon(
+                                    CupertinoIcons.bell,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               )
                             ],
                           ),

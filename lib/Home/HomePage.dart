@@ -1063,10 +1063,13 @@ class _HomePageState extends State<HomePage> {
                     style:
                         GoogleFonts.poppins(fontSize: 18, color: Colors.grey),
                     decoration: InputDecoration(
+                        prefixIcon: Icon(CupertinoIcons.search),
+                        suffixIcon: Icon(Icons.sort),
                         hintText: "Search Food or Restaurant",
                         hintStyle: GoogleFonts.poppins(
                             fontSize: 18, color: Colors.grey),
-                        enabledBorder: InputBorder.none),
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none),
                   ),
                 ),
               ),

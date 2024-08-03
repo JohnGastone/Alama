@@ -24,68 +24,64 @@ class _HomePageState extends State<HomePage> {
   void _toggleSelection(int index) {
     setState(() {
       _selectedIndex = index;
-      // Filter based on search query (case-insensitive)
+      bool isAnyCategorySelected = index > 0;
       String searchQuery = _searchController.text.toLowerCase();
+      bool containsSearchQuery(String? itemName) {
+        return itemName != null && itemName.toLowerCase().contains(searchQuery);
+      }
+
       displayFoods = (index == 0)
           ? List.from(FoodsModelData.displayFoods)
           : FoodsModelData.displayFoods
-              .where((food) =>
-                  food.category?.toLowerCase() ==
-                      _getText(index).toLowerCase() &&
-                  food.foodName!.toLowerCase().contains(searchQuery))
+              .where((food) => (isAnyCategorySelected &&
+                      food.category?.toLowerCase() ==
+                          _getText(index).toLowerCase() ||
+                  containsSearchQuery(food.foodName)))
               .toList();
 
       displayCoffee = (index == 1)
           ? List.from(CoffeeModelData.displayCoffee)
           : CoffeeModelData.displayCoffee
-              .where((coffee) =>
-                  coffee.category?.toLowerCase() ==
-                      _getText(index).toLowerCase() &&
-                  coffee.coffeeName!.toLowerCase().contains(searchQuery))
+              .where((coffee) => (isAnyCategorySelected &&
+                      coffee.category?.toLowerCase() ==
+                          _getText(index).toLowerCase() ||
+                  containsSearchQuery(coffee.coffeeName)))
               .toList();
 
       displaySoftDrinks = (index == 2)
           ? List.from(SoftDrinksModelData.displaySoftDrinks)
           : SoftDrinksModelData.displaySoftDrinks
-              .where((softdrink) =>
-                  softdrink.category?.toLowerCase() ==
-                      _getText(index).toLowerCase() &&
-                  softdrink.softDrinkName!
-                      .toLowerCase()
-                      .contains(searchQuery)) // Case-insensitive match
+              .where((softdrink) => (isAnyCategorySelected &&
+                      softdrink.category?.toLowerCase() ==
+                          _getText(index).toLowerCase() ||
+                  containsSearchQuery(softdrink.softDrinkName)))
               .toList();
 
       displayFruits = (index == 3)
           ? List.from(FruitsModelData.displayFruits)
           : FruitsModelData.displayFruits
-              .where((fruit) =>
-                  fruit.category?.toLowerCase() ==
-                      _getText(index).toLowerCase() &&
-                  fruit.fruitName!
-                      .toLowerCase()
-                      .contains(searchQuery)) // Case-insensitive match
+              .where((fruit) => (isAnyCategorySelected &&
+                      fruit.category?.toLowerCase() ==
+                          _getText(index).toLowerCase() ||
+                  containsSearchQuery(fruit.fruitName)))
               .toList();
 
       displayTea = (index == 4)
           ? List.from(TeaModelData.displayTea)
           : TeaModelData.displayTea
-              .where((tea) =>
-                  tea.category?.toLowerCase() ==
-                      _getText(index).toLowerCase() &&
-                  tea.teaName!
-                      .toLowerCase()
-                      .contains(searchQuery)) // Case-insensitive match
+              .where((tea) => (isAnyCategorySelected &&
+                      tea.category?.toLowerCase() ==
+                          _getText(index).toLowerCase() ||
+                  containsSearchQuery(tea.teaName)))
               .toList();
 
       displayLocalFoods = (index == 5)
           ? List.from(LocalFoodsList.displayLocalFoods)
           : LocalFoodsList.displayLocalFoods
-              .where((localfoods) =>
-                  localfoods.category?.toLowerCase() ==
-                      _getText(index).toLowerCase() &&
-                  localfoods.localFoodName!
-                      .toLowerCase()
-                      .contains(searchQuery)) // Case-insensitive match
+              .where((localfoods) => (isAnyCategorySelected &&
+                      localfoods.category?.toLowerCase() ==
+                          _getText(index).toLowerCase() ||
+                  containsSearchQuery(localfoods.localFoodName)))
               .toList();
     });
   }
@@ -1083,6 +1079,7 @@ class _HomePageState extends State<HomePage> {
                       _toggleSelection(
                           _selectedIndex); // Re-filter on text change
                     },
+                    cursorColor: Colors.grey,
                     style:
                         GoogleFonts.poppins(fontSize: 18, color: Colors.grey),
                     decoration: InputDecoration(

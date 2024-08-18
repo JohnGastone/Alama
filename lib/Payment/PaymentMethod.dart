@@ -368,7 +368,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   title: Text(
                                     "Pay via CRDB Bank",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 16, color: Colors.white),
+                                      fontSize: 16,
+                                      color:
+                                          theme.brightness == Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                    ),
                                   ),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -467,7 +472,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   title: Text(
                                     "Pay via NMB Bank",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 16, color: Colors.white),
+                                      fontSize: 16,
+                                      color:
+                                          theme.brightness == Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                    ),
                                   ),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -550,7 +560,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   title: Text(
                                     "Pay via NBC Bank",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 16, color: Colors.white),
+                                      fontSize: 16,
+                                      color:
+                                          theme.brightness == Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                    ),
                                   ),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -633,7 +648,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   title: Text(
                                     "Pay via Standard Chartered Bank",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 16, color: Colors.white),
+                                      fontSize: 16,
+                                      color:
+                                          theme.brightness == Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                    ),
                                   ),
                                   content: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -722,7 +742,11 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                 title: Text(
                                   "Pay via Equity Bank",
                                   style: GoogleFonts.poppins(
-                                      fontSize: 16, color: Colors.white),
+                                    fontSize: 16,
+                                    color: theme.brightness == Brightness.light
+                                        ? Colors.black
+                                        : Colors.white,
+                                  ),
                                 ),
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,

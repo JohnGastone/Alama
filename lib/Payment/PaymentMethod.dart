@@ -390,7 +390,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             border: OutlineInputBorder(),
                                             hintText: "Account Number"),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -407,7 +412,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             hintText:
                                                 "Account expiration date"),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -423,7 +433,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             border: OutlineInputBorder(),
                                             hintText: "Account's CVV "),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -450,8 +465,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                           child: Text(
                                             "Cancel",
                                             style: GoogleFonts.poppins(
-                                                fontSize: 16,
-                                                color: Colors.black),
+                                              fontSize: 16,
+                                              color: theme.brightness ==
+                                                      Brightness.light
+                                                  ? Colors.black
+                                                  : Colors.white,
+                                            ),
                                           ),
                                         )),
                                   ],
@@ -488,7 +507,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             border: OutlineInputBorder(),
                                             hintText: "Account Number"),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -500,7 +524,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             hintText:
                                                 "Account expiration date"),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -511,7 +540,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             border: OutlineInputBorder(),
                                             hintText: "Account's CVV "),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -538,8 +572,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                           child: Text(
                                             "Cancel",
                                             style: GoogleFonts.poppins(
-                                                fontSize: 16,
-                                                color: Colors.black),
+                                              fontSize: 16,
+                                              color: theme.brightness ==
+                                                      Brightness.light
+                                                  ? Colors.black
+                                                  : Colors.white,
+                                            ),
                                           ),
                                         )),
                                   ],
@@ -576,7 +614,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             border: OutlineInputBorder(),
                                             hintText: "Account Number"),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -588,7 +631,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             hintText:
                                                 "Account expiration date"),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -599,7 +647,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             border: OutlineInputBorder(),
                                             hintText: "Account CVV "),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -626,8 +679,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                           child: Text(
                                             "Cancel",
                                             style: GoogleFonts.poppins(
-                                                fontSize: 16,
-                                                color: Colors.black),
+                                              fontSize: 16,
+                                              color: theme.brightness ==
+                                                      Brightness.light
+                                                  ? Colors.black
+                                                  : Colors.white,
+                                            ),
                                           ),
                                         )),
                                   ],
@@ -664,7 +721,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             border: OutlineInputBorder(),
                                             hintText: "Account Number"),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -676,7 +738,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             hintText:
                                                 "Account expiration date"),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -687,7 +754,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                             border: OutlineInputBorder(),
                                             hintText: "Account CVV "),
                                         style: GoogleFonts.poppins(
-                                            fontSize: 15, color: Colors.black),
+                                          fontSize: 15,
+                                          color: theme.brightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -714,8 +786,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                           child: Text(
                                             "Cancel",
                                             style: GoogleFonts.poppins(
-                                                fontSize: 16,
-                                                color: Colors.black),
+                                              fontSize: 16,
+                                              color: theme.brightness ==
+                                                      Brightness.light
+                                                  ? Colors.black
+                                                  : Colors.white,
+                                            ),
                                           ),
                                         )),
                                   ],
@@ -757,7 +833,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                           border: OutlineInputBorder(),
                                           hintText: "Account Number"),
                                       style: GoogleFonts.poppins(
-                                          fontSize: 15, color: Colors.black),
+                                        fontSize: 15,
+                                        color:
+                                            theme.brightness == Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -768,7 +849,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                           border: OutlineInputBorder(),
                                           hintText: "Account expiration date"),
                                       style: GoogleFonts.poppins(
-                                          fontSize: 15, color: Colors.black),
+                                        fontSize: 15,
+                                        color:
+                                            theme.brightness == Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -779,7 +865,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                           border: OutlineInputBorder(),
                                           hintText: "Account's CVV "),
                                       style: GoogleFonts.poppins(
-                                          fontSize: 15, color: Colors.black),
+                                        fontSize: 15,
+                                        color:
+                                            theme.brightness == Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -806,8 +897,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                         child: Text(
                                           "Cancel",
                                           style: GoogleFonts.poppins(
-                                              fontSize: 16,
-                                              color: Colors.black),
+                                            fontSize: 16,
+                                            color: theme.brightness ==
+                                                    Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
+                                          ),
                                         ),
                                       )),
                                 ],
@@ -1119,19 +1214,16 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: Row(
             children: [
-              CircleAvatar(
-                backgroundColor: Color(0xFFC18553),
-                child: IconButton(
-                  icon: Center(
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.white,
-                    ),
+              IconButton(
+                icon: Center(
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
                   ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
                 ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
               SizedBox(
                 width: 20,

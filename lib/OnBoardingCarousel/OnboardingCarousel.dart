@@ -24,6 +24,8 @@ class Onboardingcarousel extends StatelessWidget {
           ),
         );
       },
+      finishButtonTextStyle:
+          GoogleFonts.poppins(color: Colors.white, fontSize: 20),
       finishButtonStyle: FinishButtonStyle(
         backgroundColor: kDarkBlueColor,
       ),

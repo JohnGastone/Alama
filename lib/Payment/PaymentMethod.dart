@@ -536,6 +536,11 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                       ),
                                       TextField(
                                         keyboardType: TextInputType.number,
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter
+                                              .digitsOnly,
+                                          LengthLimitingTextInputFormatter(3)
+                                        ],
                                         decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             hintText: "Account's CVV "),
@@ -643,6 +648,11 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                       ),
                                       TextField(
                                         keyboardType: TextInputType.number,
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter
+                                              .digitsOnly,
+                                          LengthLimitingTextInputFormatter(3)
+                                        ],
                                         decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             hintText: "Account CVV "),
@@ -750,6 +760,11 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                       ),
                                       TextField(
                                         keyboardType: TextInputType.number,
+                                        inputFormatters: [
+                                          FilteringTextInputFormatter
+                                              .digitsOnly,
+                                          LengthLimitingTextInputFormatter(3)
+                                        ],
                                         decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             hintText: "Account CVV "),
@@ -861,6 +876,10 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                     ),
                                     TextField(
                                       keyboardType: TextInputType.number,
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.digitsOnly,
+                                        LengthLimitingTextInputFormatter(3)
+                                      ],
                                       decoration: InputDecoration(
                                           border: OutlineInputBorder(),
                                           hintText: "Account's CVV "),

@@ -309,7 +309,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                               fontSize: 18, color: Colors.grey),
                         ),
                         Text(
-                          "T-08",
+                          _tableNumber,
                           style: GoogleFonts.poppins(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         )

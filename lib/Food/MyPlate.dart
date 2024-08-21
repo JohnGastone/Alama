@@ -15,7 +15,7 @@ class MyPlatePage extends StatefulWidget {
 }
 
 class _MyPlatePageState extends State<MyPlatePage> {
-  String _tableNumber = 'T-01'; // Initialize the _tableNumber variable
+  String _tableNumber = 'T-1'; // Initialize the _tableNumber variable
 
   int _counter = 1;
   final TextEditingController _controller = TextEditingController();
@@ -340,11 +340,9 @@ class _MyPlatePageState extends State<MyPlatePage> {
                                         return ListTile(
                                           title: Text('T-${index + 1}'),
                                           onTap: () {
-                                            // Update the "Table Number" text
                                             setState(() {
                                               _tableNumber = 'T-${index + 1}';
                                             });
-                                            // Close the dialog
                                             Navigator.of(context).pop();
                                           },
                                         );

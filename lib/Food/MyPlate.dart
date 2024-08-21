@@ -770,37 +770,6 @@ class _MyPlatePageState extends State<MyPlatePage> {
               SizedBox(
                 height: 5,
               ),
-              Column(
-                children: [
-                  Text(
-                    "Your plate will be delivered within",
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color: theme.brightness == Brightness.light
-                          ? Colors.black
-                          : Colors.white,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0, right: 18),
-                    child: Text(
-                      timerText,
-                      style: GoogleFonts.poppins(
-                        fontSize: 15,
-                        color: theme.brightness == Brightness.light
-                            ? Colors.black
-                            : Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                ],
-              ),
               InkWell(
                 child: Container(
                   height: 45,

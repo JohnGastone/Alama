@@ -18,7 +18,6 @@ class _MyPlatePageState extends State<MyPlatePage> {
   int _counter = 1;
   final TextEditingController _controller = TextEditingController();
   bool _isEmpty = true;
-  bool _isOrderIssue = false; // Flag for order issues
 
   @override
   void initState() {
@@ -43,13 +42,6 @@ class _MyPlatePageState extends State<MyPlatePage> {
   void _saveTableNumber(String tableNumber) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('tableNumber', tableNumber);
-  }
-
-  void stopTimerDueToIssue() {
-    // Manually stop if there is an issue
-    setState(() {
-      _isOrderIssue = true;
-    });
   }
 
   void _plateIncrement() {

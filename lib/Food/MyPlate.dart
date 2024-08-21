@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_field
 
 import 'dart:async';
 
@@ -15,6 +15,8 @@ class MyPlatePage extends StatefulWidget {
 }
 
 class _MyPlatePageState extends State<MyPlatePage> {
+  String _tableNumber = 'T-01'; // Initialize the _tableNumber variable
+
   int _counter = 1;
   final TextEditingController _controller = TextEditingController();
   bool _isEmpty = true;
@@ -322,10 +324,44 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           border:
                               Border.all(color: Color(0xFFC18553), width: 1)),
                       child: Center(
-                        child: Text(
-                          "Change Table",
-                          style: GoogleFonts.poppins(
-                              fontSize: 16, color: Color(0xFFC18553)),
+                        child: GestureDetector(
+                          onTap: () {
+                            // Display the dialog
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Select a table'),
+                                  content: SizedBox(
+                                    width: 200,
+                                    child: ListView.builder(
+                                      itemCount: 10,
+                                      itemBuilder: (context, index) {
+                                        return ListTile(
+                                          title: Text('T-${index + 1}'),
+                                          onTap: () {
+                                            // Update the "Table Number" text
+                                            setState(() {
+                                              _tableNumber = 'T-${index + 1}';
+                                            });
+                                            // Close the dialog
+                                            Navigator.of(context).pop();
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: Text(
+                            "Change Table",
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              color: Color(0xFFC18553),
+                            ),
+                          ),
                         ),
                       ),
                     ),

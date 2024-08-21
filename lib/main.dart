@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:alamaapp/OnBoardingCarousel/SplashScreen.dart';
 import 'package:alamaapp/themeProvider.dart';
 import 'package:flutter/material.dart';

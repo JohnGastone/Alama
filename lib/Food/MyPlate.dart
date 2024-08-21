@@ -1,11 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_field
-
-import 'dart:async';
-
 import 'package:alamaapp/Payment/PaymentMethod.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyPlatePage extends StatefulWidget {
   const MyPlatePage({super.key});
@@ -20,14 +18,12 @@ class _MyPlatePageState extends State<MyPlatePage> {
   int _counter = 1;
   final TextEditingController _controller = TextEditingController();
   bool _isEmpty = true;
-  Timer? _timer;
-  int _start = 300;
   bool _isOrderIssue = false; // Flag for order issues
 
   @override
   void initState() {
     super.initState();
-    startTimer();
+    _loadTableNumber();
     _controller.addListener(() {
       setState(() {
         _isEmpty = _controller.text.isEmpty;
@@ -35,30 +31,18 @@ class _MyPlatePageState extends State<MyPlatePage> {
     });
   }
 
-  void startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      if (_start == 0 || _isOrderIssue) {
-        // Check if timer should stop
-        setState(() {
-          _timer?.cancel();
-        });
-      } else {
-        setState(() {
-          _start--;
-        });
-      }
+  // Method to load the saved table number from SharedPreferences
+  void _loadTableNumber() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _tableNumber = prefs.getString('tableNumber') ?? "T-1";
     });
   }
 
-  void resetTimer() {
-    setState(() {
-      _start = 300;
-      _isOrderIssue = false; // Reset the flag
-      if (_timer != null && _timer!.isActive) {
-        _timer!.cancel();
-      }
-      startTimer();
-    });
+  // Method to save the table number to SharedPreferences
+  void _saveTableNumber(String tableNumber) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('tableNumber', tableNumber);
   }
 
   void stopTimerDueToIssue() {
@@ -66,15 +50,6 @@ class _MyPlatePageState extends State<MyPlatePage> {
     setState(() {
       _isOrderIssue = true;
     });
-  }
-
-  String get timerText {
-    if (_isOrderIssue || _start == 0) {
-      return 'There is a problem with the order management, waiter will come to clarify further. \n Thank you for your patience';
-    }
-    int minutes = _start ~/ 60;
-    int seconds = _start % 60;
-    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 
   void _plateIncrement() {
@@ -343,6 +318,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                                             setState(() {
                                               _tableNumber = 'T-${index + 1}';
                                             });
+                                            _saveTableNumber(_tableNumber);
                                             Navigator.of(context).pop();
                                           },
                                         );

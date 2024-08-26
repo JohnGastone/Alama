@@ -42,12 +42,11 @@ class _FoodItemPageState extends State<FoodItemPage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context); // Get the current theme
+    final theme = Theme.of(context); 
 
-    // Get the food data from widget.foodItem
     final foodName = widget.foodItem?.foodName ?? "Default Food Name";
     final foodPrice =
-        widget.foodItem?.price?.toString() ?? "Tsh 0"; // Format the price
+        widget.foodItem?.price?.toString() ?? "Tsh 0"; 
     final foodRating = widget.foodItem?.foodRating?.toString();
     final foodPreparationTime =
         widget.foodItem?.preparationTime?.toString() ?? "10 minutes";

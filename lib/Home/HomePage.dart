@@ -98,6 +98,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Stack(children: [
           SingleChildScrollView(
@@ -1074,10 +1075,9 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: TextField(
-                    controller: _searchController, // Add controller
+                    controller: _searchController,
                     onChanged: (value) {
-                      _toggleSelection(
-                          _selectedIndex); // Re-filter on text change
+                      _toggleSelection(_selectedIndex);
                     },
                     cursorColor: Colors.grey,
                     style:

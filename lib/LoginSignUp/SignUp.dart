@@ -114,11 +114,51 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               SizedBox(height: 10),
-              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(right: 190),
                 child:
                     Text("Password", style: GoogleFonts.poppins(fontSize: 20)),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SizedBox(
+                width: 300,
+                child: TextField(
+                  obscureText: _obscureText,
+                  keyboardType: TextInputType.visiblePassword,
+                  decoration: InputDecoration(
+                    labelText: "***************",
+                    labelStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                    ),
+                    suffixIcon: IconButton(
+                      icon: Icon(_obscureText
+                          ? CupertinoIcons.eye_slash
+                          : CupertinoIcons.eye),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText =
+                              !_obscureText; // Toggle visibility on tap
+                        });
+                      },
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(color: Colors.brown),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(right: 190),
+                child: Text("Confirm Password",
+                    style: GoogleFonts.poppins(fontSize: 20)),
               ),
               SizedBox(
                 height: 5,

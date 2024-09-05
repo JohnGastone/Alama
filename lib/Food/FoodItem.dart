@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
 
 import 'package:alamaapp/Food/MyPlate.dart';
+import 'package:alamaapp/Food/PlateProvider.dart';
 import 'package:alamaapp/models.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class FoodItemPage extends StatefulWidget {
@@ -42,337 +44,357 @@ class _FoodItemPageState extends State<FoodItemPage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context); 
+    final theme = Theme.of(context);
 
     final foodName = widget.foodItem?.foodName ?? "Default Food Name";
-    final foodPrice =
-        widget.foodItem?.price?.toString() ?? "Tsh 0"; 
+    final foodPrice = widget.foodItem?.price?.toString() ?? "Tsh 0";
     final foodRating = widget.foodItem?.foodRating?.toString();
     final foodPreparationTime =
         widget.foodItem?.preparationTime?.toString() ?? "10 minutes";
     final foodImage = widget.foodItem?.foodImage ?? "./assets/default_food.png";
     final foodDescription =
         widget.foodItem?.foodDescription ?? "Default description";
+    final foodCategory = widget.foodItem?.category ?? "";
 
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: Icon(Icons.arrow_back_ios),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              Text(
-                "Food Item",
-                style: GoogleFonts.poppins(
-                    fontSize: 30, fontWeight: FontWeight.w500),
-              ),
-              IconButton(
-                icon: Icon(Icons.share),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                width: 300,
-                height: 250,
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: images.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: 300,
-                      height: 250,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        image: DecorationImage(
-                          image: AssetImage(images[index]),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 20, right: 20),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.topRight,
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                child: Icon(
-                                  CupertinoIcons.heart_fill,
-                                  color: Color(0xFFC18553),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 160,
-                            ),
-                            Align(
-                              alignment: Alignment.bottomCenter,
-                              child: SmoothPageIndicator(
-                                controller: _pageController,
-                                count: images.length,
-                                effect: ExpandingDotsEffect(
-                                  dotColor: Colors.white,
-                                  activeDotColor: Color(0xFFC18553),
-                                  dotHeight: 15,
-                                  dotWidth: 15,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
+    return ChangeNotifierProvider<MyPlateProvider>(
+      create: (context) => MyPlateProvider(),
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.arrow_back_ios),
+                  onPressed: () {
+                    Navigator.pop(context);
                   },
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 20),
-                child: Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    foodName,
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 28,
-                      color: theme.brightness == Brightness.light
-                          ? Colors.black
-                          : Colors.white,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
+                Text(
+                  "Food Item",
+                  style: GoogleFonts.poppins(
+                      fontSize: 30, fontWeight: FontWeight.w500),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 20),
-                child: Container(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Tsh $foodPrice',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                      color: Color(0xFFC18553),
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
+                IconButton(
+                  icon: Icon(Icons.share),
+                  onPressed: () {},
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30, top: 20),
-                child: Row(
-                  children: [
-                    Icon(CupertinoIcons.clock, color: Color(0xFFC18553)),
-                    SizedBox(width: 5),
-                    Text(
-                      foodPreparationTime,
-                      style: GoogleFonts.poppins(fontSize: 15),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Icon(CupertinoIcons.star_fill, color: Color(0xFFC18553)),
-                    SizedBox(width: 5),
-                    Text(
-                      "$foodRating",
-                      style: GoogleFonts.poppins(fontSize: 15),
-                    ),
-                  ],
+              ],
+            ),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 30,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Divider(
-                  height: 2,
-                  color: Colors.grey,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30),
-                child: Container(
-                  alignment: Alignment.topLeft,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 200),
-                        child: Text(
-                          "Description",
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: theme.brightness == Brightness.light
-                                ? Colors.black
-                                : Colors.white,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        foodDescription,
-                        style: GoogleFonts.poppins(
-                            fontSize: 18, color: Colors.grey),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30, right: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Side dishes",
-                      style: GoogleFonts.poppins(
-                          fontSize: 20, fontWeight: FontWeight.w600),
-                    ),
-                    Text("See All",
-                        style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            color: Color(0xFFC18553),
-                            fontWeight: FontWeight.w500))
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30, right: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: _plateDecrement,
-                          child: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.grey,
-                                width: 1.0,
-                              ),
-                            ),
-                            child: CircleAvatar(
-                              radius: 28,
-                              backgroundColor: Colors.white,
-                              child: ClipOval(
-                                child: Icon(
-                                  CupertinoIcons.minus,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          "$_counter",
-                          style: GoogleFonts.poppins(
-                              fontSize: 20,
-                              color: theme.brightness == Brightness.light
-                                  ? Colors.black
-                                  : Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        InkWell(
-                          onTap: _plateIncrement,
-                          child: Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.grey,
-                                width: 1.0,
-                              ),
-                            ),
-                            child: CircleAvatar(
-                              radius: 28,
-                              backgroundColor: Colors.white,
-                              child: ClipOval(
-                                child: Icon(
-                                  CupertinoIcons.add,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    InkWell(
-                      child: Container(
-                        width: 160,
-                        height: 50,
+                SizedBox(
+                  width: 300,
+                  height: 250,
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: images.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: 300,
+                        height: 250,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            color: Color(0xFFC18553)),
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                            image: AssetImage(images[index]),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          padding: const EdgeInsets.only(top: 20, right: 20),
+                          child: Column(
                             children: [
-                              Icon(
-                                CupertinoIcons.shopping_cart,
-                                color: Colors.white,
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  child: Icon(
+                                    CupertinoIcons.heart_fill,
+                                    color: Color(0xFFC18553),
+                                  ),
+                                ),
                               ),
-                              Text(
-                                "Add to my plate",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                              SizedBox(
+                                height: 160,
+                              ),
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: SmoothPageIndicator(
+                                  controller: _pageController,
+                                  count: images.length,
+                                  effect: ExpandingDotsEffect(
+                                    dotColor: Colors.white,
+                                    activeDotColor: Color(0xFFC18553),
+                                    dotHeight: 15,
+                                    dotWidth: 15,
+                                  ),
+                                ),
                               ),
                             ],
                           ),
                         ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, top: 20),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      foodName,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 28,
+                        color: theme.brightness == Brightness.light
+                            ? Colors.black
+                            : Colors.white,
                       ),
-                      onTap: () {
-                        Navigator.push(
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, top: 20),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Tsh $foodPrice',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Color(0xFFC18553),
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, top: 20),
+                  child: Row(
+                    children: [
+                      Icon(CupertinoIcons.clock, color: Color(0xFFC18553)),
+                      SizedBox(width: 5),
+                      Text(
+                        foodPreparationTime,
+                        style: GoogleFonts.poppins(fontSize: 15),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(CupertinoIcons.star_fill, color: Color(0xFFC18553)),
+                      SizedBox(width: 5),
+                      Text(
+                        "$foodRating",
+                        style: GoogleFonts.poppins(fontSize: 15),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Divider(
+                    height: 2,
+                    color: Colors.grey,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: Container(
+                    alignment: Alignment.topLeft,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 200),
+                          child: Text(
+                            "Description",
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              color: theme.brightness == Brightness.light
+                                  ? Colors.black
+                                  : Colors.white,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          foodDescription,
+                          style: GoogleFonts.poppins(
+                              fontSize: 18, color: Colors.grey),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Side dishes",
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, fontWeight: FontWeight.w600),
+                      ),
+                      Text("See All",
+                          style: GoogleFonts.poppins(
+                              fontSize: 18,
+                              color: Color(0xFFC18553),
+                              fontWeight: FontWeight.w500))
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          InkWell(
+                            onTap: _plateDecrement,
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: CircleAvatar(
+                                radius: 28,
+                                backgroundColor: Colors.white,
+                                child: ClipOval(
+                                  child: Icon(
+                                    CupertinoIcons.minus,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            "$_counter",
+                            style: GoogleFonts.poppins(
+                                fontSize: 20,
+                                color: theme.brightness == Brightness.light
+                                    ? Colors.black
+                                    : Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          InkWell(
+                            onTap: _plateIncrement,
+                            child: Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.grey,
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: CircleAvatar(
+                                radius: 28,
+                                backgroundColor: Colors.white,
+                                child: ClipOval(
+                                  child: Icon(
+                                    CupertinoIcons.add,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      InkWell(
+                        child: Container(
+                          width: 160,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: Color(0xFFC18553),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  CupertinoIcons.shopping_cart,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  "Add to my plate",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        onTap: () {
+                          // Add food item to plate
+                          Provider.of<MyPlateProvider>(context, listen: false)
+                              .addToPlate(
+                            FoodsModel(
+                              foodName,
+                              double.tryParse(foodRating!) ?? 0.0,
+                              foodImage,
+                              foodDescription,
+                              foodPreparationTime,
+                              (foodPrice as double?)
+                                  ?.toInt(), // Safely convert double to int
+                              foodCategory,
+                            ),
+                          );
+
+                          // Navigate to MyPlatePage
+                          Navigator.push(
                             context,
                             CupertinoPageRoute(
-                              builder: (context) => MyPlatePage(),
-                            ));
-                      },
-                    )
-                  ],
-                ),
-              )
-            ],
+                                builder: (context) => MyPlatePage()),
+                          );
+                        },
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

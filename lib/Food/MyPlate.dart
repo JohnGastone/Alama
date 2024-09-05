@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_field
+import 'package:alamaapp/Food/PlateProvider.dart';
 import 'package:alamaapp/Payment/PaymentMethod.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:alamaapp/Food/FoodItem.dart';
 
 class MyPlatePage extends StatefulWidget {
   const MyPlatePage({super.key});
@@ -230,6 +233,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context); // Get the current theme
+    final myPlate = Provider.of<MyPlateProvider>(context).myPlate;
 
     return Scaffold(
       appBar: AppBar(
@@ -395,282 +399,149 @@ class _MyPlatePageState extends State<MyPlatePage> {
                       ),
                     )),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 120,
-                      width: 100,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                "./assets/chipskavu.png",
-                              )),
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+              SizedBox(
+                height: double.maxFinite,
+                child: ListView.builder(
+                  itemCount: myPlate.length,
+                  itemBuilder: (context, index) {
+                    final foodItem = myPlate[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 20, bottom: 20),
+                      child: Row(
                         children: [
-                          Text(
-                            "Chips Kavu",
-                            style: GoogleFonts.poppins(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                          Container(
+                            height: 120,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                    "${foodItem.foodImage}"), // Dynamic image
+                              ),
+                              borderRadius: BorderRadius.circular(15),
                             ),
                           ),
                           SizedBox(
-                            height: 18,
+                            width: 8,
                           ),
-                          Text(
-                            "Tsh 7500",
-                            style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFFC18553)),
-                            textAlign: TextAlign.start,
-                          ),
-                          SizedBox(
-                            height: 18,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  InkWell(
-                                    onTap: _plateDecrement,
-                                    child: Container(
-                                      width:
-                                          30, // Set the width to the diameter of the CircleAvatar
-                                      height:
-                                          30, // Set the height to the diameter of the CircleAvatar
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: Colors
-                                              .grey, // Set the border color
-                                          width: 1.0, // Set the border width
-                                        ),
-                                      ),
-                                      child: CircleAvatar(
-                                        radius:
-                                            28, // Adjust the radius to fit inside the border
-                                        backgroundColor: Colors.white,
-                                        child: ClipOval(
-                                          child: Icon(
-                                            CupertinoIcons.minus,
-                                            color: Colors.black,
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "${foodItem.foodName}", // Dynamic food name
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 18,
+                                ),
+                                Text(
+                                  "Tsh ${foodItem.price}", // Dynamic food price
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFFC18553),
+                                  ),
+                                  textAlign: TextAlign.start,
+                                ),
+                                SizedBox(
+                                  height: 18,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        InkWell(
+                                          onTap: _plateDecrement,
+                                          child: Container(
+                                            width: 30,
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color: Colors.grey,
+                                                width: 1.0,
+                                              ),
+                                            ),
+                                            child: CircleAvatar(
+                                              radius: 28,
+                                              backgroundColor: Colors.white,
+                                              child: ClipOval(
+                                                child: Icon(
+                                                  CupertinoIcons.minus,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 12,
-                                  ),
-                                  Text(
-                                    "$_counter",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 20,
-                                        color:
-                                            theme.brightness == Brightness.light
-                                                ? Colors.black
-                                                : Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 12,
-                                  ),
-                                  InkWell(
-                                    onTap: _plateIncrement,
-                                    child: Container(
-                                      width:
-                                          30, // Set the width to the diameter of the CircleAvatar
-                                      height:
-                                          30, // Set the height to the diameter of the CircleAvatar
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: Colors
-                                              .grey, // Set the border color
-                                          width: 1.0, // Set the border width
+                                        SizedBox(
+                                          width: 12,
                                         ),
-                                      ),
-                                      child: CircleAvatar(
-                                        radius:
-                                            28, // Adjust the radius to fit inside the border
-                                        backgroundColor: Colors.white,
-                                        child: ClipOval(
-                                          child: Icon(
-                                            CupertinoIcons.add,
-                                            color: Colors.black,
+                                        Text(
+                                          "$_counter",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 20,
+                                            color:
+                                                Theme.of(context).brightness ==
+                                                        Brightness.light
+                                                    ? Colors.black
+                                                    : Colors.white,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                      ),
+                                        SizedBox(
+                                          width: 12,
+                                        ),
+                                        InkWell(
+                                          onTap: _plateIncrement,
+                                          child: Container(
+                                            width: 30,
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color: Colors.grey,
+                                                width: 1.0,
+                                              ),
+                                            ),
+                                            child: CircleAvatar(
+                                              radius: 28,
+                                              backgroundColor: Colors.white,
+                                              child: ClipOval(
+                                                child: Icon(
+                                                  CupertinoIcons.add,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: 100,
-                              ),
-                              Icon(
-                                CupertinoIcons.delete,
-                                color: Color(0xFFC18553),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 20),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 120,
-                      width: 100,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                "./assets/coke.png",
-                              )),
-                          borderRadius: BorderRadius.circular(15)),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Cocacola",
-                            style: GoogleFonts.poppins(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                                    SizedBox(
+                                      width: 100,
+                                    ),
+                                    Icon(
+                                      CupertinoIcons.delete,
+                                      color: Color(0xFFC18553),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(
-                            height: 18,
-                          ),
-                          Text(
-                            "Tsh 1500",
-                            style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFFC18553)),
-                            textAlign: TextAlign.start,
-                          ),
-                          SizedBox(
-                            height: 18,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  InkWell(
-                                    onTap: _plateDecrement,
-                                    child: Container(
-                                      width:
-                                          30, // Set the width to the diameter of the CircleAvatar
-                                      height:
-                                          30, // Set the height to the diameter of the CircleAvatar
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: Colors
-                                              .grey, // Set the border color
-                                          width: 1.0, // Set the border width
-                                        ),
-                                      ),
-                                      child: CircleAvatar(
-                                        radius:
-                                            28, // Adjust the radius to fit inside the border
-                                        backgroundColor: Colors.white,
-                                        child: ClipOval(
-                                          child: Icon(
-                                            CupertinoIcons.minus,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 12,
-                                  ),
-                                  Text(
-                                    "$_counter",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 20,
-                                        color:
-                                            theme.brightness == Brightness.light
-                                                ? Colors.black
-                                                : Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 12,
-                                  ),
-                                  InkWell(
-                                    onTap: _plateIncrement,
-                                    child: Container(
-                                      width:
-                                          30, // Set the width to the diameter of the CircleAvatar
-                                      height:
-                                          30, // Set the height to the diameter of the CircleAvatar
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: Colors
-                                              .grey, // Set the border color
-                                          width: 1.0, // Set the border width
-                                        ),
-                                      ),
-                                      child: CircleAvatar(
-                                        radius:
-                                            28, // Adjust the radius to fit inside the border
-                                        backgroundColor: Colors.white,
-                                        child: ClipOval(
-                                          child: Icon(
-                                            CupertinoIcons.add,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: 100,
-                              ),
-                              Icon(
-                                CupertinoIcons.delete,
-                                color: Color(0xFFC18553),
-                              )
-                            ],
-                          ),
                         ],
                       ),
-                    )
-                  ],
+                    );
+                  },
                 ),
               ),
               Padding(

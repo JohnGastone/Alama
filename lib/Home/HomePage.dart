@@ -15,10 +15,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final TextEditingController _searchController =
-      TextEditingController(); // Add search controller
+  final TextEditingController _searchController = TextEditingController();
 
-  // Variable to keep track of the selected container index
   int _selectedIndex = 0;
 
   void _toggleSelection(int index) {

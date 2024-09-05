@@ -96,6 +96,7 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 width: 300,
                 child: TextField(
+                  style: GoogleFonts.poppins(),
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: "+255 624 839 009",

@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable
 
+import 'package:alamaapp/Food/PlateProvider.dart';
 import 'package:alamaapp/OnBoardingCarousel/SplashScreen.dart';
 import 'package:alamaapp/themeProvider.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,10 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(), // Initialize with loaded theme
-      child: const MyApp(),
+      child: MultiProvider(providers: [
+        ChangeNotifierProvider(
+            create: (_) => MyPlateProvider()), // Provide your provider here
+      ], child: const MyApp()),
     ),
   );
 }

@@ -1,9 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_final_fields
+// ignore_for_file: prefer_const_constructors, prefer_final_fields, use_build_context_synchronously
 
 import 'package:alamaapp/LoginSignUp/Login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import '../OnBoardingCarousel/SplashScreen.dart';
 
@@ -17,11 +19,51 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   bool _isChecked = false;
   bool _obscureText = false;
+  final _formKey = GlobalKey<FormState>();
+  String _email = '';
+  String _phoneNumber = '';
+  String _password = '';
+  String _confirmPassword = '';
 
   void _handleCheckboxChange(bool? newValue) {
     setState(() {
       _isChecked = newValue!;
     });
+  }
+
+  Future<void> _signUp() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+
+      if (_password != _confirmPassword) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Passwords do not match')),
+        );
+        return;
+      }
+
+      final response = await http.post(
+        Uri.parse('http://your-api-url/signup'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'email': _email,
+          'phoneNumber': _phoneNumber,
+          'password': _password,
+        }),
+      );
+
+      if (response.statusCode == 201) {
+        // Sign-up successful
+        Navigator.pushReplacementNamed(context, '/login');
+      } else {
+        // Sign-up failed
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Sign-up failed. Please try again.')),
+        );
+      }
+    }
   }
 
   @override
@@ -47,17 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  "Please fill in your information below to start browsing our menu.",
-                  style: GoogleFonts.poppins(fontSize: 20, color: Colors.grey),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 150),
+                padding: const EdgeInsets.only(right: 165),
                 child: Text("Email address",
                     style: GoogleFonts.poppins(fontSize: 20)),
               ),
@@ -66,8 +98,15 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(
                 width: 300,
-                child: TextField(
+                child: TextFormField(
                   keyboardType: TextInputType.emailAddress,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _email = value!,
                   decoration: InputDecoration(
                     labelText: "alamaclient@yahoo.com",
                     labelStyle: GoogleFonts.poppins(
@@ -95,9 +134,16 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(
                 width: 300,
-                child: TextField(
+                child: TextFormField(
                   style: GoogleFonts.poppins(),
                   keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your phone number';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _phoneNumber = value!,
                   decoration: InputDecoration(
                     labelText: "+255 624 839 009",
                     labelStyle: GoogleFonts.poppins(
@@ -125,8 +171,15 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(
                 width: 300,
-                child: TextField(
+                child: TextFormField(
                   obscureText: _obscureText,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a password';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _password = value!,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     labelText: "***************",
@@ -157,7 +210,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.only(right: 190),
+                padding: const EdgeInsets.only(right: 125),
                 child: Text("Confirm Password",
                     style: GoogleFonts.poppins(fontSize: 20)),
               ),
@@ -166,8 +219,15 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(
                 width: 300,
-                child: TextField(
+                child: TextFormField(
                   obscureText: _obscureText,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a password';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _password = value!,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                     labelText: "***************",
@@ -242,7 +302,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   },
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Text(
                 "Or Sign Up with",
                 style: GoogleFonts.poppins(
@@ -253,7 +313,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 10,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10, left: 60, right: 60),

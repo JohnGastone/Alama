@@ -101,7 +101,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context); // Get the current theme
+    final theme = Theme.of(context);
 
     return Scaffold(
       body: Center(

@@ -78,7 +78,7 @@ void main() async {
   // Start the server
   final handler =
       const Pipeline().addMiddleware(logRequests()).addHandler(router.call);
-  var port = int.parse(Platform.environment['PORT'] ?? '55522 ');
+  var port = int.parse(Platform.environment['PORT'] ?? '3000 ');
   var server = await io.serve(handler, 'localhost', port);
   print('Server running on port ${server.port}');
 }

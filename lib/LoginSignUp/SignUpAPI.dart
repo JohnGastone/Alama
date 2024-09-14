@@ -9,7 +9,6 @@ import 'package:mongo_dart/mongo_dart.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:async';
 
-// MongoDB connection
 late Db db;
 late DbCollection userCollection;
 
@@ -20,14 +19,12 @@ Future<void> connectToDatabase() async {
   userCollection = db.collection('users');
 }
 
-// Hash password using SHA-256 (Dart doesn't have bcrypt out of the box)
 String hashPassword(String password, String salt) {
-  var bytes = utf8.encode(password + salt); // Combine password and salt
+  var bytes = utf8.encode(password + salt);
   var digest = sha256.convert(bytes);
   return digest.toString();
 }
 
-// Signup handler
 Future<Response> signupHandler(Request request) async {
   try {
     var body = await request.readAsString();
@@ -37,7 +34,6 @@ Future<Response> signupHandler(Request request) async {
     String phoneNumber = data['phoneNumber'];
     String password = data['password'];
 
-    // Check if user already exists
     var existingUser = await userCollection.findOne(
         where.eq('email', email).or(where.eq('phoneNumber', phoneNumber)));
     if (existingUser != null) {
@@ -45,18 +41,14 @@ Future<Response> signupHandler(Request request) async {
           body: jsonEncode({'message': 'User already exists'}));
     }
 
-    // Create salt and hash password
-    String salt = DateTime.now()
-        .millisecondsSinceEpoch
-        .toString(); // Simple salt generation
+    String salt = DateTime.now().millisecondsSinceEpoch.toString();
     String hashedPassword = hashPassword(password, salt);
 
-    // Create new user
     await userCollection.insert({
       'email': email,
       'phoneNumber': phoneNumber,
       'password': hashedPassword,
-      'salt': salt, // Store salt to validate passwords later
+      'salt': salt,
     });
 
     return Response(201,
@@ -69,13 +61,10 @@ Future<Response> signupHandler(Request request) async {
 }
 
 void main() async {
-  // Connect to MongoDB
   await connectToDatabase();
 
-  // Create router for handling routes
   final router = Router()..post('/signup', signupHandler);
 
-  // Start the server
   final handler =
       const Pipeline().addMiddleware(logRequests()).addHandler(router.call);
   var port = int.parse(Platform.environment['PORT'] ?? '3000 ');

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:alamaapp/Food/FoodItem.dart';
 
 class MyPlatePage extends StatefulWidget {
   const MyPlatePage({super.key});
@@ -16,7 +15,7 @@ class MyPlatePage extends StatefulWidget {
 }
 
 class _MyPlatePageState extends State<MyPlatePage> {
-  String _tableNumber = 'T-1'; // Initialize the _tableNumber variable
+  String _tableNumber = 'T-1';
 
   int _counter = 1;
   final TextEditingController _controller = TextEditingController();
@@ -232,7 +231,6 @@ class _MyPlatePageState extends State<MyPlatePage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context); // Get the current theme
     final myPlate = Provider.of<MyPlateProvider>(context).myPlate;
 
     return Scaffold(

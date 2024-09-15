@@ -32,7 +32,6 @@ class _MyPlatePageState extends State<MyPlatePage> {
     });
   }
 
-  // Method to load the saved table number from SharedPreferences
   void _loadTableNumber() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -40,7 +39,6 @@ class _MyPlatePageState extends State<MyPlatePage> {
     });
   }
 
-  // Method to save the table number to SharedPreferences
   void _saveTableNumber(String tableNumber) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('tableNumber', tableNumber);

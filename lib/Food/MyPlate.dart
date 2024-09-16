@@ -59,7 +59,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
   }
 
   void _showPrePaymentDialog() {
-    final theme = Theme.of(context); // Get the current theme
+    final theme = Theme.of(context);
 
     showModalBottomSheet(
       context: context,

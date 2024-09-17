@@ -93,8 +93,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                       child: Row(
                         children: [
                           CircleAvatar(
-                            radius:
-                                30, // Adjust the radius to fit inside the border
+                            radius: 30,
                             child: ClipOval(
                               child: Image.asset(
                                 "./assets/waiter.png",
@@ -123,8 +122,7 @@ class _MyPlatePageState extends State<MyPlatePage> {
                           ),
                           Spacer(),
                           CircleAvatar(
-                            radius:
-                                30, // Adjust the radius to fit inside the border
+                            radius: 30,
                             backgroundColor: Color(0xFFC18553),
                             child: ClipOval(
                                 child: Icon(

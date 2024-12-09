@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           : FoodsModelData.displayFoods
               .where((food) => (isAnyCategorySelected &&
                       food.category?.toLowerCase() ==
-                          _getText(index).toLowerCase() ||
+                          _getCategoryName(index).toLowerCase() ||
                   containsSearchQuery(food.foodName)))
               .toList();
 
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           : CoffeeModelData.displayCoffee
               .where((coffee) => (isAnyCategorySelected &&
                       coffee.category?.toLowerCase() ==
-                          _getText(index).toLowerCase() ||
+                          _getCategoryName(index).toLowerCase() ||
                   containsSearchQuery(coffee.coffeeName)))
               .toList();
 
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
           : SoftDrinksModelData.displaySoftDrinks
               .where((softdrink) => (isAnyCategorySelected &&
                       softdrink.category?.toLowerCase() ==
-                          _getText(index).toLowerCase() ||
+                          _getCategoryName(index).toLowerCase() ||
                   containsSearchQuery(softdrink.softDrinkName)))
               .toList();
 
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
           : FruitsModelData.displayFruits
               .where((fruit) => (isAnyCategorySelected &&
                       fruit.category?.toLowerCase() ==
-                          _getText(index).toLowerCase() ||
+                          _getCategoryName(index).toLowerCase() ||
                   containsSearchQuery(fruit.fruitName)))
               .toList();
 
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
           : TeaModelData.displayTea
               .where((tea) => (isAnyCategorySelected &&
                       tea.category?.toLowerCase() ==
-                          _getText(index).toLowerCase() ||
+                          _getCategoryName(index).toLowerCase() ||
                   containsSearchQuery(tea.teaName)))
               .toList();
 
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
           : LocalFoodsList.displayLocalFoods
               .where((localfoods) => (isAnyCategorySelected &&
                       localfoods.category?.toLowerCase() ==
-                          _getText(index).toLowerCase() ||
+                          _getCategoryName(index).toLowerCase() ||
                   containsSearchQuery(localfoods.localFoodName)))
               .toList();
     });
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(height: 10),
                                   _buildGridItem(index),
                                   Text(
-                                    _getText(index),
+                                    _getCategoryName(index),
                                     style: GoogleFonts.poppins(
                                       fontSize: 20,
                                       color: _selectedIndex == index
@@ -237,14 +237,17 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                   ),
-                                  Text(
-                                    displayFoods[index].foodName!,
-                                    style: GoogleFonts.poppins(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Text(
+                                      displayFoods[index].foodName!,
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      ),
+                                      textAlign: TextAlign.start,
                                     ),
-                                    textAlign: TextAlign.start,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(
@@ -1104,7 +1107,7 @@ class _HomePageState extends State<HomePage> {
 
     if (index >= 0 && index <= 5) {
       return Image.asset(
-        _getImagePath(index), // Function to get the correct image path
+        _getCategoryPath(index), // Function to get the correct image path
         width: 30,
         height: 30,
         fit: BoxFit.cover,
@@ -1120,7 +1123,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // Helper function to get the image path based on index
-  String _getImagePath(int index) {
+  String _getCategoryPath(int index) {
     switch (index) {
       case 0:
         return "./assets/restaurant.png";
@@ -1139,7 +1142,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  String _getText(int index) {
+  String _getCategoryName(int index) {
     switch (index) {
       case 0:
         return "Food";

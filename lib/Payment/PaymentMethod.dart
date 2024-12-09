@@ -503,6 +503,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                     children: [
                                       TextField(
                                         keyboardType: TextInputType.number,
+                                        inputFormatters: [
+                                          LengthLimitingTextInputFormatter(
+                                              13), // Limits input to 13 characters
+                                          FilteringTextInputFormatter
+                                              .digitsOnly, // Allows only digits
+                                        ],
                                         decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             hintText: "Account Number"),
@@ -614,6 +620,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       TextField(
+                                        inputFormatters: [
+                                          LengthLimitingTextInputFormatter(
+                                              13), // Limits input to 13 characters
+                                          FilteringTextInputFormatter
+                                              .digitsOnly, // Allows only digits
+                                        ],
                                         keyboardType: TextInputType.number,
                                         decoration: InputDecoration(
                                             border: OutlineInputBorder(),
@@ -726,6 +738,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       TextField(
+                                        inputFormatters: [
+                                          LengthLimitingTextInputFormatter(
+                                              13), // Limits input to 13 characters
+                                          FilteringTextInputFormatter
+                                              .digitsOnly, // Allows only digits
+                                        ],
                                         keyboardType: TextInputType.number,
                                         decoration: InputDecoration(
                                             border: OutlineInputBorder(),
@@ -843,6 +861,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     TextField(
+                                      inputFormatters: [
+                                        LengthLimitingTextInputFormatter(
+                                            13), // Limits input to 13 characters
+                                        FilteringTextInputFormatter
+                                            .digitsOnly, // Allows only digits
+                                      ],
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           border: OutlineInputBorder(),

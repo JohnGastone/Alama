@@ -19,7 +19,6 @@ class _SplashscreenState extends State<Splashscreen> {
   void initState() {
     super.initState();
     startTimer();
-    // Navigate to OnboardingCarousel after 8 seconds
     Future.delayed(Duration(seconds: 8), () {
       Navigator.pushReplacement(
         context,

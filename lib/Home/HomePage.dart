@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     _getCategoryName(index),
                                     style: GoogleFonts.poppins(
-                                      fontSize: 20,
+                                      fontSize: 17,
                                       color: _selectedIndex == index
                                           ? Colors.white
                                           : Colors.grey,
@@ -190,675 +190,20 @@ class _HomePageState extends State<HomePage> {
                         crossAxisSpacing: 10,
                       ),
                       itemBuilder: (context, index) {
-                        if (_selectedIndex == 0 &&
-                            index < displayFoods.length) {
-                          return InkWell(
-                            child: Container(
-                              height: 210,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: 1,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8.0, right: 4),
-                                    child: Container(
-                                      width: 150,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              displayFoods[index].foodImage!),
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 7, right: 7),
-                                        child: Align(
-                                          alignment: Alignment.topRight,
-                                          child: CircleAvatar(
-                                            backgroundColor: Colors.white,
-                                            child: Icon(
-                                              CupertinoIcons.heart,
-                                              color: Color(0xFFC18553),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                      displayFoods[index].foodName!,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(CupertinoIcons.star_fill,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          "${displayFoods[index].foodRating!}",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                        Spacer(),
-                                        Icon(CupertinoIcons.clock,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          displayFoods[index].preparationTime!,
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Container(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Tsh ${displayFoods[index].price!}",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                        textAlign: TextAlign.start,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => FoodItemPage(
-                                          foodItem: _selectedIndex == 0
-                                              ? displayFoods[index]
-                                              : null)));
-                            },
-                          );
-                        } else if (_selectedIndex == 1 &&
-                            index < displayCoffee.length) {
-                          return InkWell(
-                            child: Container(
-                              height: 210,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 1,
-                                  ),
-                                  Container(
-                                    width: 150,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            displayCoffee[index].coffeeImage!),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 7, right: 7),
-                                      child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: CircleAvatar(
-                                          backgroundColor: Colors.white,
-                                          child: Icon(
-                                            CupertinoIcons.heart,
-                                            color: Color(0xFFC18553),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 50),
-                                    child: Text(
-                                      displayCoffee[index].coffeeName!,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(CupertinoIcons.star_fill,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          "${displayCoffee[index].coffeeRating!}",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                        Spacer(),
-                                        Icon(CupertinoIcons.clock,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          displayCoffee[index].preparationTime!,
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Container(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Tsh ${displayCoffee[index].price!}",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                        textAlign: TextAlign.start,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // onTap: () {
-                            //   Navigator.push(
-                            //       context,
-                            //       CupertinoPageRoute(
-                            //           builder: (context) => FoodItemPage()));
-                            // },
-                          );
-                        } else if (_selectedIndex == 2 &&
-                            index < displaySoftDrinks.length) {
-                          // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
-                          return InkWell(
-                            child: Container(
-                              height: 210,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 1,
-                                  ),
-                                  Container(
-                                    width: 150,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            displaySoftDrinks[index]
-                                                .softDrinkImage!),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 7, right: 7),
-                                      child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: CircleAvatar(
-                                          backgroundColor: Colors.white,
-                                          child: Icon(
-                                            CupertinoIcons.heart,
-                                            color: Color(0xFFC18553),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 50),
-                                    child: Text(
-                                      displaySoftDrinks[index].softDrinkName!,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(CupertinoIcons.star_fill,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          "${displaySoftDrinks[index].softDrinkRating!}",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                        Spacer(),
-                                        Icon(CupertinoIcons.clock,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          displaySoftDrinks[index]
-                                              .preparationTime!,
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Container(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Tsh ${displaySoftDrinks[index].price!}",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                        textAlign: TextAlign.start,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // onTap: () {
-                            //   Navigator.push(
-                            //       context,
-                            //       CupertinoPageRoute(
-                            //           builder: (context) => FoodItemPage()));
-                            // },
-                          );
-                        } else if (_selectedIndex == 3 &&
-                            index < displayFruits.length) {
-                          // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
-                          return InkWell(
-                            child: Container(
-                              height: 210,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 1,
-                                  ),
-                                  Container(
-                                    width: 150,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            displayFruits[index].fruitImage!),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 7, right: 7),
-                                      child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: CircleAvatar(
-                                          backgroundColor: Colors.white,
-                                          child: Icon(
-                                            CupertinoIcons.heart,
-                                            color: Color(0xFFC18553),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 50),
-                                    child: Text(
-                                      displayFruits[index].fruitName!,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(CupertinoIcons.star_fill,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          "${displayFruits[index].fruitRating!}",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                        Spacer(),
-                                        Icon(CupertinoIcons.clock,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          displayFruits[index].preparationTime!,
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Container(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Tsh ${displayFruits[index].price!}",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                        textAlign: TextAlign.start,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // onTap: () {
-                            //   Navigator.push(
-                            //       context,
-                            //       CupertinoPageRoute(
-                            //           builder: (context) => FoodItemPage()));
-                            // },
-                          );
-                        } else if (_selectedIndex == 4 &&
-                            index < displayTea.length) {
-                          // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
-                          return InkWell(
-                            child: Container(
-                              height: 210,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 1,
-                                  ),
-                                  Container(
-                                    width: 150,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            displayTea[index].teaImage!),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 7, right: 7),
-                                      child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: CircleAvatar(
-                                          backgroundColor: Colors.white,
-                                          child: Icon(
-                                            CupertinoIcons.heart,
-                                            color: Color(0xFFC18553),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 50),
-                                    child: Text(
-                                      displayTea[index].teaName!,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(CupertinoIcons.star_fill,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          "${displayTea[index].teaRating!}",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                        Spacer(),
-                                        Icon(CupertinoIcons.clock,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          displayTea[index].preparationTime!,
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Container(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Tsh ${displayTea[index].price!}",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                        textAlign: TextAlign.start,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // onTap: () {
-                            //   Navigator.push(
-                            //       context,
-                            //       CupertinoPageRoute(
-                            //           builder: (context) => FoodItemPage()));
-                            // },
-                          );
-                        } else if (_selectedIndex == 5 &&
-                            index < displayLocalFoods.length) {
-                          // Check if the selected index is 1 (SoftDrinks) and if the index is valid for the displaySoftDrinks list
-                          return InkWell(
-                            child: Container(
-                              height: 210,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 1,
-                                  ),
-                                  Container(
-                                    width: 150,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            displayLocalFoods[index]
-                                                .localFoodImage!),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 7, right: 7),
-                                      child: Align(
-                                        alignment: Alignment.topRight,
-                                        child: CircleAvatar(
-                                          backgroundColor: Colors.white,
-                                          child: Icon(
-                                            CupertinoIcons.heart,
-                                            color: Color(0xFFC18553),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 50),
-                                    child: Text(
-                                      displayLocalFoods[index].localFoodName!,
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                      textAlign: TextAlign.start,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(CupertinoIcons.star_fill,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          "${displayLocalFoods[index].localFoodRating!}",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                        Spacer(),
-                                        Icon(CupertinoIcons.clock,
-                                            color: Color(0xFFC18553)),
-                                        SizedBox(width: 5),
-                                        Text(
-                                          displayLocalFoods[index]
-                                              .preparationTime!,
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Container(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Tsh ${displayLocalFoods[index].price!}",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: Color(0xFFC18553),
-                                        ),
-                                        textAlign: TextAlign.start,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // onTap: () {
-                            //   Navigator.push(
-                            //       context,
-                            //       CupertinoPageRoute(
-                            //           builder: (context) => FoodItemPage()));
-                            // },
-                          );
-                        } else {
-                          // Handle cases where the index is out of range or the selected list is empty.
-                          // You can return an empty container or a placeholder widget.
-                          return Container();
-                        }
+                        return buildItemCard(
+                            context,
+                            _selectedIndex == 0
+                                ? displayFoods[index]
+                                : _selectedIndex == 1
+                                    ? displayCoffee[index]
+                                    : _selectedIndex == 2
+                                        ? displaySoftDrinks[index]
+                                        : _selectedIndex == 3
+                                            ? displayFruits[index]
+                                            : _selectedIndex == 4
+                                                ? displayTea[index]
+                                                : displayLocalFoods[index],
+                            _selectedIndex);
                       }),
                 ),
                 SizedBox(
@@ -874,7 +219,7 @@ class _HomePageState extends State<HomePage> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: SizedBox(
-                width: 360,
+                width: double.maxFinite,
                 height: 90,
                 child: FloatingActionButton(
                   backgroundColor: Colors.white,
@@ -1048,7 +393,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "What would you like to eat?",
                             style: GoogleFonts.poppins(
-                                fontSize: 35, color: Colors.white),
+                                fontSize: 32, color: Colors.white),
                             textAlign: TextAlign.center,
                           )
                         ],
@@ -1088,7 +433,7 @@ class _HomePageState extends State<HomePage> {
                         suffixIcon: Icon(Icons.sort),
                         hintText: "Search a Food or Restaurant",
                         hintStyle: GoogleFonts.poppins(
-                            fontSize: 18, color: Colors.grey),
+                            fontSize: 16, color: Colors.grey),
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none),
                   ),
@@ -1155,9 +500,193 @@ class _HomePageState extends State<HomePage> {
       case 4:
         return "Tea";
       case 5:
-        return "Locals";
+        return "Local Dishes";
       default:
         return "Addons";
+    }
+  }
+
+  Widget buildItemCard(BuildContext context, dynamic item, int selectedIndex) {
+    // Determine which properties to use based on the selected index and item type
+    String imagePath, itemName, rating;
+
+    String itemType;
+    switch (selectedIndex) {
+      case 0: // Foods
+        imagePath = item.foodImage;
+        itemName = item.foodName;
+        rating = "${item.foodRating}";
+        itemType = 'food';
+        break;
+      case 1: // Coffee
+        imagePath = item.coffeeImage;
+        itemName = item.coffeeName;
+        rating = "${item.coffeeRating}";
+        itemType = 'coffee';
+        break;
+      case 2: // Soft Drinks
+        imagePath = item.softDrinkImage;
+        itemName = item.softDrinkName;
+        rating = "${item.softDrinkRating}";
+        itemType = 'softDrink';
+        break;
+      case 3: // Fruits
+        imagePath = item.fruitImage;
+        itemName = item.fruitName;
+        rating = "${item.fruitRating}";
+        itemType = 'fruit';
+        break;
+      case 4: // Tea
+        imagePath = item.teaImage;
+        itemName = item.teaName;
+        rating = "${item.teaRating}";
+        itemType = 'tea';
+        break;
+      case 5: // Local Foods
+        imagePath = item.localFoodImage;
+        itemName = item.localFoodName;
+        rating = "${item.localFoodRating}";
+        itemType = 'localFood';
+        break;
+      default:
+        return SizedBox.shrink(); // Return empty widget if no match
+    }
+
+    return InkWell(
+      child: Container(
+        height: 210,
+        width: 150,
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 1),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 4),
+              child: Container(
+                width: selectedIndex == 5
+                    ? double.maxFinite
+                    : 150, // Specific width for Local Foods
+                height: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: AssetImage(imagePath),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 7, right: 7),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        CupertinoIcons.heart,
+                        color: Color(0xFFC18553),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 50),
+              child: Text(
+                itemName,
+                style: GoogleFonts.poppins(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+                textAlign: TextAlign.start,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(CupertinoIcons.star_fill, color: Color(0xFFC18553)),
+                  SizedBox(width: 5),
+                  Text(
+                    rating,
+                    style:
+                        GoogleFonts.poppins(fontSize: 15, color: Colors.black),
+                  ),
+                  Spacer(),
+                  Icon(CupertinoIcons.clock, color: Color(0xFFC18553)),
+                  SizedBox(width: 5),
+                  Text(
+                    item.preparationTime,
+                    style:
+                        GoogleFonts.poppins(fontSize: 15, color: Colors.black),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Tsh ${item.price}",
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Color(0xFFC18553),
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      onTap: () {
+        Navigator.push(
+            context,
+            CupertinoPageRoute(
+                builder: (context) =>
+                    FoodItemPage(item: item, itemType: itemType)));
+      },
+    );
+  }
+
+// In your build method or ListView.builder
+  Widget buildListItem(BuildContext context, int index) {
+    switch (_selectedIndex) {
+      case 0: // Foods
+        return index < displayFoods.length
+            ? buildItemCard(context, displayFoods[index], _selectedIndex)
+            : SizedBox.shrink();
+      case 1: // Coffee
+        return index < displayCoffee.length
+            ? buildItemCard(context, displayCoffee[index], _selectedIndex)
+            : SizedBox.shrink();
+      case 2: // Soft Drinks
+        return index < displaySoftDrinks.length
+            ? buildItemCard(context, displaySoftDrinks[index], _selectedIndex)
+            : SizedBox.shrink();
+      case 3: // Fruits
+        return index < displayFruits.length
+            ? buildItemCard(context, displayFruits[index], _selectedIndex)
+            : SizedBox.shrink();
+      case 4: // Tea
+        return index < displayTea.length
+            ? buildItemCard(context, displayTea[index], _selectedIndex)
+            : SizedBox.shrink();
+      case 5: // Local Foods
+        return index < displayLocalFoods.length
+            ? buildItemCard(context, displayLocalFoods[index], _selectedIndex)
+            : SizedBox.shrink();
+      default:
+        return SizedBox.shrink();
     }
   }
 }

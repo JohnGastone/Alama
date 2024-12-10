@@ -10,20 +10,15 @@ import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class FoodItemPage extends StatefulWidget {
-  final FoodsModel? foodItem; // Add this to receive the foodItem data
+  final dynamic item;
+  final String itemType;
 
-  const FoodItemPage({super.key, this.foodItem}); // Modify the constructor
-
+  const FoodItemPage({super.key, required this.item, required this.itemType});
   @override
   State<FoodItemPage> createState() => _FoodItemPageState();
 }
 
 class _FoodItemPageState extends State<FoodItemPage> {
-  final List<String> images = [
-    "./assets/chipskavu.png",
-    "./assets/walinyama.png",
-    "./assets/walikuku.png"
-  ];
   final PageController _pageController =
       PageController(viewportFraction: 0.8, keepPage: true);
   int _counter = 1;
@@ -42,19 +37,160 @@ class _FoodItemPageState extends State<FoodItemPage> {
     });
   }
 
+  // Helper method to extract item details based on type
+  String _getItemDetail(String detailType) {
+    switch (widget.itemType) {
+      case 'food':
+        return _getFoodDetail(detailType);
+      case 'coffee':
+        return _getCoffeeDetail(detailType);
+      case 'tea':
+        return _getTeaDetail(detailType);
+      case 'softDrink':
+        return _getSoftDrinkDetail(detailType);
+      case 'localFood':
+        return _getLocalFoodDetail(detailType);
+      case 'fruit':
+        return _getFruitDetail(detailType);
+      default:
+        return "Unknown Item";
+    }
+  }
+
+  // Individual detail extraction methods
+  String _getFoodDetail(String detailType) {
+    switch (detailType) {
+      case 'name':
+        return widget.item.foodName ?? "Unknown Food";
+      case 'price':
+        return widget.item.price?.toString() ?? "Tsh 0";
+      case 'rating':
+        return widget.item.foodRating?.toString() ?? "0";
+      case 'preparationTime':
+        return widget.item.preparationTime ?? "10 minutes";
+      case 'image':
+        return widget.item.foodImage ?? "./assets/default_food.png";
+      case 'description':
+        return widget.item.foodDescription ?? "No description";
+      case 'category':
+        return widget.item.category ?? "";
+      default:
+        return "Unknown Detail";
+    }
+  }
+
+  // Similar methods for other item types (coffee, tea, etc.)
+  String _getCoffeeDetail(String detailType) {
+    switch (detailType) {
+      case 'name':
+        return widget.item.coffeeName ?? "Unknown Coffee";
+      case 'price':
+        return widget.item.price?.toString() ?? "Tsh 0";
+      case 'rating':
+        return widget.item.coffeeRating?.toString() ?? "0";
+      case 'preparationTime':
+        return widget.item.preparationTime ?? "5 minutes";
+      case 'image':
+        return widget.item.coffeeImage ?? "./assets/default_coffee.png";
+      case 'description':
+        return widget.item.coffeeDescription ?? "No description";
+      case 'category':
+        return "Coffee";
+      default:
+        return "Unknown Detail";
+    }
+  }
+
+  // Add similar methods for tea, soft drinks, local foods, fruits
+  String _getTeaDetail(String detailType) {
+    switch (detailType) {
+      case 'name':
+        return widget.item.teaName ?? "Unknown Tea";
+      case 'price':
+        return widget.item.price?.toString() ?? "Tsh 0";
+      case 'rating':
+        return widget.item.teaRating?.toString() ?? "0";
+      case 'preparationTime':
+        return widget.item.preparationTime ?? "5 minutes";
+      case 'image':
+        return widget.item.teaImage ?? "./assets/default_tea.png";
+      case 'description':
+        return widget.item.teaDescription ?? "No description";
+      case 'category':
+        return "Tea";
+      default:
+        return "Unknown Detail";
+    }
+  }
+
+  // Soft Drinks
+  String _getSoftDrinkDetail(String detailType) {
+    switch (detailType) {
+      case 'name':
+        return widget.item.softDrinkName ?? "Unknown Tea";
+      case 'price':
+        return widget.item.price?.toString() ?? "Tsh 0";
+      case 'rating':
+        return widget.item.softDrinkRating?.toString() ?? "0";
+      case 'preparationTime':
+        return widget.item.preparationTime ?? "5 minutes";
+      case 'image':
+        return widget.item.softDrinkImage ?? "./assets/default_softDrink.png";
+      case 'description':
+        return widget.item.softDrinkDescription ?? "No description";
+      case 'category':
+        return "Tea";
+      default:
+        return "Unknown Detail";
+    }
+  }
+
+  // Local Foods
+  String _getLocalFoodDetail(String detailType) {
+    switch (detailType) {
+      case 'name':
+        return widget.item.localFoodName ?? "Unknown Tea";
+      case 'price':
+        return widget.item.price?.toString() ?? "Tsh 0";
+      case 'rating':
+        return widget.item.localFoodRating?.toString() ?? "0";
+      case 'preparationTime':
+        return widget.item.preparationTime ?? "5 minutes";
+      case 'image':
+        return widget.item.localFoodImage ?? "./assets/default_LocalFood.png";
+      case 'description':
+        return widget.item.localFoodDescription ?? "No description";
+      case 'category':
+        return "Tea";
+      default:
+        return "Unknown Detail";
+    }
+  }
+
+  String _getFruitDetail(String detailType) {
+    switch (detailType) {
+      case 'name':
+        return widget.item.fruitName ?? "Unknown Tea";
+      case 'price':
+        return widget.item.price?.toString() ?? "Tsh 0";
+      case 'rating':
+        return widget.item.fruitRating?.toString() ?? "0";
+      case 'preparationTime':
+        return widget.item.preparationTime ?? "5 minutes";
+      case 'image':
+        return widget.item.fruitImage ?? "./assets/default_fruit.png";
+      case 'description':
+        return widget.item.fruitDescription ?? "No description";
+      case 'category':
+        return "Tea";
+      default:
+        return "Unknown Detail";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
-    final foodName = widget.foodItem?.foodName ?? "Default Food Name";
-    final foodPrice = widget.foodItem?.price?.toString() ?? "Tsh 0";
-    final foodRating = widget.foodItem?.foodRating?.toString();
-    final foodPreparationTime =
-        widget.foodItem?.preparationTime?.toString() ?? "10 minutes";
-    final foodImage = widget.foodItem?.foodImage ?? "./assets/default_food.png";
-    final foodDescription =
-        widget.foodItem?.foodDescription ?? "Default description";
-    final foodCategory = widget.foodItem?.category ?? "";
 
     return ChangeNotifierProvider<MyPlateProvider>(
       create: (context) => MyPlateProvider(),
@@ -97,7 +233,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                   height: 250,
                   child: PageView.builder(
                     controller: _pageController,
-                    itemCount: images.length,
+                    itemCount: 3, // Fixed to three images
                     itemBuilder: (context, index) {
                       return Container(
                         width: 300,
@@ -105,7 +241,8 @@ class _FoodItemPageState extends State<FoodItemPage> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           image: DecorationImage(
-                            image: AssetImage(images[index]),
+                            image: AssetImage(List.generate(
+                                3, (_) => _getItemDetail('image'))[index]),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -123,14 +260,13 @@ class _FoodItemPageState extends State<FoodItemPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                height: 160,
-                              ),
+                              const SizedBox(height: 160),
                               Align(
                                 alignment: Alignment.bottomCenter,
                                 child: SmoothPageIndicator(
                                   controller: _pageController,
-                                  count: images.length,
+                                  count:
+                                      3, // Match the count to your dynamic data
                                   effect: ExpandingDotsEffect(
                                     dotColor: Colors.white,
                                     activeDotColor: Color(0xFFC18553),
@@ -151,7 +287,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                   child: Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      foodName,
+                      _getItemDetail('name'),
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.bold,
                         fontSize: 28,
@@ -168,7 +304,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                   child: Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Tsh $foodPrice',
+                      "Tsh ${_getItemDetail('price')}",
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
@@ -185,7 +321,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                       Icon(CupertinoIcons.clock, color: Color(0xFFC18553)),
                       SizedBox(width: 5),
                       Text(
-                        foodPreparationTime,
+                        _getItemDetail('preparationTime'),
                         style: GoogleFonts.poppins(fontSize: 15),
                       ),
                       SizedBox(
@@ -194,7 +330,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                       Icon(CupertinoIcons.star_fill, color: Color(0xFFC18553)),
                       SizedBox(width: 5),
                       Text(
-                        "$foodRating",
+                        _getItemDetail('rating'),
                         style: GoogleFonts.poppins(fontSize: 15),
                       ),
                     ],
@@ -231,7 +367,7 @@ class _FoodItemPageState extends State<FoodItemPage> {
                           height: 10,
                         ),
                         Text(
-                          foodDescription,
+                          _getItemDetail('description'),
                           style: GoogleFonts.poppins(
                               fontSize: 18, color: Colors.grey),
                         )
@@ -351,9 +487,11 @@ class _FoodItemPageState extends State<FoodItemPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Icon(
-                                  CupertinoIcons.shopping_cart,
-                                  color: Colors.white,
+                                Image.asset(
+                                  "./assets/myplate.png",
+                                  height: 28,
+                                  width: 28,
+                                  color: Colors.grey,
                                 ),
                                 Text(
                                   "Add to my plate",
@@ -371,14 +509,14 @@ class _FoodItemPageState extends State<FoodItemPage> {
                           Provider.of<MyPlateProvider>(context, listen: false)
                               .addToPlate(
                             FoodsModel(
-                              foodName,
-                              double.tryParse(foodRating!) ?? 0.0,
-                              foodImage,
-                              foodDescription,
-                              foodPreparationTime,
-                              (foodPrice as double?)
+                              _getItemDetail('name'),
+                              double.tryParse(_getItemDetail('rating')) ?? 0.0,
+                              _getItemDetail('image'),
+                              _getItemDetail('description'),
+                              _getItemDetail('preparationTime'),
+                              (_getItemDetail('price') as double?)
                                   ?.toInt(), // Safely convert double to int
-                              foodCategory,
+                              _getItemDetail('category'),
                             ),
                           );
 

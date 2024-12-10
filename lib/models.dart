@@ -153,46 +153,44 @@ class CoffeeModel {
   String? preparationTime;
   int? price;
   String? category;
-  String? description;
+  String? coffeeDescription;
 
   CoffeeModel(this.coffeeName, this.coffeeRating, this.coffeeImage,
-      this.preparationTime, this.price, this.category, this.description);
+      this.preparationTime, this.price, this.category, this.coffeeDescription);
 }
 
 class CoffeeModelData {
   static List<CoffeeModel> getCoffee = [
-    CoffeeModel("Arabica Coffee", 4.9, "./assets/arabica.jpeg", "5 min", 5000,
-        '', "A smooth and aromatic coffee with notes of fruit and sweetness."),
-    CoffeeModel("Liberica Coffee", 4.9, "./assets/liberica.jpeg", "5 min", 7500,
-        '', "A bold and fruity coffee with a unique smoky or woody flavor."),
+    CoffeeModel(
+        "Arabica Coffee",
+        4.9,
+        "./assets/arabica.jpeg",
+        "5 min",
+        5000,
+        '',
+        "A smooth, elegant coffee from high-altitude regions, featuring delicate notes of berries and a hint of chocolate."),
+    CoffeeModel(
+        "Liberica Coffee",
+        4.9,
+        "./assets/liberica.jpeg",
+        "5 min",
+        7500,
+        '',
+        "A rare and bold coffee variety with a distinctive woody character, offering an intense and slightly smoky flavor profile."),
     CoffeeModel("Milky Coffee", 4.9, "./assets/milky.jpeg", "5 min", 12000, '',
-        "A creamy coffee with a perfect balance of coffee and milk."),
-    CoffeeModel("Robusta Coffee", 4.9, "./assets/robusta.jpeg", "5 min", 10000,
-        '', "A strong and bitter coffee with high caffeine content."),
-    CoffeeModel("Arabica Coffee", 4.9, "./assets/arabica.jpeg", "5 min", 5000,
-        '', "A smooth and aromatic coffee with notes of fruit and sweetness."),
-    CoffeeModel("Liberica Coffee", 4.9, "./assets/liberica.jpeg", "5 min", 7500,
-        '', "A bold and fruity coffee with a unique smoky or woody flavor."),
-    CoffeeModel("Milky Coffee", 4.9, "./assets/milky.jpeg", "5 min", 12000, '',
-        "A creamy coffee with a perfect balance of coffee and milk."),
+        "A comforting blend of rich espresso and creamy milk, creating a harmonious balance of strength and smoothness."),
+    CoffeeModel(
+        "Robusta Coffee",
+        4.9,
+        "./assets/robusta.jpeg",
+        "5 min",
+        10000,
+        '',
+        "An intense, full-bodied coffee known for its strong, earthy flavor and high caffeine content, perfect for those seeking a robust brew."),
     CoffeeModel("Nguu Coffee", 4.9, "./assets/nguu.jpeg", "5 min", 10000, '',
-        "Traditional Tanzanian coffee with a rich, bold flavor."), // Replace with actual description
-    CoffeeModel("Arabica Coffee", 4.9, "./assets/arabica.jpeg", "5 min", 5000,
-        '', "A smooth and aromatic coffee with notes of fruit and sweetness."),
-    CoffeeModel("Liberica Coffee", 4.9, "./assets/liberica.jpeg", "5 min", 7500,
-        '', "A bold and fruity coffee with a unique smoky or woody flavor."),
-    CoffeeModel("Milky Coffee", 4.9, "./assets/milky.jpeg", "5 min", 12000, '',
-        "A creamy coffee with a perfect balance of coffee and milk."),
-    CoffeeModel("Nguu Coffee", 4.9, "./assets/nguu.jpeg", "5 min", 10000, '',
-        "Traditional Tanzanian coffee with a rich, bold flavor."), // Replace with actual description
-    CoffeeModel("Arabica Coffee", 4.9, "./assets/arabica.jpeg", "5 min", 5000,
-        '', "A smooth and aromatic coffee with notes of fruit and sweetness."),
-    CoffeeModel("Liberica Coffee", 4.9, "./assets/liberica.jpeg", "5 min", 7500,
-        '', "A bold and fruity coffee with a unique smoky or woody flavor."),
+        "A distinguished Tanzanian coffee revealing complex layers of flavor, with bright acidity and notes of dark chocolate and wild berries."),
     CoffeeModel("Tanga Coffee", 4.9, "./assets/tanga.jpeg", "5 min", 12000, '',
-        "A Tanzanian coffee with a vibrant acidity and fruity aroma."), // Replace with actual description
-    CoffeeModel("Nguu Coffee", 4.9, "./assets/nguu.jpeg", "5 min", 10000, '',
-        "Traditional Tanzanian coffee with a rich, bold flavor."),
+        "A vibrant Tanzanian coffee celebrated for its crisp acidity, featuring bright citrus undertones and a clean, refreshing finish.")
   ];
 
   static List<CoffeeModel> displayCoffee = List.from(CoffeeModelData.getCoffee);
@@ -205,10 +203,16 @@ class SoftDrinksModel {
   String? preparationTime;
   int? price;
   String? category;
-  String? description;
+  String? softDrinkDescription;
 
-  SoftDrinksModel(this.softDrinkName, this.softDrinkRating, this.softDrinkImage,
-      this.preparationTime, this.price, this.category, this.description);
+  SoftDrinksModel(
+      this.softDrinkName,
+      this.softDrinkRating,
+      this.softDrinkImage,
+      this.preparationTime,
+      this.price,
+      this.category,
+      this.softDrinkDescription);
 }
 
 class SoftDrinksModelData {
@@ -220,41 +224,15 @@ class SoftDrinksModelData {
         "5 min",
         5000,
         '',
-        "A refreshing mix of fruit juices, often with soda or other carbonated beverages."),
+        "An artfully crafted blend of fresh fruit juices, spirits, and garnishes that dance together in a symphony of flavors and colors."),
     SoftDrinksModel("Sprite", 4.9, "./assets/sprite.jpeg", "5 min", 7500, '',
-        "A clear, lemon-lime flavored soda with a crisp, refreshing taste."),
+        "A crisp, effervescent lemon-lime soda that offers a bright, clean refreshment with a perfectly balanced sweet and tangy profile."),
     SoftDrinksModel("Pepsi", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, '',
-        "A popular cola with a sweet and slightly citrusy flavor."),
-    SoftDrinksModel(
-        "Cocktail",
-        4.9,
-        "./assets/cocktail.jpeg",
-        "5 min",
-        10000,
-        '',
-        "A refreshing mix of fruit juices, often with soda or other carbonated beverages."),
+        "An iconic cola with a rich, caramel-like sweetness and subtle citrus notes, delivering a classic and satisfying soft drink experience."),
     SoftDrinksModel("Mountain Dew", 4.9, "./assets/dew.jpeg", "5 min", 5000, '',
-        "A citrus-flavored soda with a high caffeine content."),
-    SoftDrinksModel("Sprite", 4.9, "./assets/sprite.jpeg", "5 min", 7500, '',
-        "A clear, lemon-lime flavored soda with a crisp, refreshing taste."),
-    SoftDrinksModel("Pepsi", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, '',
-        "A popular cola with a sweet and slightly citrusy flavor."),
+        "An electrifying citrus soda bursting with intense, tropical-inspired flavor and a signature caffeine kick that energizes and excites."),
     SoftDrinksModel("Coca-Cola", 4.9, "./assets/coke.jpeg", "5 min", 10000, '',
-        "The world's most popular cola, known for its caramel flavor."),
-    SoftDrinksModel("Mountain Dew", 4.9, "./assets/dew.jpeg", "5 min", 5000, '',
-        "A citrus-flavored soda with a high caffeine content."),
-    SoftDrinksModel("Sprite", 4.9, "./assets/sprite.jpeg", "5 min", 7500, '',
-        "A clear, lemon-lime flavored soda with a crisp, refreshing taste."),
-    SoftDrinksModel("Pepsi", 4.9, "./assets/pepsi.jpeg", "5 min", 12000, '',
-        "A popular cola with a sweet and slightly citrusy flavor."),
-    SoftDrinksModel("Coca-Cola", 4.9, "./assets/coke.jpeg", "5 min", 10000, '',
-        "The world's most popular cola, known for its caramel flavor."),
-    SoftDrinksModel("Mountain Dew", 4.9, "./assets/dew.jpeg", "5 min", 5000, '',
-        "A citrus-flavored soda with a high caffeine content."),
-    SoftDrinksModel("Sprite", 4.9, "./assets/sprite.jpeg", "5 min", 7500, '',
-        "A clear, lemon-lime flavored soda with a crisp, refreshing taste."),
-    SoftDrinksModel("Coca-Cola", 4.9, "./assets/coke.jpeg", "5 min", 12000, '',
-        "The world's most popular cola, known for its caramel flavor."),
+        "The world's most beloved cola, offering a perfectly balanced blend of sweetness, carbonation, and a secret recipe that has delighted generations."),
     SoftDrinksModel(
         "Orange Juice",
         4.9,
@@ -262,7 +240,7 @@ class SoftDrinksModelData {
         "5 min",
         10000,
         '',
-        "A refreshing and nutritious beverage made from fresh oranges."),
+        "A pure, sunshine-in-a-glass beverage, freshly squeezed to capture the bright, natural sweetness and vibrant nutrition of ripe oranges.")
   ];
 
   static List<SoftDrinksModel> displaySoftDrinks =
@@ -276,10 +254,10 @@ class FruitsModel {
   String? preparationTime;
   int? price;
   String? category;
-  String? description;
+  String? fruitDescription;
 
   FruitsModel(this.fruitName, this.fruitRating, this.fruitImage,
-      this.preparationTime, this.price, this.category, this.description);
+      this.preparationTime, this.price, this.category, this.fruitDescription);
 }
 
 class FruitsModelData {
@@ -340,46 +318,26 @@ class TeaModel {
   String? preparationTime;
   int? price;
   String? category;
-  String? description;
+  String? teaDescription;
 
   TeaModel(this.teaName, this.teaRating, this.teaImage, this.preparationTime,
-      this.price, this.category, this.description);
+      this.price, this.category, this.teaDescription);
 }
 
 class TeaModelData {
   static List<TeaModel> getTea = [
     TeaModel("Black Tea", 4.9, "./assets/blacktea.jpeg", "5 min", 5000, '',
-        "A robust and flavorful tea with a slightly bitter taste, often enjoyed with milk or sugar."),
+        "A bold and complex brew with a rich, full-bodied character, offering deep, malty notes that awaken the senses and provide a robust morning companion."),
     TeaModel("Green Tea", 4.9, "./assets/greentea.jpeg", "5 min", 7500, '',
-        "A delicate and earthy tea with a fresh, grassy flavor and numerous health benefits."),
+        "A delicate symphony of earthy and grassy flavors, celebrated for its subtle complexity and remarkable health-promoting antioxidants."),
     TeaModel("Matcha Tea", 4.9, "./assets/matcha.jpg", "5 min", 12000, '',
-        "A finely ground green tea powder with a vibrant green color and a slightly sweet, vegetal taste."),
+        "A ceremonial Japanese green tea transformed into a vibrant powder, delivering an intense, umami-rich experience with a brilliant emerald color and meditative preparation."),
     TeaModel("Orange Tea", 4.9, "./assets/orangetea.jpeg", "5 min", 10000, '',
-        "A blend of black tea with orange peel, offering a citrusy aroma and a refreshing taste."),
+        "A harmonious blend of bright black tea and zesty orange peel, creating a refreshing infusion that dances between citrusy brightness and classic tea depth."),
     TeaModel("Vanilla Tea", 4.9, "./assets/tea.jpeg", "5 min", 5000, '',
-        "A fragrant tea infused with vanilla beans or flavoring, providing a sweet and comforting aroma."),
-    TeaModel("Black Tea", 4.9, "./assets/blacktea.jpeg", "5 min", 7500, '',
-        "A robust and flavorful tea with a slightly bitter taste, often enjoyed with milk or sugar."),
-    TeaModel("Matcha Tea", 4.9, "./assets/matcha.jpg", "5 min", 12000, '',
-        "A finely ground green tea powder with a vibrant green color and a slightly sweet, vegetal taste."),
-    TeaModel("Orange Tea", 4.9, "./assets/orangetea.jpeg", "5 min", 10000, '',
-        "A blend of black tea with orange peel, offering a citrusy aroma and a refreshing taste."),
-    TeaModel("Yerba Mate Tea", 4.9, "./assets/Yerba.jpeg", "5 min", 5000, '',
-        "A South American herbal tea known for its stimulating properties and earthy flavor."),
-    TeaModel("Green Tea", 4.9, "./assets/greentea.jpeg", "5 min", 7500, '',
-        "A delicate and earthy tea with a fresh, grassy flavor and numerous health benefits."),
-    TeaModel("Black Tea", 4.9, "./assets/blacktea.jpeg", "5 min", 12000, '',
-        "A robust and flavorful tea with a slightly bitter taste, often enjoyed with milk or sugar."),
-    TeaModel("Vanilla Tea", 4.9, "./assets/tea.jpeg", "5 min", 10000, '',
-        "A fragrant tea infused with vanilla beans or flavoring, providing a sweet and comforting aroma."),
-    TeaModel("Matcha Tea", 4.9, "./assets/matcha.jpg", "5 min", 5000, '',
-        "A finely ground green tea powder with a vibrant green color and a slightly sweet, vegetal taste."),
+        "A luxurious and comforting brew that marries the warmth of premium tea leaves with the smooth, sweet embrace of pure vanilla essence."),
     TeaModel("Yerba Mate Tea", 4.9, "./assets/Yerba.jpeg", "5 min", 7500, '',
-        "A South American herbal tea known for its stimulating properties and earthy flavor."),
-    TeaModel("Green Tea", 4.9, "./assets/greentea.jpeg", "5 min", 12000, '',
-        "A delicate and earthy tea with a fresh, grassy flavor and numerous health benefits."),
-    TeaModel("Orange Tea", 4.9, "./assets/orangetea.jpeg", "5 min", 10000, '',
-        "A blend of black tea with orange peel, offering a citrusy aroma and a refreshing taste."),
+        "A traditional South American herbal infusion renowned for its invigorating energy, offering an earthy, slightly smoky flavor that connects drinkers to ancient cultural practices.")
   ];
 
   static List<TeaModel> displayTea = List.from(TeaModelData.getTea);
@@ -389,7 +347,7 @@ class LocalFoodsModel {
   String? localFoodName;
   double? localFoodRating;
   String? localFoodImage;
-  String? foodDescription; // Added this line for the description
+  String? localFoodDescription; // Added this line for the description
   String? preparationTime;
   int? price;
   String? category;
@@ -398,7 +356,7 @@ class LocalFoodsModel {
       this.localFoodName,
       this.localFoodRating,
       this.localFoodImage,
-      this.foodDescription,
+      this.localFoodDescription,
       this.preparationTime,
       this.price,
       this.category); // Include the description parameter
@@ -410,130 +368,50 @@ class LocalFoodsList {
         "Biryani",
         4.9,
         "./assets/biryani.png",
-        "A flavorful rice dish made with fragrant spices, vegetables, and meat (optional).",
+        "A flavorful rice dish made with fragrant spices, vegetables, and meat (optional), offering a rich and aromatic experience.",
         "15 min",
         5000,
-        ''),
+        'Main Course'),
     LocalFoodsModel(
         "Pilau",
         4.9,
         "./assets/pilau.png",
-        "A spiced rice dish cooked with meat, vegetables, and a blend of aromatic spices.",
+        "A spiced rice dish cooked with meat, vegetables, and a blend of aromatic spices, perfect for a hearty meal.",
         "15 min",
         7500,
-        ''), // Fixed image path
+        'Main Course'),
     LocalFoodsModel(
         "Wali Nazi",
         4.9,
         "./assets/nazi.png",
-        "A coconut-infused rice dish, often served with fish, chicken, or meat curry.",
+        "A coconut-infused rice dish, often served with fish, chicken, or meat curry, bringing tropical flavors to your plate.",
         "15 min",
         12000,
-        ''),
+        'Side Dish'),
     LocalFoodsModel(
         "Ndizi Mzuzu",
         4.9,
         "./assets/mzuzu.png",
-        "Roasted plantains, a popular side dish or snack in Tanzania.",
+        "Roasted plantains, a popular side dish or snack in Tanzania, known for their sweet and savory taste.",
         "5 min",
         10000,
-        ''),
+        'Snack'),
     LocalFoodsModel(
         "Chips Mayai",
         4.9,
         "./assets/chips.png",
-        "A hearty Tanzanian street food made with french fries cooked into an omelette.",
+        "A hearty Tanzanian street food made with french fries cooked into an omelette, offering a unique blend of textures.",
         "5 min",
         5000,
-        ''),
-    LocalFoodsModel(
-        "Biryani",
-        4.9,
-        "./assets/biryani.png",
-        "A flavorful rice dish made with fragrant spices, vegetables, and meat (optional).",
-        "15 min",
-        7500,
-        ''),
-    LocalFoodsModel(
-        "Wali Nazi",
-        4.9,
-        "./assets/nazi.png",
-        "A coconut-infused rice dish, often served with fish, chicken, or meat curry.",
-        "15 min",
-        12000,
-        ''),
-    LocalFoodsModel(
-        "Ndizi Mzuzu",
-        4.9,
-        "./assets/mzuzu.png",
-        "Roasted plantains, a popular side dish or snack in Tanzania.",
-        "5 min",
-        10000,
-        ''),
+        'Snack'),
     LocalFoodsModel(
         "Pilau Zenji",
         4.9,
         "./assets/pilauzanzibar.png",
-        "A fragrant and flavorful pilau with Zanzibari spices, often cooked with seafood or meat.",
+        "A fragrant and flavorful pilau with Zanzibari spices, often cooked with seafood or meat, perfect for special occasions.",
         "5 min",
         5000,
-        ''),
-    LocalFoodsModel(
-        "Pilau",
-        4.9,
-        "./assets/pilau.png",
-        "A spiced rice dish cooked with meat, vegetables, and a blend of aromatic spices.",
-        "5 min",
-        7500,
-        ''), // Fixed image path
-    LocalFoodsModel(
-        "Biryani",
-        4.9,
-        "./assets/biryani.png",
-        "A flavorful rice dish made with fragrant spices, vegetables, and meat (optional).",
-        "15 min",
-        12000,
-        ''),
-    LocalFoodsModel(
-        "Chips Mayai",
-        4.9,
-        "./assets/chips.png",
-        "A hearty Tanzanian street food made with french fries cooked into an omelette.",
-        "5 min",
-        10000,
-        ''),
-    LocalFoodsModel(
-        "Wali Nazi",
-        4.9,
-        "./assets/nazi.png",
-        "A coconut-infused rice dish, often served with fish, chicken, or meat curry.",
-        "5 min",
-        5000,
-        ''),
-    LocalFoodsModel(
-        "Pilau Zenji",
-        4.9,
-        "./assets/pilauzanzibar.png",
-        "A fragrant and flavorful pilau with Zanzibari spices, often cooked with seafood or meat.",
-        "5 min",
-        7500,
-        ''),
-    LocalFoodsModel(
-        "Pilau",
-        4.9,
-        "./assets/pilau.png",
-        "A spiced rice dish cooked with meat, vegetables, and a blend of aromatic spices.",
-        "5 min",
-        12000,
-        ''), // Fixed image path
-    LocalFoodsModel(
-        "Ndizi Mzuzu",
-        4.9,
-        "./assets/mzuzu.png",
-        "Roasted plantains, a popular side dish or snack in Tanzania.",
-        "5 min",
-        10000,
-        ''),
+        'Main Course'),
   ];
 
   static List<LocalFoodsModel> displayLocalFoods =

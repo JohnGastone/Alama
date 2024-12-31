@@ -19,67 +19,87 @@ class _HomePageState extends State<HomePage> {
 
   int _selectedIndex = 0;
 
-  void _toggleSelection(int index) {
+  void updateSearchAndFilter(int index) {
     setState(() {
+      // Update the selected index
       _selectedIndex = index;
+
+      // Determine if any category is selected (index > 0)
       bool isAnyCategorySelected = index > 0;
+
+      // Get the current search query and convert to lowercase for case-insensitive matching
       String searchQuery = _searchController.text.toLowerCase();
+
+      // Helper function to check if an item contains the search query
       bool containsSearchQuery(String? itemName) {
         return itemName != null && itemName.toLowerCase().contains(searchQuery);
       }
 
+      // Filtering logic for different food categories
       displayFoods = (index == 0)
           ? List.from(FoodsModelData.displayFoods)
           : FoodsModelData.displayFoods
-              .where((food) => (isAnyCategorySelected &&
+              .where((food) =>
+                  // Match category, food name, or restaurant name
+                  (isAnyCategorySelected &&
                       food.category?.toLowerCase() ==
-                          _getCategoryName(index).toLowerCase() ||
-                  containsSearchQuery(food.foodName)))
+                          _getCategoryName(index).toLowerCase()) &&
+                  containsSearchQuery(food.foodName))
               .toList();
 
+      // Similar filtering for Coffee
       displayCoffee = (index == 1)
           ? List.from(CoffeeModelData.displayCoffee)
           : CoffeeModelData.displayCoffee
-              .where((coffee) => (isAnyCategorySelected &&
+              .where((coffee) =>
+                  (isAnyCategorySelected &&
                       coffee.category?.toLowerCase() ==
-                          _getCategoryName(index).toLowerCase() ||
-                  containsSearchQuery(coffee.coffeeName)))
+                          _getCategoryName(index).toLowerCase()) &&
+                  containsSearchQuery(coffee.coffeeName))
               .toList();
 
+      // Filtering for Soft Drinks
       displaySoftDrinks = (index == 2)
           ? List.from(SoftDrinksModelData.displaySoftDrinks)
           : SoftDrinksModelData.displaySoftDrinks
-              .where((softdrink) => (isAnyCategorySelected &&
+              .where((softdrink) =>
+                  (isAnyCategorySelected &&
                       softdrink.category?.toLowerCase() ==
-                          _getCategoryName(index).toLowerCase() ||
-                  containsSearchQuery(softdrink.softDrinkName)))
+                          _getCategoryName(index).toLowerCase()) &&
+                  containsSearchQuery(softdrink.softDrinkName))
               .toList();
 
+      // Filtering for Fruits
       displayFruits = (index == 3)
           ? List.from(FruitsModelData.displayFruits)
           : FruitsModelData.displayFruits
-              .where((fruit) => (isAnyCategorySelected &&
+              .where((fruit) =>
+                  (isAnyCategorySelected &&
                       fruit.category?.toLowerCase() ==
-                          _getCategoryName(index).toLowerCase() ||
-                  containsSearchQuery(fruit.fruitName)))
+                          _getCategoryName(index).toLowerCase()) &&
+                  containsSearchQuery(fruit.fruitName))
               .toList();
 
+      // Filtering for Tea
       displayTea = (index == 4)
           ? List.from(TeaModelData.displayTea)
           : TeaModelData.displayTea
-              .where((tea) => (isAnyCategorySelected &&
+              .where((tea) =>
+                  (isAnyCategorySelected &&
                       tea.category?.toLowerCase() ==
-                          _getCategoryName(index).toLowerCase() ||
-                  containsSearchQuery(tea.teaName)))
+                          _getCategoryName(index).toLowerCase()) &&
+                  containsSearchQuery(tea.teaName))
               .toList();
 
+      // Filtering for Local Foods
       displayLocalFoods = (index == 5)
           ? List.from(LocalFoodsList.displayLocalFoods)
           : LocalFoodsList.displayLocalFoods
-              .where((localfoods) => (isAnyCategorySelected &&
-                      localfoods.category?.toLowerCase() ==
-                          _getCategoryName(index).toLowerCase() ||
-                  containsSearchQuery(localfoods.localFoodName)))
+              .where((localfood) =>
+                  (isAnyCategorySelected &&
+                      localfood.category?.toLowerCase() ==
+                          _getCategoryName(index).toLowerCase()) &&
+                  containsSearchQuery(localfood.localFoodName))
               .toList();
     });
   }
@@ -95,6 +115,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
@@ -131,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: List.generate(7, (index) {
                         return GestureDetector(
-                          onTap: () => _toggleSelection(index),
+                          onTap: () => updateSearchAndFilter(index),
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 top: 8.0, left: 8, right: 8),
@@ -416,28 +438,36 @@ class _HomePageState extends State<HomePage> {
                 width: 330,
                 height: 50,
                 decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.black.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(12)),
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: TextField(
-                    controller: _searchController,
-                    onChanged: (value) {
-                      _toggleSelection(_selectedIndex);
-                    },
-                    cursorColor: Colors.grey,
-                    style:
-                        GoogleFonts.poppins(fontSize: 18, color: Colors.grey),
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(CupertinoIcons.search),
-                        suffixIcon: Icon(Icons.sort),
-                        hintText: "Search a Food or Restaurant",
-                        hintStyle: GoogleFonts.poppins(
-                            fontSize: 16, color: Colors.grey),
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(10),
+                    child: TextField(
+                      controller:
+                          _searchController, // Existing search controller
+                      onChanged: (value) {
+                        // Replace _toggleSelection with a more robust search and filter method
+                        updateSearchAndFilter(_selectedIndex);
+                      },
+                      cursorColor: Colors.grey,
+                      style: GoogleFonts.poppins(
+                          fontSize: 18, color: Colors.white),
+                      decoration: InputDecoration(
+                          // Existing prefix and suffix icons
+                          prefixIcon: Icon(CupertinoIcons.search),
+                          prefixIconColor: Colors.white,
+                          suffixIcon: Icon(Icons.sort),
+                          suffixIconColor: Colors.white,
+
+                          // Existing hint text styling
+                          hintText: "Search a Food or Restaurant",
+                          hintStyle: GoogleFonts.poppins(
+                              fontSize: 16, color: Colors.white),
+
+                          // Existing border settings
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none),
+                    )),
               ),
             ),
           )

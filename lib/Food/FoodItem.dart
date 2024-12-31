@@ -208,10 +208,22 @@ class _FoodItemPageState extends State<FoodItemPage> {
                     Navigator.pop(context);
                   },
                 ),
-                Text(
-                  "Food Item",
-                  style: GoogleFonts.poppins(
-                      fontSize: 30, fontWeight: FontWeight.w500),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, top: 20),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      _getItemDetail('name'),
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 26,
+                        color: theme.brightness == Brightness.light
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
                 ),
                 IconButton(
                   icon: Icon(Icons.share),
@@ -270,8 +282,8 @@ class _FoodItemPageState extends State<FoodItemPage> {
                                   effect: ExpandingDotsEffect(
                                     dotColor: Colors.white,
                                     activeDotColor: Color(0xFFC18553),
-                                    dotHeight: 15,
-                                    dotWidth: 15,
+                                    dotHeight: 12,
+                                    dotWidth: 12,
                                   ),
                                 ),
                               ),
@@ -280,23 +292,6 @@ class _FoodItemPageState extends State<FoodItemPage> {
                         ),
                       );
                     },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, top: 20),
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      _getItemDetail('name'),
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 28,
-                        color: theme.brightness == Brightness.light
-                            ? Colors.black
-                            : Colors.white,
-                      ),
-                      textAlign: TextAlign.start,
-                    ),
                   ),
                 ),
                 Padding(
@@ -491,34 +486,131 @@ class _FoodItemPageState extends State<FoodItemPage> {
                                   "./assets/myplate.png",
                                   height: 28,
                                   width: 28,
-                                  color: Colors.grey,
+                                  color: Colors.white,
                                 ),
                                 Text(
                                   "Add to my plate",
                                   style: GoogleFonts.poppins(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
+                                    fontSize: 15,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                         ),
                         onTap: () {
-                          // Add food item to plate
-                          Provider.of<MyPlateProvider>(context, listen: false)
-                              .addToPlate(
-                            FoodsModel(
-                              _getItemDetail('name'),
-                              double.tryParse(_getItemDetail('rating')) ?? 0.0,
-                              _getItemDetail('image'),
-                              _getItemDetail('description'),
-                              _getItemDetail('preparationTime'),
-                              (_getItemDetail('price') as double?)
-                                  ?.toInt(), // Safely convert double to int
-                              _getItemDetail('category'),
-                            ),
-                          );
+                          // Extract category from the food item
+                          final String category = _getItemDetail('category');
+
+                          // Validate category
+                          if (category.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                  content: Text(
+                                'Category is missing or invalid!',
+                                style: GoogleFonts.poppins(),
+                              )),
+                            );
+                            return;
+                          }
+
+                          // Determine the model type based on category and add to MyPlateProvider
+                          final myPlateProvider = Provider.of<MyPlateProvider>(
+                              context,
+                              listen: false);
+
+                          switch (category.toLowerCase()) {
+                            case 'foods':
+                              myPlateProvider.addFood(
+                                FoodsModel(
+                                    _getItemDetail('name'),
+                                    double.tryParse(_getItemDetail('rating')) ??
+                                        0.0,
+                                    _getItemDetail('image'),
+                                    _getItemDetail('description'),
+                                    _getItemDetail('preparationTime'),
+                                    (_getItemDetail('price') as double?)
+                                        ?.toInt(),
+                                    _getItemDetail('')),
+                              );
+                              break;
+                            case 'coffee':
+                              myPlateProvider.addCoffee(
+                                CoffeeModel(
+                                    _getItemDetail('name'),
+                                    double.tryParse(_getItemDetail('rating')) ??
+                                        0.0,
+                                    _getItemDetail('image'),
+                                    _getItemDetail('description'),
+                                    _getItemDetail('preparationTime') as int?,
+                                    (_getItemDetail('price') as double?)
+                                        ?.toInt() as String?,
+                                    _getItemDetail('')),
+                              );
+                              break;
+                            case 'soft drinks':
+                              myPlateProvider.addSoftDrink(
+                                SoftDrinksModel(
+                                    _getItemDetail('name'),
+                                    double.tryParse(_getItemDetail('rating')) ??
+                                        0.0,
+                                    _getItemDetail('image'),
+                                    _getItemDetail('description'),
+                                    _getItemDetail('preparationTime') as int?,
+                                    (_getItemDetail('price') as double?)
+                                        ?.toInt() as String?,
+                                    _getItemDetail('')),
+                              );
+                              break;
+                            case 'fruits':
+                              myPlateProvider.addFruit(
+                                FruitsModel(
+                                    _getItemDetail('name'),
+                                    double.tryParse(_getItemDetail('rating')) ??
+                                        0.0,
+                                    _getItemDetail('image'),
+                                    _getItemDetail('description'),
+                                    _getItemDetail('preparationTime') as int?,
+                                    (_getItemDetail('price') as double?)
+                                        ?.toInt() as String?,
+                                    _getItemDetail('')),
+                              );
+                              break;
+                            case 'tea':
+                              myPlateProvider.addTea(
+                                TeaModel(
+                                  _getItemDetail('name'),
+                                  double.tryParse(_getItemDetail('rating')) ??
+                                      0.0,
+                                  _getItemDetail('image'),
+                                  _getItemDetail('description'),
+                                  _getItemDetail('preparationTime') as int?,
+                                  (_getItemDetail('price') as double?)?.toInt()
+                                      as String?,
+                                  _getItemDetail('') as String?,
+                                ),
+                              );
+                              break;
+                            case 'local foods':
+                              myPlateProvider.addLocalFood(
+                                LocalFoodsModel(
+                                    _getItemDetail('name'),
+                                    double.tryParse(_getItemDetail('rating')) ??
+                                        0.0,
+                                    _getItemDetail('image'),
+                                    _getItemDetail('description'),
+                                    _getItemDetail('preparationTime')
+                                        as String?,
+                                    (_getItemDetail('price') as double?)
+                                        ?.toInt(),
+                                    _getItemDetail('')),
+                              );
+                              break;
+                            default:
+                              throw Exception('Unknown category: $category');
+                          }
 
                           // Navigate to MyPlatePage
                           Navigator.push(

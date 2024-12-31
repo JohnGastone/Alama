@@ -66,9 +66,9 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
       ),
     ),
     DropdownMenuItem(
-      value: 'TigoPesa',
+      value: 'Mixx by Yas',
       child: Text(
-        'TigoPesa',
+        'Mixx by Yas',
         style: GoogleFonts.poppins(
             decoration: TextDecoration.none, color: Colors.grey, fontSize: 17),
       ),
